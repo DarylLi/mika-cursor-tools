@@ -14,6 +14,26 @@
       </div>
     </header>
 
+    <!-- 主导航栏 - 常用工具快捷入口 -->
+    <nav class="main-nav" v-if="!currentTool && !currentSubTool">
+      <div class="nav-content">
+        <h3 class="nav-title">
+          <i class="fas fa-star"></i> 常用工具
+        </h3>
+        <div class="nav-tools">
+          <button 
+            v-for="tool in popularTools" 
+            :key="tool.id"
+            @click="openPopularTool(tool)"
+            class="nav-tool-btn"
+            :title="tool.description">
+            <i :class="tool.icon"></i>
+            <span>{{ tool.name }}</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
     <!-- 面包屑导航 -->
     <nav class="breadcrumb" v-if="currentTool || currentSubTool">
       <button @click="goHome" class="breadcrumb-btn">
@@ -1243,19 +1263,219 @@ export default {
       currentSubTool.value = null
     }
     
+    // 常用工具定义 - 7个最常用的工具
+    const popularTools = ref([
+      {
+        id: 'json-processor',
+        name: 'JSON处理',
+        description: 'JSON格式化、压缩、验证等',
+        icon: 'fas fa-code',
+        component: 'JsonProcessor',
+        category: 'text'
+      },
+      {
+        id: 'password-generator',
+        name: '密码生成器',
+        description: '生成安全密码，自定义长度和字符类型',
+        icon: 'fas fa-lock',
+        component: 'PasswordGenerator',
+        category: 'generators'
+      },
+      {
+        id: 'qr-generator',
+        name: '二维码生成',
+        description: '文本转二维码，支持多种尺寸',
+        icon: 'fas fa-qrcode',
+        component: 'QRGenerator',
+        category: 'generators'
+      },
+      {
+        id: 'base64-converter',
+        name: 'Base64编码',
+        description: 'Base64编码解码转换',
+        icon: 'fas fa-code',
+        component: 'Base64Converter',
+        category: 'crypto'
+      },
+      {
+        id: 'color-picker',
+        name: '颜色选择器',
+        description: '智能颜色选择器，多种格式输出',
+        icon: 'fas fa-eye-dropper',
+        component: 'ColorPicker',
+        category: 'design'
+      },
+      {
+        id: 'unix-timestamp',
+        name: 'Unix时间戳',
+        description: '时间戳与时间格式互相转换',
+        icon: 'fas fa-clock',
+        component: 'UnixTimestamp',
+        category: 'datetime'
+      },
+      {
+        id: 'calculator',
+        name: '计算器',
+        description: '基础数学计算器',
+        icon: 'fas fa-calculator',
+        component: 'Calculator',
+        category: 'math'
+      }
+    ])
+    
+    // 打开常用工具
+    const openPopularTool = (tool) => {
+      // 根据工具所属分类找到对应的工具
+      const targetTool = tools.value.find(t => t.id === tool.category)
+      if (targetTool) {
+        const subTool = targetTool.subTools.find(st => st.id === tool.id)
+        if (subTool) {
+          setCurrentSubTool(subTool)
+        }
+      }
+    }
+    
     return {
       currentTool,
       currentSubTool,
       tools,
+      popularTools,
       setCurrentTool,
       setCurrentSubTool,
       getToolInfo,
       goHome,
       goToToolList,
       closeToolModal,
+      openPopularTool,
       isDarkTheme,
       toggleTheme
     }
   }
 }
-</script> 
+</script>
+
+<style scoped>
+/* 主导航栏样式 */
+.main-nav {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.nav-title {
+  color: white;
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-title i {
+  color: #ffd700;
+}
+
+.nav-tools {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.75rem;
+  max-width: 100%;
+}
+
+.nav-tool-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.nav-tool-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nav-tool-btn:active {
+  transform: translateY(0);
+}
+
+.nav-tool-btn i {
+  font-size: 1rem;
+  opacity: 0.9;
+  flex-shrink: 0;
+}
+
+.nav-tool-btn span {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .nav-content {
+    padding: 0 1rem;
+  }
+  
+  .nav-tools {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .nav-tool-btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  .nav-title {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-tools {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-tool-btn {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* 深色主题适配 */
+.dark-theme .main-nav {
+  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+}
+
+.dark-theme .nav-tool-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark-theme .nav-tool-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+</style> 
