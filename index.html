@@ -155,27 +155,27 @@
                         <div class="calculator">
                             <input type="text" id="calc-display" readonly>
                             <div class="calc-buttons">
-                                <button onclick="clearCalculator()">C</button>
-                                <button onclick="appendToCalculator('/')">/</button>
-                                <button onclick="appendToCalculator('*')">*</button>
-                                <button onclick="deleteLast()">←</button>
+                                <button class="calc-clear" onclick="clearCalculator()">C</button>
+                                <button class="calc-operator" onclick="appendToCalculator('/')">/</button>
+                                <button class="calc-operator" onclick="appendToCalculator('*')">*</button>
+                                <button class="calc-clear" onclick="deleteLast()">←</button>
                                 
                                 <button onclick="appendToCalculator('7')">7</button>
                                 <button onclick="appendToCalculator('8')">8</button>
                                 <button onclick="appendToCalculator('9')">9</button>
-                                <button onclick="appendToCalculator('-')">-</button>
+                                <button class="calc-operator" onclick="appendToCalculator('-')">-</button>
                                 
                                 <button onclick="appendToCalculator('4')">4</button>
                                 <button onclick="appendToCalculator('5')">5</button>
                                 <button onclick="appendToCalculator('6')">6</button>
-                                <button onclick="appendToCalculator('+')">+</button>
+                                <button class="calc-operator" onclick="appendToCalculator('+')">+</button>
                                 
                                 <button onclick="appendToCalculator('1')">1</button>
                                 <button onclick="appendToCalculator('2')">2</button>
                                 <button onclick="appendToCalculator('3')">3</button>
-                                <button onclick="calculate()" class="calc-equals">=</button>
+                                <button class="calc-equals" onclick="calculate()">=</button>
                                 
-                                <button onclick="appendToCalculator('0')" class="calc-zero">0</button>
+                                <button class="calc-zero" onclick="appendToCalculator('0')">0</button>
                                 <button onclick="appendToCalculator('.')">.</button>
                             </div>
                         </div>

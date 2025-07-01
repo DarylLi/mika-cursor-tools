@@ -260,26 +260,72 @@ button:hover {
     text-align: right;
     margin-bottom: 1rem;
     background: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    padding: 0.8rem;
 }
 
 .calc-buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     gap: 0.5rem;
+    height: 300px;
 }
 
 .calc-buttons button {
-    aspect-ratio: 1;
+    border: none;
+    border-radius: 8px;
     font-size: 1.2rem;
+    font-weight: 600;
     margin: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+.calc-buttons button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(102, 126, 234, 0.4);
+}
+
+.calc-buttons button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 等号按钮 - 占两行 */
 .calc-equals {
     grid-row: span 2;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%) !important;
 }
 
+.calc-equals:hover {
+    box-shadow: 0 4px 10px rgba(255, 107, 107, 0.4) !important;
+}
+
+/* 0按钮 - 占两列 */
 .calc-zero {
     grid-column: span 2;
+}
+
+/* 操作符按钮样式 */
+.calc-operator {
+    background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%) !important;
+}
+
+.calc-operator:hover {
+    box-shadow: 0 4px 10px rgba(78, 205, 196, 0.4) !important;
+}
+
+/* 清除和删除按钮样式 */
+.calc-clear {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%) !important;
+}
+
+.calc-clear:hover {
+    box-shadow: 0 4px 10px rgba(255, 154, 158, 0.4) !important;
 }
 
 /* Unit Converter */
