@@ -1,3 +1,125 @@
+// 示例数据加载函数
+function loadTextExample() {
+  const textInput = document.getElementById("text-input");
+  const exampleText = `Hello World! 这是一个示例文本。
+包含中英文混合内容，用于测试文本格式化功能。
+可以尝试转换大小写、标题格式或反转文本。`;
+  textInput.value = exampleText;
+  // 自动执行一个格式化操作作为演示
+  setTimeout(() => {
+    formatText("title");
+  }, 500);
+}
+
+function loadStatsExample() {
+  const statsInput = document.getElementById("stats-input");
+  const exampleText = `这是一个用于测试文本统计功能的示例段落。
+
+本段落包含：
+- 中文字符
+- English words
+- 数字 123456
+- 特殊符号 !@#$%^&*()
+- 多行文本内容
+
+通过这个示例，您可以看到文本统计工具如何计算字符数、单词数和行数。`;
+  statsInput.value = exampleText;
+  updateTextStats();
+}
+
+function loadJSONExample() {
+  const jsonInput = document.getElementById("json-input");
+  const exampleJSON = `{"name":"张三","age":28,"city":"北京","skills":["JavaScript","Python","React","Node.js"],"experience":{"frontend":3,"backend":2},"active":true,"salary":null,"projects":[{"name":"电商网站","year":2023,"technologies":["Vue.js","Express.js"]},{"name":"管理系统","year":2024,"technologies":["React","Spring Boot"]}]}`;
+  jsonInput.value = exampleJSON;
+  validateJSON();
+  // 自动格式化
+  setTimeout(() => {
+    formatJSON();
+  }, 500);
+}
+
+function loadEncodeExample() {
+  const encodeInput = document.getElementById("encode-input");
+  const exampleText = `欢迎使用编码转换工具！
+这是一个包含中文和特殊字符的示例文本：
+• 网址：https://example.com?name=张三&age=25
+• 邮箱：test@example.com
+• 特殊符号：!@#$%^&*()`;
+  encodeInput.value = exampleText;
+}
+
+function loadQRExample() {
+  const qrInput = document.getElementById("qr-text");
+  const exampleText = `通用工具瑞士军刀
+https://github.com/example/swiss-army-tools
+一站式实用工具集合`;
+  qrInput.value = exampleText;
+  // 自动生成二维码
+  setTimeout(() => {
+    generateQR();
+  }, 500);
+}
+
+function loadLengthExample() {
+  const lengthInput = document.getElementById("length-input");
+  const lengthFrom = document.getElementById("length-from");
+  const lengthTo = document.getElementById("length-to");
+
+  lengthInput.value = "100";
+  lengthFrom.value = "m";
+  lengthTo.value = "ft";
+
+  convertLength();
+}
+
+function loadPasswordExample() {
+  // 设置推荐的安全密码配置
+  const lengthSlider = document.getElementById("password-length");
+  const uppercaseCheck = document.getElementById("include-uppercase");
+  const lowercaseCheck = document.getElementById("include-lowercase");
+  const numbersCheck = document.getElementById("include-numbers");
+  const symbolsCheck = document.getElementById("include-symbols");
+
+  // 推荐配置：16位，包含所有字符类型
+  lengthSlider.value = "16";
+  uppercaseCheck.checked = true;
+  lowercaseCheck.checked = true;
+  numbersCheck.checked = true;
+  symbolsCheck.checked = true;
+
+  updateLengthDisplay();
+
+  // 自动生成示例密码
+  setTimeout(() => {
+    generatePassword();
+  }, 500);
+}
+
+function loadColorExample() {
+  const colorPicker = document.getElementById("color-picker");
+
+  // 预设一些好看的颜色示例
+  const exampleColors = [
+    "#667eea", // 蓝紫色
+    "#764ba2", // 深紫色
+    "#28a745", // 绿色
+    "#20c997", // 青色
+    "#ff6b6b", // 红色
+    "#ffa500", // 橙色
+    "#6f42c1", // 紫色
+    "#e83e8c", // 粉色
+    "#fd7e14", // 橙红色
+    "#17a2b8", // 青蓝色
+  ];
+
+  // 随机选择一个颜色
+  const randomColor =
+    exampleColors[Math.floor(Math.random() * exampleColors.length)];
+  colorPicker.value = randomColor;
+
+  convertColor();
+}
+
 // 导航功能
 document.addEventListener("DOMContentLoaded", function () {
   const navButtons = document.querySelectorAll(".nav-btn");

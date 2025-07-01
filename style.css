@@ -183,6 +183,44 @@ button:hover {
     margin-bottom: 1rem;
 }
 
+/* Example Buttons */
+.example-section {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.example-btn {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%) !important;
+    color: white !important;
+    border: none !important;
+    padding: 0.6rem 1.2rem !important;
+    border-radius: 20px !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3) !important;
+    margin: 0 !important;
+}
+
+.example-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4) !important;
+    background: linear-gradient(135deg, #218838 0%, #1e7e34 100%) !important;
+}
+
+.example-btn:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3) !important;
+}
+
+.example-btn i {
+    font-size: 0.8rem;
+}
+
 /* Text Statistics */
 .stats-display {
     display: grid;

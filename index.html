@@ -49,6 +49,11 @@
                 <div class="tools-grid">
                     <div class="tool-card">
                         <h3><i class="fas fa-align-left"></i> 文本格式化</h3>
+                        <div class="example-section">
+                            <button class="example-btn" onclick="loadTextExample()">
+                                <i class="fas fa-lightbulb"></i> 加载示例
+                            </button>
+                        </div>
                         <textarea id="text-input" placeholder="输入要处理的文本..."></textarea>
                         <div class="button-group">
                             <button onclick="formatText('upper')">转大写</button>
@@ -61,6 +66,11 @@
 
                     <div class="tool-card">
                         <h3><i class="fas fa-chart-bar"></i> 文本统计</h3>
+                        <div class="example-section">
+                            <button class="example-btn" onclick="loadStatsExample()">
+                                <i class="fas fa-lightbulb"></i> 加载示例
+                            </button>
+                        </div>
                         <textarea id="stats-input" placeholder="输入文本进行统计..." oninput="updateTextStats()"></textarea>
                         <div class="stats-display">
                             <div class="stat-item">
@@ -80,6 +90,11 @@
 
                     <div class="tool-card">
                         <h3><i class="fas fa-code"></i> JSON格式化</h3>
+                        <div class="example-section">
+                            <button class="example-btn" onclick="loadJSONExample()">
+                                <i class="fas fa-lightbulb"></i> 加载示例
+                            </button>
+                        </div>
                         <textarea id="json-input" placeholder="输入JSON数据..." oninput="validateJSON()"></textarea>
                         <div class="button-group">
                             <button onclick="formatJSON()">格式化</button>
@@ -109,6 +124,11 @@
                 <div class="tools-grid">
                     <div class="tool-card">
                         <h3><i class="fas fa-code"></i> 编码转换</h3>
+                        <div class="example-section">
+                            <button class="example-btn" onclick="loadEncodeExample()">
+                                <i class="fas fa-lightbulb"></i> 加载示例
+                            </button>
+                        </div>
                         <textarea id="encode-input" placeholder="输入要编码的文本..."></textarea>
                         <div class="button-group">
                             <button onclick="encodeText('base64')">Base64编码</button>
@@ -121,6 +141,11 @@
 
                     <div class="tool-card">
                         <h3><i class="fas fa-palette"></i> 颜色转换</h3>
+                        <div class="example-section">
+                            <button class="example-btn" onclick="loadColorExample()">
+                                <i class="fas fa-lightbulb"></i> 随机颜色
+                            </button>
+                        </div>
                         <input type="color" id="color-picker" onchange="convertColor()">
                         <div class="color-results">
                             <div class="color-item">
@@ -146,6 +171,11 @@
                 <div class="tools-grid">
                     <div class="tool-card">
                         <h3><i class="fas fa-key"></i> 密码生成器</h3>
+                        <div class="example-section">
+                            <button class="example-btn" onclick="loadPasswordExample()">
+                                <i class="fas fa-lightbulb"></i> 推荐配置
+                            </button>
+                        </div>
                         <div class="form-group">
                             <label>密码长度: <span id="length-display">12</span></label>
                             <input type="range" id="password-length" min="4" max="50" value="12" oninput="updateLengthDisplay()">
@@ -162,6 +192,11 @@
 
                     <div class="tool-card">
                         <h3><i class="fas fa-qrcode"></i> 二维码生成器</h3>
+                        <div class="example-section">
+                            <button class="example-btn" onclick="loadQRExample()">
+                                <i class="fas fa-lightbulb"></i> 加载示例
+                            </button>
+                        </div>
                         <textarea id="qr-text" placeholder="输入要生成二维码的文本..."></textarea>
                         <button onclick="generateQR()">生成二维码</button>
                         <div id="qr-code-container"></div>
@@ -206,6 +241,11 @@
 
                     <div class="tool-card">
                         <h3><i class="fas fa-ruler"></i> 单位转换</h3>
+                        <div class="example-section">
+                            <button class="example-btn" onclick="loadLengthExample()">
+                                <i class="fas fa-lightbulb"></i> 加载示例
+                            </button>
+                        </div>
                         <div class="converter-section">
                             <h4>长度转换</h4>
                             <input type="number" id="length-input" placeholder="输入数值" oninput="convertLength()">
