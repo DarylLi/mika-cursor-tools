@@ -1,34 +1,36 @@
 {
-  "name": "swiss-army-tools",
+  "name": "mika-cursor-tool",
   "version": "1.0.0",
-  "description": "一个集成多种实用工具的现代化Web应用，如瑞士军刀般多功能实用",
-  "main": "index.html",
+  "description": "通用工具瑞士军刀 - 一站式实用工具集合",
+  "type": "module",
   "scripts": {
-    "start": "python -m http.server 8000",
-    "dev": "python3 -m http.server 8000"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "python3 -m http.server 8000",
+    "clean": "./clean-ports.sh",
+    "clean-dev": "pkill -f 'vite|npm.*dev|python3.*http.server' 2>/dev/null; sleep 2; npm run dev"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "sass": "^1.89.2",
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0",
+    "jszip": "^3.10.1",
+    "qrcode": "^1.5.3",
+    "vue": "^3.4.0"
   },
   "keywords": [
     "tools",
-    "utilities",
+    "utility",
     "converter",
+    "generator",
     "calculator",
-    "password-generator",
-    "qr-code",
-    "text-tools",
-    "swiss-army-knife",
-    "工具集合",
-    "实用工具"
+    "vue3",
+    "vite"
   ],
-  "author": "Developer",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "."
-  },
-  "dependencies": {},
-  "devDependencies": {},
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+  "author": "Daryl",
+  "license": "MIT"
 }

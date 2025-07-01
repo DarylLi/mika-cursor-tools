@@ -3,282 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>实用工具集合</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>通用工具瑞士军刀 | Swiss Army Tools</title>
+    <meta name="description" content="一站式实用工具集合，包含文本处理、编码转换、密码生成、计算器等多种实用工具">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.3/qrcode.min.js"></script>
+    <style>
+        /* 现代化加载动画 */
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .loading-gradient {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: transparent;
+            position: relative;
+            margin-bottom: 24px;
+        }
+        
+        .loading-gradient::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: conic-gradient(from 0deg, transparent, #ffffff, transparent);
+            border-radius: 50%;
+            animation: loading-gradient-spin 1.2s linear infinite;
+        }
+        
+        .loading-gradient::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+        }
+        
+        @keyframes loading-gradient-spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .loading-text {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-top: 8px;
+        }
+        
+        .loading-icon {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-8px);
+            }
+            60% {
+                transform: translateY(-4px);
+            }
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <h1 class="logo">
-                <i class="fas fa-tools"></i>
-                通用工具瑞士军刀
-            </h1>
-            <p class="subtitle">一站式实用工具集合 - 如瑞士军刀般多功能实用</p>
+    <div id="loading">
+        <div class="loading-gradient"></div>
+        <div class="loading-text">
+            <i class="fas fa-rocket loading-icon"></i> 启动工具中...
         </div>
-    </header>
-
-    <nav class="navigation">
-        <div class="container">
-            <div class="nav-buttons">
-                <button class="nav-btn active" data-tool="text">
-                    <i class="fas fa-font"></i>
-                    文本工具
-                </button>
-                <button class="nav-btn" data-tool="converter">
-                    <i class="fas fa-exchange-alt"></i>
-                    转换工具
-                </button>
-                <button class="nav-btn" data-tool="generator">
-                    <i class="fas fa-magic"></i>
-                    生成工具
-                </button>
-                <button class="nav-btn" data-tool="calculator">
-                    <i class="fas fa-calculator"></i>
-                    计算工具
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <main class="main">
-        <div class="container">
-            <!-- 文本工具 -->
-            <section class="tool-section active" id="text-tools">
-                <h2 class="section-title">📝 文本处理工具</h2>
-                <div class="tools-grid">
-                    <div class="tool-card">
-                        <h3><i class="fas fa-align-left"></i> 文本格式化</h3>
-                        <div class="example-section">
-                            <button class="example-btn" onclick="loadTextExample()">
-                                <i class="fas fa-lightbulb"></i> 加载示例
-                            </button>
-                        </div>
-                        <textarea id="text-input" placeholder="输入要处理的文本..."></textarea>
-                        <div class="button-group">
-                            <button onclick="formatText('upper')">转大写</button>
-                            <button onclick="formatText('lower')">转小写</button>
-                            <button onclick="formatText('title')">标题格式</button>
-                            <button onclick="formatText('reverse')">反转文本</button>
-                        </div>
-                        <textarea id="text-output" readonly placeholder="处理结果..."></textarea>
-                    </div>
-
-                    <div class="tool-card">
-                        <h3><i class="fas fa-chart-bar"></i> 文本统计</h3>
-                        <div class="example-section">
-                            <button class="example-btn" onclick="loadStatsExample()">
-                                <i class="fas fa-lightbulb"></i> 加载示例
-                            </button>
-                        </div>
-                        <textarea id="stats-input" placeholder="输入文本进行统计..." oninput="updateTextStats()"></textarea>
-                        <div class="stats-display">
-                            <div class="stat-item">
-                                <span class="stat-label">字符数:</span>
-                                <span id="char-count">0</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-label">单词数:</span>
-                                <span id="word-count">0</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-label">行数:</span>
-                                <span id="line-count">0</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tool-card">
-                        <h3><i class="fas fa-code"></i> JSON格式化</h3>
-                        <div class="example-section">
-                            <button class="example-btn" onclick="loadJSONExample()">
-                                <i class="fas fa-lightbulb"></i> 加载示例
-                            </button>
-                        </div>
-                        <textarea id="json-input" placeholder="输入JSON数据..." oninput="validateJSON()"></textarea>
-                        <div class="button-group">
-                            <button onclick="formatJSON()">格式化</button>
-                            <button onclick="compressJSON()">压缩</button>
-                            <button onclick="validateJSON()">验证</button>
-                            <button onclick="clearJSON()">清空</button>
-                        </div>
-                        <div id="json-status" class="json-status"></div>
-                        <textarea id="json-output" readonly placeholder="格式化结果..."></textarea>
-                        <div class="json-info">
-                            <div class="json-stat">
-                                <span class="stat-label">状态:</span>
-                                <span id="json-valid-status">未检测</span>
-                            </div>
-                            <div class="json-stat">
-                                <span class="stat-label">大小:</span>
-                                <span id="json-size">0 字节</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 转换工具 -->
-            <section class="tool-section" id="converter-tools">
-                <h2 class="section-title">🔄 转换工具</h2>
-                <div class="tools-grid">
-                    <div class="tool-card">
-                        <h3><i class="fas fa-code"></i> 编码转换</h3>
-                        <div class="example-section">
-                            <button class="example-btn" onclick="loadEncodeExample()">
-                                <i class="fas fa-lightbulb"></i> 加载示例
-                            </button>
-                        </div>
-                        <textarea id="encode-input" placeholder="输入要编码的文本..."></textarea>
-                        <div class="button-group">
-                            <button onclick="encodeText('base64')">Base64编码</button>
-                            <button onclick="encodeText('url')">URL编码</button>
-                            <button onclick="decodeText('base64')">Base64解码</button>
-                            <button onclick="decodeText('url')">URL解码</button>
-                        </div>
-                        <textarea id="encode-output" readonly placeholder="转换结果..."></textarea>
-                    </div>
-
-                    <div class="tool-card">
-                        <h3><i class="fas fa-palette"></i> 颜色转换</h3>
-                        <div class="example-section">
-                            <button class="example-btn" onclick="loadColorExample()">
-                                <i class="fas fa-lightbulb"></i> 随机颜色
-                            </button>
-                        </div>
-                        <input type="color" id="color-picker" onchange="convertColor()">
-                        <div class="color-results">
-                            <div class="color-item">
-                                <span>HEX:</span>
-                                <span id="hex-value">#000000</span>
-                            </div>
-                            <div class="color-item">
-                                <span>RGB:</span>
-                                <span id="rgb-value">rgb(0, 0, 0)</span>
-                            </div>
-                            <div class="color-item">
-                                <span>HSL:</span>
-                                <span id="hsl-value">hsl(0, 0%, 0%)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 生成工具 -->
-            <section class="tool-section" id="generator-tools">
-                <h2 class="section-title">✨ 生成工具</h2>
-                <div class="tools-grid">
-                    <div class="tool-card">
-                        <h3><i class="fas fa-key"></i> 密码生成器</h3>
-                        <div class="example-section">
-                            <button class="example-btn" onclick="loadPasswordExample()">
-                                <i class="fas fa-lightbulb"></i> 推荐配置
-                            </button>
-                        </div>
-                        <div class="form-group">
-                            <label>密码长度: <span id="length-display">12</span></label>
-                            <input type="range" id="password-length" min="4" max="50" value="12" oninput="updateLengthDisplay()">
-                        </div>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" id="include-uppercase" checked> 包含大写字母</label>
-                            <label><input type="checkbox" id="include-lowercase" checked> 包含小写字母</label>
-                            <label><input type="checkbox" id="include-numbers" checked> 包含数字</label>
-                            <label><input type="checkbox" id="include-symbols"> 包含符号</label>
-                        </div>
-                        <button onclick="generatePassword()">生成密码</button>
-                        <input type="text" id="generated-password" readonly placeholder="生成的密码将显示在这里...">
-                    </div>
-
-                    <div class="tool-card">
-                        <h3><i class="fas fa-qrcode"></i> 二维码生成器</h3>
-                        <div class="example-section">
-                            <button class="example-btn" onclick="loadQRExample()">
-                                <i class="fas fa-lightbulb"></i> 加载示例
-                            </button>
-                        </div>
-                        <textarea id="qr-text" placeholder="输入要生成二维码的文本..."></textarea>
-                        <button onclick="generateQR()">生成二维码</button>
-                        <div id="qr-code-container"></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 计算工具 -->
-            <section class="tool-section" id="calculator-tools">
-                <h2 class="section-title">🧮 计算工具</h2>
-                <div class="tools-grid">
-                    <div class="tool-card">
-                        <h3><i class="fas fa-calculator"></i> 简单计算器</h3>
-                        <div class="calculator">
-                            <input type="text" id="calc-display" readonly>
-                            <div class="calc-buttons">
-                                <button class="calc-clear" onclick="clearCalculator()">C</button>
-                                <button class="calc-operator" onclick="appendToCalculator('/')">/</button>
-                                <button class="calc-operator" onclick="appendToCalculator('*')">*</button>
-                                <button class="calc-clear" onclick="deleteLast()">←</button>
-                                
-                                <button onclick="appendToCalculator('7')">7</button>
-                                <button onclick="appendToCalculator('8')">8</button>
-                                <button onclick="appendToCalculator('9')">9</button>
-                                <button class="calc-operator" onclick="appendToCalculator('-')">-</button>
-                                
-                                <button onclick="appendToCalculator('4')">4</button>
-                                <button onclick="appendToCalculator('5')">5</button>
-                                <button onclick="appendToCalculator('6')">6</button>
-                                <button class="calc-operator" onclick="appendToCalculator('+')">+</button>
-                                
-                                <button onclick="appendToCalculator('1')">1</button>
-                                <button onclick="appendToCalculator('2')">2</button>
-                                <button onclick="appendToCalculator('3')">3</button>
-                                <button class="calc-equals" onclick="calculate()">=</button>
-                                
-                                <button class="calc-zero" onclick="appendToCalculator('0')">0</button>
-                                <button onclick="appendToCalculator('.')">.</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tool-card">
-                        <h3><i class="fas fa-ruler"></i> 单位转换</h3>
-                        <div class="example-section">
-                            <button class="example-btn" onclick="loadLengthExample()">
-                                <i class="fas fa-lightbulb"></i> 加载示例
-                            </button>
-                        </div>
-                        <div class="converter-section">
-                            <h4>长度转换</h4>
-                            <input type="number" id="length-input" placeholder="输入数值" oninput="convertLength()">
-                            <select id="length-from" onchange="convertLength()">
-                                <option value="m">米</option>
-                                <option value="cm">厘米</option>
-                                <option value="km">千米</option>
-                                <option value="ft">英尺</option>
-                                <option value="in">英寸</option>
-                            </select>
-                            <span>→</span>
-                            <select id="length-to" onchange="convertLength()">
-                                <option value="cm">厘米</option>
-                                <option value="m">米</option>
-                                <option value="km">千米</option>
-                                <option value="ft">英尺</option>
-                                <option value="in">英寸</option>
-                            </select>
-                            <div class="result" id="length-result">结果将显示在这里</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 通用工具瑞士军刀. 集实用工具于一身的多功能网站.</p>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
-    <script src="script.js"></script>
+    </div>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
 </body>
 </html>
+ 
