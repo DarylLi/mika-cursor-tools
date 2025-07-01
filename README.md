@@ -160,10 +160,10 @@ Mika Cursor Tool 是一个基于 Vue 3 + Vite 构建的现代化工具集合，�
 
 ```bash
 # 克隆项目
-git clone https://github.com/daryl_franxx/mika-cursor-tool.git
+git clone https://github.com/DarylLi/mika-cursor-tools.git
 
 # 进入项目目录
-cd mika-cursor-tool
+cd mika-cursor-tools
 
 # 安装依赖
 npm install
@@ -187,7 +187,7 @@ npm run preview
 ## 📁 项目结构
 
 ```
-mika-cursor-tool/
+mika-cursor-tools/
 ├── src/
 │   ├── components/
 │   │   └── tools/          # 所有工具组件
@@ -271,8 +271,8 @@ mika-cursor-tool/
 
 <div align="center">
 
-**[⭐ 给个 Star](https://github.com/daryl_franxx/mika-cursor-tool) | [🚀 在线体验](https://your-demo-url.com) | [📖 文档](https://github.com/daryl_franxx/mika-cursor-tool/wiki)**
+**[⭐ 给个 Star](https://github.com/DarylLi/mika-cursor-tools) | [🚀 在线体验](https://your-demo-url.com) | [📖 文档](https://github.com/DarylLi/mika-cursor-tools/wiki)**
 
-Made with ❤️ by [daryl_franxx](https://github.com/daryl_franxx)
+Made with ❤️ by [DarylLi](https://github.com/DarylLi)
 
 </div>
