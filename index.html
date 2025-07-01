@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>工具瑞士军刀 - 实用工具集合</title>
+    <title>实用工具集合</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -12,7 +12,7 @@
         <div class="container">
             <h1 class="logo">
                 <i class="fas fa-tools"></i>
-                工具瑞士军刀
+                通用工具瑞士军刀
             </h1>
             <p class="subtitle">一站式实用工具集合 - 如瑞士军刀般多功能实用</p>
         </div>
@@ -74,6 +74,29 @@
                             <div class="stat-item">
                                 <span class="stat-label">行数:</span>
                                 <span id="line-count">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tool-card">
+                        <h3><i class="fas fa-code"></i> JSON格式化</h3>
+                        <textarea id="json-input" placeholder="输入JSON数据..." oninput="validateJSON()"></textarea>
+                        <div class="button-group">
+                            <button onclick="formatJSON()">格式化</button>
+                            <button onclick="compressJSON()">压缩</button>
+                            <button onclick="validateJSON()">验证</button>
+                            <button onclick="clearJSON()">清空</button>
+                        </div>
+                        <div id="json-status" class="json-status"></div>
+                        <textarea id="json-output" readonly placeholder="格式化结果..."></textarea>
+                        <div class="json-info">
+                            <div class="json-stat">
+                                <span class="stat-label">状态:</span>
+                                <span id="json-valid-status">未检测</span>
+                            </div>
+                            <div class="json-stat">
+                                <span class="stat-label">大小:</span>
+                                <span id="json-size">0 字节</span>
                             </div>
                         </div>
                     </div>
@@ -211,7 +234,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 工具瑞士军刀. 集实用工具于一身的多功能网站.</p>
+            <p>&copy; 2025 通用工具瑞士军刀. 集实用工具于一身的多功能网站.</p>
         </div>
     </footer>
 
