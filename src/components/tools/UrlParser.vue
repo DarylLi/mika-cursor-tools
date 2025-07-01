@@ -257,7 +257,7 @@
 协议: https:
 主机: www.example.com:8080
 路径: /path/to/page
-参数: param1=value1&param2=value2
+参数: ‘param1=value1’&‘param2=value2’
 锚点: #section</code></pre>
         </div>
       </div>
