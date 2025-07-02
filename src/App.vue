@@ -1703,7 +1703,7 @@ export default {
   color: #374151;
   font-size: 0.95rem;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.025em;
 }
 
 .search-results-grid {
@@ -1816,7 +1816,7 @@ export default {
   display: inline-block;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.025em;
   border: 1px solid rgba(99, 102, 241, 0.2);
 }
 
