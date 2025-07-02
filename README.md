@@ -271,7 +271,7 @@ mika-cursor-tools/
 
 <div align="center">
 
-**[⭐ 给个 Star](https://github.com/DarylLi/mika-cursor-tools) | [🚀 在线体验](https://your-demo-url.com) | [📖 文档](https://github.com/DarylLi/mika-cursor-tools/wiki)**
+**[⭐ 给个 Star](https://github.com/DarylLi/mika-cursor-tools) | [🚀 在线体验](https://darylli.github.io/mika-cursor-tools/dist/index.html) | [📖 文档](https://github.com/DarylLi/mika-cursor-tools)**
 
 Made with ❤️ by [DarylLi](https://github.com/DarylLi)
 
