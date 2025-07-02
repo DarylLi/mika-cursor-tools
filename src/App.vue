@@ -1396,7 +1396,7 @@ export default {
         description: '生成安全密码，自定义长度和字符类型',
         icon: 'fas fa-lock',
         component: 'PasswordGenerator',
-        category: 'generators'
+        category: 'generator'
       },
       {
         id: 'qr-generator',
@@ -1404,7 +1404,7 @@ export default {
         description: '文本转二维码，支持多种尺寸',
         icon: 'fas fa-qrcode',
         component: 'QRGenerator',
-        category: 'generators'
+        category: 'crypto'
       },
       {
         id: 'base64-converter',
