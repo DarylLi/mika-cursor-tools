@@ -14,6 +14,62 @@
       </div>
     </header>
 
+    <!-- 搜索工具功能 -->
+    <div class="search-section" v-if="!currentTool && !currentSubTool">
+      <div class="search-container">
+        <div class="search-box">
+          <i class="fas fa-search search-icon"></i>
+          <input 
+            type="text" 
+            v-model="searchQuery"
+            @input="performSearch"
+            placeholder="🔍 搜索工具... (支持工具名称、描述搜索)"
+            class="search-input"
+          >
+          <button 
+            v-if="searchQuery" 
+            @click="clearSearch"
+            class="clear-btn"
+            title="清空搜索">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        
+        <!-- 搜索结果 -->
+        <div v-if="searchQuery && searchResults.length > 0" class="search-results">
+          <div class="search-results-header">
+            <span>找到 {{ searchResults.length }} 个工具</span>
+          </div>
+          <div class="search-results-grid">
+            <button
+              v-for="result in searchResults.slice(0, 12)"
+              :key="`${result.category}-${result.tool.id}`"
+              @click="openSearchResult(result)"
+              class="search-result-item">
+              <div class="result-icon">
+                <i :class="result.tool.icon"></i>
+              </div>
+              <div class="result-content">
+                <h4>{{ result.tool.name }}</h4>
+                <p>{{ result.tool.description }}</p>
+                <span class="result-category">{{ result.categoryName }}</span>
+              </div>
+            </button>
+          </div>
+          <div v-if="searchResults.length > 12" class="search-more">
+            还有 {{ searchResults.length - 12 }} 个结果...
+          </div>
+        </div>
+        
+        <!-- 无搜索结果 -->
+        <div v-if="searchQuery && searchResults.length === 0" class="no-results">
+          <i class="fas fa-search"></i>
+          <p>没有找到相关工具</p>
+          <span>试试其他关键词？</span>
+        </div>
+      </div>
+    </div>
+
     <!-- 主导航栏 - 常用工具快捷入口 -->
     <nav class="main-nav" v-if="!currentTool && !currentSubTool">
       <div class="nav-content">
@@ -372,6 +428,67 @@ export default {
     const toggleTheme = () => {
       isDarkTheme.value = !isDarkTheme.value
       localStorage.setItem('theme', isDarkTheme.value ? 'dark' : 'light')
+    }
+    
+    // 搜索功能
+    const searchQuery = ref('')
+    const searchResults = ref([])
+    
+    // 搜索工具方法
+    const performSearch = () => {
+      if (!searchQuery.value.trim()) {
+        searchResults.value = []
+        return
+      }
+      
+      const query = searchQuery.value.toLowerCase().trim()
+      const results = []
+      
+      // 搜索所有工具
+      tools.value.forEach(category => {
+        category.subTools.forEach(tool => {
+          const nameMatch = tool.name.toLowerCase().includes(query)
+          const descMatch = tool.description.toLowerCase().includes(query)
+          
+          if (nameMatch || descMatch) {
+            results.push({
+              tool: tool,
+              category: category.id,
+              categoryName: category.name
+            })
+          }
+        })
+      })
+      
+      // 按匹配度排序（名称匹配优先级更高）
+      results.sort((a, b) => {
+        const aNameMatch = a.tool.name.toLowerCase().includes(query)
+        const bNameMatch = b.tool.name.toLowerCase().includes(query)
+        
+        if (aNameMatch && !bNameMatch) return -1
+        if (!aNameMatch && bNameMatch) return 1
+        return 0
+      })
+      
+      searchResults.value = results
+    }
+    
+    // 清空搜索
+    const clearSearch = () => {
+      searchQuery.value = ''
+      searchResults.value = []
+    }
+    
+    // 打开搜索结果工具
+    const openSearchResult = (result) => {
+      const targetTool = tools.value.find(t => t.id === result.category)
+      if (targetTool) {
+        const subTool = targetTool.subTools.find(st => st.id === result.tool.id)
+        if (subTool) {
+          setCurrentSubTool(subTool)
+          clearSearch()
+        }
+      }
     }
     
     const tools = ref([
@@ -1348,7 +1465,12 @@ export default {
       closeToolModal,
       openPopularTool,
       isDarkTheme,
-      toggleTheme
+      toggleTheme,
+      searchQuery,
+      searchResults,
+      performSearch,
+      clearSearch,
+      openSearchResult
     }
   }
 }
@@ -1477,5 +1599,313 @@ export default {
 .dark-theme .nav-tool-btn:hover {
   background: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* 搜索功能样式 */
+.search-section {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  padding: 2rem 0;
+  margin-bottom: 1rem;
+}
+
+.search-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.search-box {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  color: #666;
+  z-index: 2;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.search-input:focus {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.search-input::placeholder {
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 0.5rem;
+  background: #ff6b6b;
+  border: none;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.clear-btn:hover {
+  background: #ff5252;
+  transform: scale(1.1);
+}
+
+/* 搜索结果样式 */
+.search-results {
+  margin-top: 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.search-results-header {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.search-results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.search-result-item {
+  background: white;
+  border: 1px solid #e1e5e9;
+  border-radius: 12px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.search-result-item:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.15);
+  transform: translateY(-2px);
+}
+
+.result-icon {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.result-icon i {
+  font-size: 1.1rem;
+}
+
+.result-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.result-content h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.result-content p {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.result-category {
+  font-size: 0.75rem;
+  color: #999;
+  background: #f8f9fa;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.search-more {
+  text-align: center;
+  margin-top: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* 无搜索结果样式 */
+.no-results {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  margin-top: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.no-results i {
+  font-size: 3rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+.no-results p {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0 0 0.5rem 0;
+}
+
+.no-results span {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .search-container {
+    padding: 0 1rem;
+  }
+  
+  .search-results-grid {
+    grid-template-columns: 1fr;
+    max-height: 300px;
+  }
+  
+  .search-input {
+    font-size: 0.9rem;
+    padding: 0.8rem 0.8rem 0.8rem 2.5rem;
+  }
+  
+  .search-input::placeholder {
+    font-size: 0.85rem;
+  }
+  
+  .search-results {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-section {
+    padding: 1.5rem 0;
+  }
+  
+  .search-result-item {
+    padding: 0.8rem;
+  }
+  
+  .result-icon {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .result-content h4 {
+    font-size: 0.9rem;
+  }
+  
+  .result-content p {
+    font-size: 0.8rem;
+  }
+}
+
+/* 深色主题适配 */
+.dark-theme .search-section {
+  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+}
+
+.dark-theme .search-input {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.dark-theme .search-input::placeholder {
+  color: #ccc;
+}
+
+.dark-theme .search-input:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.dark-theme .search-results {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.dark-theme .search-results-header {
+  color: #e2e8f0;
+}
+
+.dark-theme .search-result-item {
+  background: #2d3748;
+  border-color: #4a5568;
+  color: white;
+}
+
+.dark-theme .search-result-item:hover {
+  border-color: #667eea;
+}
+
+.dark-theme .result-content h4 {
+  color: #e2e8f0;
+}
+
+.dark-theme .result-content p {
+  color: #cbd5e0;
+}
+
+.dark-theme .result-category {
+  background: #4a5568;
+  color: #a0aec0;
+}
+
+.dark-theme .no-results {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.dark-theme .no-results p {
+  color: #cbd5e0;
+}
+
+.dark-theme .no-results span {
+  color: #a0aec0;
 }
 </style> 
