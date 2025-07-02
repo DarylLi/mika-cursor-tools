@@ -3,7 +3,7 @@
     <header>
       <div class="header-content">
         <div class="header-left">
-          <h1><i class="fas fa-tools"></i> 通用工具瑞士军刀</h1>
+          <h1><i class="fas fa-magic"></i> 通用工具瑞士军刀</h1>
           <p>一站式实用工具集合 | Swiss Army Tools</p>
         </div>
         <div class="header-right">

@@ -63,6 +63,30 @@ header h1 {
     letter-spacing: -0.025em;
 }
 
+/* 魔法棒图标特殊效果 */
+header h1 i {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: magicGradient 3s ease-in-out infinite;
+    margin-right: 0.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+@keyframes magicGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 header p {
     font-size: 1.1rem;
     opacity: 0.9;
