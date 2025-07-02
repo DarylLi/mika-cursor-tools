@@ -978,7 +978,14 @@ footer {
 // ===== 深色主题 =====
 .dark-theme {
   @include theme-styles($dark-theme);
-  
+  .header-left,.section-title{
+    color: #fff;
+  }
+  .tool-info{
+    h3,p{
+      color: #fff!important;
+    }
+  }
   // 重新定义所有需要主题变量的样式
   .theme-toggle-btn {
     background: theme(btn-bg);
