@@ -1,0 +1,1363 @@
+// ===== SCSS 变量定义 =====
+
+// 颜色变量 - 浅色主题
+$light-theme: (
+  // 背景色
+  bg-primary: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #e2e8f0 100%),
+  bg-surface: rgba(255, 255, 255, 0.8),
+  bg-surface-hover: rgba(255, 255, 255, 0.95),
+  bg-surface-active: rgba(248, 250, 252, 0.8),
+  bg-modal-overlay: rgba(30, 41, 59, 0.4),
+  
+  // 文字颜色
+  text-primary: #0f172a,
+  text-secondary: #334155,
+  text-muted: #64748b,
+  text-accent: #3b82f6,
+  
+  // 边框和阴影
+  border-color: rgba(30, 41, 59, 0.1),
+  border-hover: rgba(30, 41, 59, 0.2),
+  shadow-sm: 0 4px 15px rgba(30, 41, 59, 0.2),
+  shadow-md: 0 8px 32px rgba(30, 41, 59, 0.1),
+  shadow-lg: 0 15px 40px rgba(30, 41, 59, 0.2),
+  shadow-xl: 0 25px 50px rgba(30, 41, 59, 0.2),
+  
+  // 按钮色彩
+  btn-bg: rgba(30, 41, 59, 0.1),
+  btn-bg-hover: rgba(30, 41, 59, 0.2),
+  btn-primary: linear-gradient(45deg, #3b82f6, #1d4ed8),
+  btn-success: linear-gradient(45deg, #28a745, #20c997),
+  
+  // 图标色彩
+  icon-primary: #3b82f6,
+  icon-accent: #3b82f6,
+  
+  // 文本阴影
+  text-shadow: 2px 2px 4px rgba(255,255,255,0.8),
+  text-shadow-subtle: 1px 1px 2px rgba(255,255,255,0.5)
+);
+
+// 颜色变量 - 深色主题
+$dark-theme: (
+  // 背景色
+  bg-primary: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%),
+  bg-surface: rgba(255, 255, 255, 0.05),
+  bg-surface-hover: rgba(255, 255, 255, 0.08),
+  bg-surface-active: rgba(255, 255, 255, 0.1),
+  bg-modal-overlay: rgba(0, 0, 0, 0.6),
+  
+  // 文字颜色
+  text-primary: #ffffff,
+  text-secondary: rgba(255, 255, 255, 0.9),
+  text-muted: rgba(255, 255, 255, 0.7),
+  text-accent: #ff6b35,
+  
+  // 边框和阴影
+  border-color: rgba(255, 255, 255, 0.1),
+  border-hover: rgba(255, 255, 255, 0.2),
+  shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.2),
+  shadow-md: 0 8px 32px rgba(0, 0, 0, 0.3),
+  shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.4),
+  shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.4),
+  
+  // 按钮色彩
+  btn-bg: rgba(255, 255, 255, 0.1),
+  btn-bg-hover: rgba(255, 255, 255, 0.2),
+  btn-primary: linear-gradient(45deg, #ff6b35, #f7931e),
+  btn-success: linear-gradient(45deg, #28a745, #20c997),
+  
+  // 图标色彩
+  icon-primary: #ff6b35,
+  icon-accent: #ffd700,
+  
+  // 文本阴影
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3),
+  text-shadow-subtle: 1px 1px 2px rgba(0,0,0,0.3)
+);
+
+// 当前主题变量（默认浅色主题）
+$current-theme: $light-theme !default;
+
+// ===== SCSS 混入 (Mixins) =====
+
+// 获取主题变量值
+@function theme($key) {
+  @return map-get($current-theme, $key);
+}
+
+// 玻璃拟态效果混入
+@mixin glass-effect() {
+  background: theme(bg-surface);
+  backdrop-filter: blur(15px);
+  border: 1px solid theme(border-color);
+  box-shadow: theme(shadow-md);
+}
+
+// 悬停效果混入
+@mixin hover-lift($translate: -5px) {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY($translate);
+    background: theme(bg-surface-hover);
+    box-shadow: theme(shadow-lg);
+  }
+}
+
+// 按钮样式混入
+@mixin button-style($type: 'default') {
+  border: none;
+  border-radius: 10px;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  
+  @if $type == 'primary' {
+    background: theme(btn-primary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    }
+  } @else if $type == 'success' {
+    background: theme(btn-success);
+    color: white;
+    box-shadow: 0 2px 10px rgba(40, 167, 69, 0.3);
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+    }
+  } @else {
+    background: theme(btn-bg);
+    color: theme(text-primary);
+    border: 1px solid theme(border-color);
+    
+    &:hover {
+      background: theme(btn-bg-hover);
+      transform: translateY(-1px);
+    }
+  }
+}
+
+// 圆形按钮混入
+@mixin circle-button($size: 50px) {
+  @include glass-effect();
+  border-radius: 50%;
+  width: $size;
+  height: $size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: theme(text-primary);
+  padding: 0;
+  margin: 0;
+  box-shadow: theme(shadow-sm);
+  
+  &:hover {
+    background: theme(btn-bg-hover);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px theme(btn-bg-hover);
+  }
+}
+
+// 主题切换混入
+@mixin theme-styles($theme-map) {
+  $current-theme: $theme-map !global;
+  
+  background: theme(bg-primary);
+  color: theme(text-primary);
+}
+
+// ===== 全局样式重置与基础设置 =====
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  @include theme-styles($light-theme);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+// ===== 深色主题 =====
+.dark-theme {
+  $current-theme: $dark-theme !global;
+  
+  background: map-get($dark-theme, bg-primary) !important;
+  color: map-get($dark-theme, text-primary) !important;
+  
+  // 全局字体颜色强制应用
+  *, *::before, *::after {
+    color: map-get($dark-theme, text-primary) !important;
+  }
+  
+  // 头部样式
+  header {
+    color: map-get($dark-theme, text-primary) !important;
+    
+    h1 {
+      color: map-get($dark-theme, text-primary) !important;
+      text-shadow: map-get($dark-theme, text-shadow);
+    }
+    
+    p {
+      color: map-get($dark-theme, text-secondary) !important;
+    }
+  }
+  
+  // 主题切换按钮
+  .theme-toggle-btn {
+    background: map-get($dark-theme, bg-surface);
+    border: 1px solid map-get($dark-theme, border-color);
+    color: map-get($dark-theme, text-primary) !important;
+    box-shadow: map-get($dark-theme, shadow-sm);
+    
+    &:hover {
+      background: map-get($dark-theme, btn-bg-hover);
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 6px 20px map-get($dark-theme, btn-bg-hover);
+    }
+  }
+  
+  // 章节标题
+  .section-title {
+    color: map-get($dark-theme, text-primary) !important;
+    text-shadow: map-get($dark-theme, text-shadow);
+  }
+  
+  // 工具卡片
+  .tool-card,
+  .category-card,
+  .tool-item-card {
+    background: map-get($dark-theme, bg-surface);
+    border: 1px solid map-get($dark-theme, border-color);
+    box-shadow: map-get($dark-theme, shadow-md);
+    
+    h3 {
+      color: map-get($dark-theme, text-primary) !important;
+      text-shadow: map-get($dark-theme, text-shadow-subtle);
+      
+      i {
+        color: map-get($dark-theme, icon-primary) !important;
+      }
+    }
+    
+    p {
+      color: map-get($dark-theme, text-secondary) !important;
+    }
+    
+    &:hover {
+      background: map-get($dark-theme, bg-surface-hover);
+      box-shadow: map-get($dark-theme, shadow-lg);
+    }
+  }
+  
+  // 表单元素
+  input, textarea, select {
+    background: rgba(255, 255, 255, 0.1);
+    color: map-get($dark-theme, text-primary) !important;
+    border: 1px solid map-get($dark-theme, border-color);
+    
+    &:focus {
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.3);
+    }
+    
+    &::placeholder {
+      color: map-get($dark-theme, text-muted) !important;
+    }
+  }
+  
+  // 表单标签
+  .form-group label {
+    color: map-get($dark-theme, text-primary) !important;
+  }
+  
+  // 按钮
+  button {
+    background: map-get($dark-theme, btn-primary);
+    color: white !important;
+    border: none;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+    }
+  }
+  
+  // 面包屑导航
+  .breadcrumb-btn {
+    background: map-get($dark-theme, btn-bg);
+    color: map-get($dark-theme, text-primary) !important;
+    border: 1px solid map-get($dark-theme, border-color);
+    
+    &:hover {
+      background: map-get($dark-theme, btn-bg-hover);
+    }
+  }
+  
+  .breadcrumb-separator {
+    color: map-get($dark-theme, text-muted) !important;
+  }
+  
+  .breadcrumb-current {
+    color: map-get($dark-theme, text-accent) !important;
+  }
+  
+  // 计算器
+  .calculator-display {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid map-get($dark-theme, border-color);
+    color: map-get($dark-theme, text-primary) !important;
+  }
+  
+  .calc-btn {
+    background: map-get($dark-theme, btn-bg);
+    color: map-get($dark-theme, text-primary) !important;
+    border: 1px solid map-get($dark-theme, border-color);
+    
+    &:hover {
+      background: map-get($dark-theme, btn-bg-hover);
+    }
+    
+    &.operator {
+      background: linear-gradient(45deg, #ff6b35, #f7931e);
+      color: white !important;
+    }
+    
+    &.clear {
+      background: linear-gradient(45deg, #e83e8c, #d91a72);
+      color: white !important;
+    }
+    
+    &.equals {
+      background: linear-gradient(45deg, #fd7e14, #e55a00);
+      color: white !important;
+    }
+  }
+  
+  // 状态指示器
+  .status-indicator {
+    &.valid {
+      background: #2d5016;
+      color: #c3e6cb !important;
+      border: 1px solid #155724;
+    }
+    
+    &.invalid {
+      background: #58151c;
+      color: #f1b2b7 !important;
+      border: 1px solid #721c24;
+    }
+    
+    &.info {
+      background: #1c3d5a;
+      color: #b6d7ff !important;
+      border: 1px solid #004085;
+    }
+  }
+  
+  // 结果显示
+  .result-display {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid map-get($dark-theme, border-color);
+    color: map-get($dark-theme, text-primary) !important;
+  }
+  
+  // 页脚
+  footer {
+    color: map-get($dark-theme, text-secondary) !important;
+  }
+  
+  // 分类图标
+  .category-icon {
+    color: map-get($dark-theme, icon-primary) !important;
+  }
+  
+  // 模态框
+  .modal-overlay {
+    background: map-get($dark-theme, bg-modal-overlay);
+    
+    .modal-container {
+      background: map-get($dark-theme, bg-surface);
+      border: 1px solid map-get($dark-theme, border-color);
+      box-shadow: map-get($dark-theme, shadow-xl);
+      
+      .modal-header {
+        background: map-get($dark-theme, bg-surface-active);
+        border-bottom: 1px solid map-get($dark-theme, border-color);
+        
+        h2 {
+          color: map-get($dark-theme, text-primary) !important;
+          
+          i {
+            color: map-get($dark-theme, icon-accent) !important;
+          }
+        }
+        
+        .modal-close-btn {
+          background: map-get($dark-theme, btn-bg);
+          border: 1px solid map-get($dark-theme, border-color);
+          color: map-get($dark-theme, text-primary) !important;
+          
+          &:hover {
+            background: map-get($dark-theme, btn-bg-hover);
+          }
+        }
+      }
+      
+      .modal-content {
+        background: rgba(0, 0, 0, 0.1);
+        color: map-get($dark-theme, text-primary) !important;
+      }
+    }
+  }
+  
+  // 特殊元素强制白色
+  .tool-count,
+  .tool-info h3,
+  .tool-info p,
+  .category-card h3,
+  .category-card p,
+  .tool-item-card h3,
+  .tool-item-card p {
+    color: map-get($dark-theme, text-primary) !important;
+  }
+}
+
+// ===== 浅色主题强制样式 =====
+.light-theme, 
+#app:not(.dark-theme) {
+  $current-theme: $light-theme !global;
+  
+  background: map-get($light-theme, bg-primary) !important;
+  color: map-get($light-theme, text-primary) !important;
+  
+  // 全局字体颜色强制应用
+  *, *::before, *::after {
+    color: map-get($light-theme, text-primary) !important;
+  }
+  
+  // 头部样式
+  header {
+    color: map-get($light-theme, text-primary) !important;
+    
+    h1 {
+      color: map-get($light-theme, text-primary) !important;
+      text-shadow: map-get($light-theme, text-shadow);
+    }
+    
+    p {
+      color: map-get($light-theme, text-secondary) !important;
+    }
+  }
+  
+  // 章节标题
+  .section-title {
+    color: map-get($light-theme, text-primary) !important;
+    text-shadow: map-get($light-theme, text-shadow);
+  }
+  
+  // 工具卡片
+  .tool-card,
+  .category-card,
+  .tool-item-card {
+    background: map-get($light-theme, bg-surface);
+    border: 1px solid map-get($light-theme, border-color);
+    box-shadow: map-get($light-theme, shadow-md);
+    
+    h3 {
+      color: map-get($light-theme, text-primary) !important;
+      text-shadow: map-get($light-theme, text-shadow-subtle);
+      
+      i {
+        color: map-get($light-theme, icon-primary) !important;
+      }
+    }
+    
+    p {
+      color: map-get($light-theme, text-secondary) !important;
+    }
+  }
+  
+  // 表单元素
+  input, textarea, select {
+    background: rgba(255, 255, 255, 0.9);
+    color: map-get($light-theme, text-primary) !important;
+    border: 1px solid map-get($light-theme, border-color);
+    
+    &::placeholder {
+      color: map-get($light-theme, text-muted) !important;
+    }
+  }
+  
+  // 表单标签
+  .form-group label {
+    color: map-get($light-theme, text-primary) !important;
+  }
+  
+  // 按钮
+  button {
+    background: map-get($light-theme, btn-primary);
+    color: white !important;
+    border: none;
+  }
+  
+  // 面包屑导航
+  .breadcrumb-btn {
+    background: map-get($light-theme, btn-bg);
+    color: map-get($light-theme, text-primary) !important;
+    border: 1px solid map-get($light-theme, border-color);
+  }
+  
+  .breadcrumb-separator {
+    color: map-get($light-theme, text-muted) !important;
+  }
+  
+  .breadcrumb-current {
+    color: map-get($light-theme, text-accent) !important;
+  }
+  
+  // 计算器
+  .calculator-display {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid map-get($light-theme, border-color);
+    color: map-get($light-theme, text-primary) !important;
+  }
+  
+  .calc-btn {
+    background: map-get($light-theme, btn-bg);
+    color: map-get($light-theme, text-primary) !important;
+    border: 1px solid map-get($light-theme, border-color);
+  }
+  
+  // 结果显示
+  .result-display {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid map-get($light-theme, border-color);
+    color: map-get($light-theme, text-primary) !important;
+  }
+  
+  // 页脚
+  footer {
+    color: map-get($light-theme, text-secondary) !important;
+  }
+  
+  // 分类图标
+  .category-icon {
+    color: map-get($light-theme, icon-primary) !important;
+  }
+  
+  // 模态框
+  .modal-overlay {
+    background: map-get($light-theme, bg-modal-overlay);
+    
+    .modal-container {
+      background: map-get($light-theme, bg-surface);
+      border: 1px solid map-get($light-theme, border-color);
+      box-shadow: map-get($light-theme, shadow-xl);
+      
+      .modal-header {
+        background: map-get($light-theme, bg-surface-active);
+        border-bottom: 1px solid map-get($light-theme, border-color);
+        
+        h2 {
+          color: map-get($light-theme, text-primary) !important;
+          
+          i {
+            color: map-get($light-theme, icon-accent) !important;
+          }
+        }
+        
+        .modal-close-btn {
+          background: map-get($light-theme, btn-bg);
+          border: 1px solid map-get($light-theme, border-color);
+          color: map-get($light-theme, text-primary) !important;
+        }
+      }
+      
+      .modal-content {
+        background: rgba(248, 250, 252, 0.5);
+        color: map-get($light-theme, text-primary) !important;
+      }
+    }
+  }
+  
+  // 特殊元素强制深色
+  .tool-count,
+  .tool-info h3,
+  .tool-info p,
+  .category-card h3,
+  .category-card p,
+  .tool-item-card h3,
+  .tool-item-card p {
+    color: map-get($light-theme, text-primary) !important;
+  }
+}
+
+// ===== 主容器 =====
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// ===== 头部样式 =====
+header {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: theme(text-primary);
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    .header-left {
+      flex: 1;
+    }
+    
+    .header-right {
+      flex-shrink: 0;
+    }
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: theme(text-shadow);
+    font-weight: 700;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+}
+
+// ===== 主题切换按钮 =====
+.theme-toggle-btn {
+  @include circle-button(50px);
+  font-size: 1.2rem;
+}
+
+// ===== 主内容区域 =====
+main {
+  flex: 1;
+  padding: 0 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+// ===== 工具区域 =====
+.tool-section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: theme(text-primary);
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: theme(text-shadow);
+  font-weight: 600;
+}
+
+// ===== 工具网格布局 =====
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+// ===== 工具卡片 =====
+.tool-card {
+  @include glass-effect();
+  @include hover-lift();
+  border-radius: 20px;
+  padding: 2rem;
+  
+  h3 {
+    color: theme(text-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    text-shadow: theme(text-shadow-subtle);
+    font-weight: 600;
+    
+    i {
+      margin-right: 0.5rem;
+      color: theme(icon-primary);
+    }
+  }
+}
+
+// ===== 示例按钮 =====
+.example-section {
+  margin-bottom: 1rem;
+  text-align: center;
+  
+  .example-btn {
+    @include button-style('success');
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    
+    i {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+// ===== 表单元素 =====
+input, textarea, select {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  
+  &:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+    transform: scale(1.02);
+  }
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+// ===== 按钮 =====
+button {
+  @include button-style('primary');
+  
+  &:active {
+    transform: translateY(1px) scale(0.98);
+  }
+}
+
+// ===== 表单组 =====
+.form-group {
+  margin-bottom: 1.5rem;
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: theme(text-primary);
+  }
+}
+
+// ===== 复选框组 =====
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  
+  label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+    margin-bottom: 0;
+  }
+}
+
+// ===== 滑块 =====
+input[type="range"] {
+  -webkit-appearance: none;
+  background: transparent;
+  margin-bottom: 1rem;
+  
+  &::-webkit-slider-track {
+    background: #ddd;
+    height: 4px;
+    border-radius: 2px;
+  }
+  
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: theme(icon-primary);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+}
+
+// ===== 计算器 =====
+.calculator {
+  max-width: 300px;
+  margin: 0 auto;
+  
+  .calculator-display {
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: right;
+    color: theme(text-primary);
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    
+    .calc-btn {
+      @include button-style();
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      
+      &.operator {
+        background: linear-gradient(45deg, #17a2b8, #138496);
+        color: white;
+      }
+      
+      &.clear {
+        background: linear-gradient(45deg, #e83e8c, #d91a72);
+        color: white;
+      }
+      
+      &.equals {
+        background: linear-gradient(45deg, #fd7e14, #e55a00);
+        color: white;
+      }
+      
+      &.zero {
+        grid-column: span 2;
+      }
+    }
+  }
+}
+
+// ===== 转换行 =====
+.conversion-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  
+  input, select {
+    flex: 1;
+    margin-bottom: 0;
+  }
+  
+  .conversion-arrow {
+    font-size: 1.5rem;
+    color: theme(icon-primary);
+    font-weight: bold;
+  }
+}
+
+// ===== 二维码容器 =====
+#qr-code-container {
+  text-align: center;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  border: 2px dashed #ddd;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  canvas {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+}
+
+// ===== 结果显示 =====
+.result-display {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 1rem;
+  white-space: pre-wrap;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+// ===== 状态指示器 =====
+.status-indicator {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  
+  &.valid {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+  
+  &.invalid {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f1b2b7;
+  }
+  
+  &.info {
+    background: #cce7ff;
+    color: #004085;
+    border: 1px solid #b6d7ff;
+  }
+}
+
+// ===== 页脚 =====
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: theme(text-secondary);
+  margin-top: auto;
+}
+
+// ===== 面包屑导航 =====
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  
+  .breadcrumb-btn {
+    @include button-style();
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+  }
+  
+  .breadcrumb-separator {
+    color: theme(text-muted);
+    font-weight: bold;
+  }
+  
+  .breadcrumb-current {
+    color: theme(text-accent);
+    font-weight: 600;
+  }
+}
+
+// ===== 分类概览 =====
+.category-overview {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    
+    .category-card {
+      @include glass-effect();
+      @include hover-lift(-8px);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      cursor: pointer;
+      
+      .category-icon {
+        font-size: 3rem;
+        color: theme(icon-primary);
+        margin-bottom: 1rem;
+        text-shadow: theme(text-shadow);
+      }
+      
+      h3 {
+        color: theme(text-primary);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        text-shadow: theme(text-shadow-subtle);
+        font-weight: 600;
+      }
+      
+      p {
+        color: theme(text-secondary);
+        margin-bottom: 1rem;
+        line-height: 1.5;
+      }
+      
+      .tool-count {
+        background: theme(btn-primary);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+// ===== 工具列表 =====
+.tool-list {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  .tool-item-card {
+    @include glass-effect();
+    @include hover-lift(-3px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    
+    .tool-thumbnail {
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      background: theme(btn-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+    
+    .tool-info {
+      flex: 1;
+      
+      h3 {
+        color: theme(text-primary);
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        text-shadow: theme(text-shadow-subtle);
+        font-weight: 600;
+      }
+      
+      p {
+        color: theme(text-secondary);
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+    }
+  }
+}
+
+// ===== 弹窗样式 =====
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: theme(bg-modal-overlay);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 2rem;
+  
+  .modal-container {
+    @include glass-effect();
+    border-radius: 24px;
+    width: 80vw;
+    height: 80vh;
+    box-shadow: theme(shadow-xl);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: modalSlideIn 0.3s ease-out;
+    
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background: theme(bg-surface-active);
+      border-bottom: 1px solid theme(border-color);
+      backdrop-filter: blur(10px);
+      
+      h2 {
+        color: theme(text-primary);
+        font-size: 1.5rem;
+        margin: 0;
+        text-shadow: theme(text-shadow);
+        font-weight: 600;
+        
+        i {
+          margin-right: 0.5rem;
+          color: theme(icon-primary);
+        }
+      }
+      
+      .modal-close-btn {
+        @include circle-button(40px);
+        font-size: 1rem;
+      }
+    }
+    
+    .modal-content {
+      flex: 1;
+      padding: 2rem;
+      overflow-y: auto;
+      background: rgba(248, 250, 252, 0.5);
+    }
+  }
+}
+
+// ===== 弹窗动画 =====
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+// Vue过渡动画
+.modal-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.modal-leave-active {
+  transition: all 0.3s ease-in;
+}
+
+.modal-enter-from {
+  opacity: 0;
+}
+
+.modal-enter-to {
+  opacity: 1;
+}
+
+.modal-leave-from {
+  opacity: 1;
+}
+
+.modal-leave-to {
+  opacity: 0;
+}
+
+.modal-enter-from .modal-container {
+  transform: scale(0.9) translateY(-20px);
+}
+
+.modal-enter-to .modal-container {
+  transform: scale(1) translateY(0);
+}
+
+.modal-leave-from .modal-container {
+  transform: scale(1) translateY(0);
+}
+
+.modal-leave-to .modal-container {
+  transform: scale(0.9) translateY(-20px);
+}
+
+
+
+// ===== 响应式设计 =====
+@media (max-width: 768px) {
+  .tools-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .tool-card {
+    padding: 1.5rem;
+  }
+  
+  header {
+    h1 {
+      font-size: 2rem;
+    }
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .conversion-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .calculator {
+    .calculator-buttons {
+      gap: 0.3rem;
+    }
+    
+    .calc-btn {
+      padding: 0.8rem;
+      font-size: 1rem;
+    }
+  }
+  
+  .category-overview {
+    .category-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .category-card {
+      padding: 1.5rem;
+    }
+  }
+  
+  .tool-list {
+    .tool-item-card {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+    
+    .tool-thumbnail {
+      width: 50px;
+      height: 50px;
+      font-size: 1.2rem;
+    }
+  }
+  
+  .breadcrumb {
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    
+    .breadcrumb-btn {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+    }
+  }
+  
+  .modal-overlay {
+    padding: 1rem;
+    
+    .modal-container {
+      width: 95vw;
+      height: 90vh;
+      border-radius: 16px;
+      
+      .modal-header {
+        padding: 1rem 1.5rem;
+        
+        h2 {
+          font-size: 1.2rem;
+        }
+        
+        .modal-close-btn {
+          width: 35px;
+          height: 35px;
+          font-size: 0.9rem;
+        }
+      }
+      
+      .modal-content {
+        padding: 1.5rem;
+      }
+    }
+  }
+  
+  .dark-theme {
+    .header-content {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .header-left {
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .tool-card {
+    padding: 1rem;
+  }
+  
+  header {
+    padding: 1.5rem 1rem;
+    
+    h1 {
+      font-size: 1.8rem;
+    }
+  }
+  
+  .modal-overlay {
+    padding: 0.5rem;
+    
+    .modal-container {
+      width: 98vw;
+      height: 95vh;
+      border-radius: 12px;
+      
+      .modal-header {
+        padding: 0.8rem 1rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
+      
+      .modal-close-btn {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+      }
+      
+      .modal-content {
+        padding: 1rem;
+      }
+    }
+  }
+}

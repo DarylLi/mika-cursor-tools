@@ -231,11 +231,12 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref, computed, getCurrentInstance } from 'vue'
 
 export default {
   name: 'PrimeChecker',
   setup() {
+    const instance = getCurrentInstance()
     const inputNumber = ref('')
     const rangeStart = ref(1)
     const rangeEnd = ref(100)
@@ -358,7 +359,7 @@ export default {
       const end = parseInt(rangeEnd.value) || 100
       
       if (start > end || end - start > 10000) {
-        alert('请输入有效范围（最大10000个数字）')
+        instance.proxy.$message.success('请输入有效范围（最大10000个数字）')
         return
       }
       
@@ -383,7 +384,7 @@ export default {
     const copyPrimeList = () => {
       const text = primeList.value.join(', ')
       navigator.clipboard.writeText(text).then(() => {
-        alert('质数列表已复制到剪贴板')
+        instance.proxy.$message.success('质数列表已复制到剪贴板')
       })
     }
     
@@ -422,14 +423,14 @@ export default {
     // 显示因式分解
     const showFactorization = () => {
       if (!result.value.checked) {
-        alert('请先输入一个数字进行检查')
+        instance.proxy.$message.success('请先输入一个数字进行检查')
         return
       }
       
       if (result.value.isPrime) {
-        alert(`${result.value.number} 是质数，只能分解为 1 × ${result.value.number}`)
+        instance.proxy.$message.success(`${result.value.number} 是质数，只能分解为 1 × ${result.value.number}`)
       } else {
-        alert(`${result.value.number} = ${result.value.factorization}`)
+        instance.proxy.$message.success(`${result.value.number} = ${result.value.factorization}`)
       }
     }
     

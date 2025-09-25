@@ -14,22 +14,22 @@
     <div class="shadow-controls">
       <div class="control-group">
         <label>水平偏移 ({{ horizontalOffset }}px)</label>
-        <input type="range" v-model="horizontalOffset" min="-50" max="50" @input="updateShadow">
+        <input type="range" class="modern-slider" v-model="horizontalOffset" min="-50" max="50" @input="updateShadow">
       </div>
 
       <div class="control-group">
         <label>垂直偏移 ({{ verticalOffset }}px)</label>
-        <input type="range" v-model="verticalOffset" min="-50" max="50" @input="updateShadow">
+        <input type="range" class="modern-slider" v-model="verticalOffset" min="-50" max="50" @input="updateShadow">
       </div>
 
       <div class="control-group">
         <label>模糊半径 ({{ blurRadius }}px)</label>
-        <input type="range" v-model="blurRadius" min="0" max="50" @input="updateShadow">
+        <input type="range" class="modern-slider" v-model="blurRadius" min="0" max="50" @input="updateShadow">
       </div>
 
       <div class="control-group">
         <label>扩展半径 ({{ spreadRadius }}px)</label>
-        <input type="range" v-model="spreadRadius" min="-20" max="20" @input="updateShadow">
+        <input type="range" class="modern-slider" v-model="spreadRadius" min="-20" max="20" @input="updateShadow">
       </div>
 
       <div class="control-group">
@@ -42,7 +42,7 @@
 
       <div class="control-group">
         <label>不透明度 ({{ opacity }}%)</label>
-        <input type="range" v-model="opacity" min="0" max="100" @input="updateShadow">
+        <input type="range" class="modern-slider" v-model="opacity" min="0" max="100" @input="updateShadow">
       </div>
 
       <div class="control-group">
@@ -180,12 +180,13 @@ export default {
 
 <style scoped>
 .shadow-generator-container {
-  padding: 1rem;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h2 {
@@ -195,12 +196,12 @@ export default {
 
 .preview-section {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .preview-box {
   display: inline-block;
-  padding: 2rem 3rem;
+  padding: 10px;
   background: white;
   border-radius: 8px;
   font-weight: 500;
@@ -211,7 +212,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   padding: 1.5rem;
   background: var(--bg-surface);
   border-radius: 12px;
@@ -225,7 +226,7 @@ export default {
   color: var(--text-primary);
 }
 
-.control-group input[type="range"] {
+.control-group input[type="range"].modern-slider {
   width: 100%;
 }
 
@@ -251,7 +252,7 @@ export default {
 }
 
 .css-output {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .css-output label {
@@ -263,7 +264,7 @@ export default {
 
 .css-textarea {
   width: 100%;
-  padding: 1rem;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   font-family: 'Courier New', monospace;

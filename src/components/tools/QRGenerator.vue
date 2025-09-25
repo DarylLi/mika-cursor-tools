@@ -96,7 +96,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, getCurrentInstance } from 'vue'
 import QRCode from 'qrcode'
 
 export default {
@@ -105,6 +105,7 @@ export default {
     toolData: Object
   },
   setup() {
+    const instance = getCurrentInstance()
     const qrText = ref('')
     const qrSize = ref(300)
     const errorLevel = ref('M')
@@ -125,7 +126,7 @@ https://tools.example.com
       const text = qrText.value.trim()
       
       if (!text) {
-        alert('请输入要生成二维码的内容！')
+        instance.proxy.$message.success('请输入要生成二维码的内容！')
         return
       }
       
@@ -146,7 +147,7 @@ https://tools.example.com
         qrDataUrl.value = dataUrl
       } catch (error) {
         console.error('二维码生成失败:', error)
-        alert('二维码生成失败: ' + error.message)
+        instance.proxy.$message.success('二维码生成失败: ' + error.message)
       }
     }
 
@@ -178,12 +179,13 @@ https://tools.example.com
 .qr-generator-tool {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h2 {
@@ -199,31 +201,31 @@ https://tools.example.com
 .section {
   background: var(--bg-secondary);
   border-radius: 12px;
-  padding: 24px;
-  margin-bottom: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
   border: 1px solid var(--border-color);
 }
 
 .section h3 {
   color: var(--primary-color);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.2rem;
 }
 
 .input-group {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .input-group label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   font-weight: 500;
   color: var(--text-primary);
 }
 
 .text-input {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   border: 2px solid var(--border-color);
   border-radius: 8px;
   font-size: 14px;
@@ -243,12 +245,12 @@ https://tools.example.com
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .option-item label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   font-weight: 500;
   color: var(--text-primary);
 }
@@ -280,7 +282,7 @@ https://tools.example.com
 .generate-btn,
 .example-btn,
 .download-btn {
-  padding: 12px 20px;
+  padding: 10px;
   border: none;
   border-radius: 8px;
   font-size: 14px;
@@ -337,7 +339,7 @@ https://tools.example.com
 
 .qr-display {
   background: white;
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border: 2px solid var(--border-color);
@@ -362,14 +364,14 @@ https://tools.example.com
 
 .info-card {
   background: var(--bg-primary);
-  padding: 16px;
+  padding: 10px;
   border-radius: 8px;
   border: 1px solid var(--border-color);
 }
 
 .info-card h4 {
   color: var(--primary-color);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   font-size: 1rem;
 }
 
@@ -379,7 +381,7 @@ https://tools.example.com
 }
 
 .info-card li {
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   color: var(--text-primary);
   font-size: 0.9rem;
   line-height: 1.4;
@@ -387,11 +389,11 @@ https://tools.example.com
 
 @media (max-width: 768px) {
   .qr-generator-tool {
-    padding: 15px;
+    padding: 10px;
   }
   
   .section {
-    padding: 16px;
+    padding: 10px;
   }
   
   .options-group {

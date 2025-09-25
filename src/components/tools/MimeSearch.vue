@@ -252,12 +252,13 @@ export default {
 .mime-search-tool {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h2 {
@@ -272,16 +273,16 @@ export default {
 
 .search-section {
   background: white;
-  padding: 25px;
+  padding: 10px;
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .search-mode {
   display: flex;
   gap: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   justify-content: center;
 }
 
@@ -303,7 +304,7 @@ export default {
 
 .search-input {
   width: 100%;
-  padding: 15px 20px;
+  padding: 10px;
   border: 2px solid #e1e8ed;
   border-radius: 25px;
   font-size: 16px;
@@ -324,7 +325,7 @@ export default {
   border: none;
   color: #95a5a6;
   cursor: pointer;
-  padding: 5px;
+  padding: 10px;
   border-radius: 50%;
 }
 
@@ -336,7 +337,7 @@ export default {
 .results-section h3,
 .common-types h3 {
   color: #2c3e50;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -350,7 +351,7 @@ export default {
 
 .result-card {
   background: white;
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   border-left: 4px solid #3498db;
@@ -366,7 +367,7 @@ export default {
 .extension {
   background: #3498db;
   color: white;
-  padding: 4px 8px;
+  padding: 10px;
   border-radius: 4px;
   font-weight: bold;
   font-family: monospace;
@@ -377,7 +378,7 @@ export default {
   border: none;
   color: #95a5a6;
   cursor: pointer;
-  padding: 8px;
+  padding: 10px;
   border-radius: 4px;
 }
 
@@ -389,9 +390,9 @@ export default {
 .mime-type {
   font-family: monospace;
   background: #f8f9fa;
-  padding: 8px;
+  padding: 10px;
   border-radius: 4px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   font-size: 14px;
   word-break: break-all;
 }
@@ -405,19 +406,19 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .category-card {
   background: white;
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .category-card h4 {
   color: #2c3e50;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -432,7 +433,7 @@ export default {
 .type-item {
   display: flex;
   justify-content: space-between;
-  padding: 8px 12px;
+  padding: 10px;
   background: #f8f9fa;
   border-radius: 6px;
   cursor: pointer;
@@ -457,13 +458,13 @@ export default {
 
 .no-results {
   text-align: center;
-  padding: 60px 20px;
+  padding: 10px;
   color: #95a5a6;
 }
 
 .no-results i {
   font-size: 48px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .no-results .hint {
@@ -473,14 +474,14 @@ export default {
 
 .info-section {
   background: #f8f9fa;
-  padding: 25px;
+  padding: 10px;
   border-radius: 8px;
   margin-top: 30px;
 }
 
 .info-section h3 {
   color: #2c3e50;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .info-section ul {

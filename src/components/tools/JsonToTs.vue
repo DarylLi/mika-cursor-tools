@@ -239,17 +239,18 @@ export default {
 .json-to-ts-tool {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
   font-size: 24px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
@@ -265,7 +266,7 @@ export default {
 
 .input-section, .output-section {
   background: var(--bg-secondary);
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
   border: 1px solid var(--border-color);
 }
@@ -274,7 +275,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .section-header label {
@@ -291,7 +292,7 @@ export default {
   background: var(--accent-color);
   color: white;
   border: none;
-  padding: 8px 12px;
+  padding: 10px;
   border-radius: 6px;
   cursor: pointer;
   font-size: 12px;
@@ -311,7 +312,7 @@ export default {
 .code-input {
   width: 100%;
   height: 300px;
-  padding: 15px;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 8px;
   background: var(--bg-primary);
@@ -327,7 +328,7 @@ export default {
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 15px;
+  padding: 10px;
   font-family: 'Consolas', 'Monaco', monospace;
   font-size: 14px;
   line-height: 1.5;
@@ -353,13 +354,13 @@ export default {
 
 .options-section {
   background: var(--bg-secondary);
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
   border: 1px solid var(--border-color);
 }
 
 .options-section h4 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: var(--text-primary);
   display: flex;
   align-items: center;
@@ -380,12 +381,17 @@ export default {
 }
 
 .option-item input[type="text"] {
-  padding: 8px 12px;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   background: var(--bg-primary);
   color: var(--text-primary);
   width: 150px;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
 }
 
 .option-item input[type="checkbox"] {
@@ -396,13 +402,13 @@ export default {
 
 .info-section {
   background: var(--bg-secondary);
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
   border: 1px solid var(--border-color);
 }
 
 .info-section h4 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: var(--text-primary);
   display: flex;
   align-items: center;

@@ -220,41 +220,42 @@ export default {
 .uuid-namespace-tool {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
   font-size: 24px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
 .input-section {
   background: var(--bg-secondary);
-  padding: 25px;
+  padding: 10px;
   border-radius: 12px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .input-group {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .input-group label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   font-weight: 600;
   color: var(--text-primary);
 }
 
 .namespace-select, .uuid-input, .name-input {
   width: 100%;
-  padding: 12px 15px;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 8px;
   background: var(--bg-primary);
@@ -273,7 +274,7 @@ export default {
 }
 
 .action-btn {
-  padding: 10px 20px;
+  padding: 10px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -306,7 +307,7 @@ export default {
 
 .result-card, .info-card {
   background: var(--bg-secondary);
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
   border: 1px solid var(--border-color);
 }
@@ -315,7 +316,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .result-header h4 {
@@ -327,7 +328,7 @@ export default {
   background: var(--accent-color);
   color: white;
   border: none;
-  padding: 8px 12px;
+  padding: 10px;
   border-radius: 6px;
   cursor: pointer;
   display: flex;
@@ -337,7 +338,7 @@ export default {
 
 .uuid-result {
   background: var(--bg-primary);
-  padding: 15px;
+  padding: 10px;
   border-radius: 8px;
   text-align: center;
 }
@@ -353,7 +354,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 

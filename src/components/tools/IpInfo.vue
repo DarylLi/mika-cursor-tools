@@ -319,17 +319,18 @@ export default {
 .ip-info-tool {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
   font-size: 24px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
@@ -340,23 +341,23 @@ export default {
 
 .input-section {
   background: var(--bg-secondary);
-  padding: 25px;
+  padding: 10px;
   border-radius: 12px;
   border: 1px solid var(--border-color);
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .input-group {
   display: flex;
   gap: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   flex-wrap: wrap;
 }
 
 .ip-input {
   flex: 1;
   min-width: 250px;
-  padding: 12px 15px;
+  padding: 10px;
   border: 2px solid var(--border-color);
   border-radius: 8px;
   background: var(--bg-primary);
@@ -372,7 +373,7 @@ export default {
 }
 
 .query-btn {
-  padding: 12px 24px;
+  padding: 10px;
   background: var(--accent-color);
   color: white;
   border: none;
@@ -403,7 +404,7 @@ export default {
 }
 
 .action-btn {
-  padding: 8px 15px;
+  padding: 10px;
   background: var(--bg-primary);
   color: var(--text-primary);
   border: 1px solid var(--border-color);
@@ -423,22 +424,22 @@ export default {
 
 .results-section {
   background: var(--bg-secondary);
-  padding: 25px;
+  padding: 10px;
   border-radius: 12px;
   border: 1px solid var(--border-color);
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .info-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .info-card {
   background: var(--bg-primary);
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   border: 1px solid var(--border-color);
 }
@@ -447,7 +448,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: var(--text-primary);
   font-size: 16px;
 }
@@ -489,7 +490,7 @@ export default {
 
 .json-section {
   background: var(--bg-primary);
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   border: 1px solid var(--border-color);
 }
@@ -498,7 +499,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .section-header h4 {
@@ -513,7 +514,7 @@ export default {
   background: var(--accent-color);
   color: white;
   border: none;
-  padding: 8px 12px;
+  padding: 10px;
   border-radius: 6px;
   cursor: pointer;
   font-size: 12px;
@@ -530,7 +531,7 @@ export default {
 
 .json-output {
   background: var(--bg-secondary);
-  padding: 15px;
+  padding: 10px;
   border-radius: 8px;
   font-family: 'Consolas', 'Monaco', monospace;
   font-size: 13px;
@@ -541,13 +542,13 @@ export default {
 
 .loading-section {
   text-align: center;
-  padding: 40px;
+  padding: 10px;
 }
 
 .loading-spinner i {
   font-size: 32px;
   color: var(--accent-color);
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .loading-spinner p {
@@ -558,7 +559,7 @@ export default {
   background: #fff5f5;
   border: 1px solid #fed7d7;
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -584,7 +585,7 @@ export default {
   background: #e53e3e;
   color: white;
   border: none;
-  padding: 8px 16px;
+  padding: 10px;
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;

@@ -240,11 +240,12 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref, computed, getCurrentInstance } from 'vue'
 
 export default {
   name: 'LotteryPicker',
   setup() {
+    const instance = getCurrentInstance()
     const activeTab = ref('simple')
     const participantsList = ref('')
     const newParticipant = ref('')
@@ -260,7 +261,7 @@ export default {
     const lotteryHistory = ref([])
 
     // 添加参与者
-    const addParticipant = () => {
+    const addParticipant = async () => {
       if (newParticipant.value.trim()) {
         if (participantsList.value) {
           participantsList.value += '\n' + newParticipant.value.trim()
@@ -272,7 +273,7 @@ export default {
     }
 
     // 添加权重参与者
-    const addWeightedParticipant = () => {
+    const addWeightedParticipant = async () => {
       weightedParticipants.value.push({ name: '', weight: 1 })
     }
 
@@ -284,7 +285,7 @@ export default {
     }
 
     // 获取参与者列表
-    const getParticipants = () => {
+    const getParticipants = async () => {
       switch (activeTab.value) {
         case 'simple':
           return participantsList.value.split('\n').filter(name => name.trim())
@@ -401,7 +402,7 @@ export default {
     }
 
     // 播放获奖音效
-    const playWinSound = () => {
+    const playWinSound = async () => {
       // 简单的音效实现
       const audioContext = new (window.AudioContext || window.webkitAudioContext)()
       const oscillator = audioContext.createOscillator()
@@ -422,23 +423,23 @@ export default {
     }
 
     // 重新抽奖
-    const redraw = () => {
+    const redraw = async () => {
       startLottery()
     }
 
     // 保存结果
-    const saveResults = () => {
+    const saveResults = async () => {
       const resultText = lastResults.value.map((result, index) => 
         `第${index + 1}名: ${result.name}${result.weight ? ` (权重: ${result.weight})` : ''}`
       ).join('\n')
       
       navigator.clipboard.writeText(resultText).then(() => {
-        alert('抽奖结果已复制到剪贴板')
+        instance.proxy.$message.success('抽奖结果已复制到剪贴板')
       })
     }
 
     // 分享结果
-    const shareResults = () => {
+    const shareResults = async () => {
       const resultText = `🎉 抽奖结果 🎉\n${lastResults.value.map((result, index) => 
         `第${index + 1}名: ${result.name}`
       ).join('\n')}\n\n抽奖时间: ${new Date().toLocaleString()}`
@@ -450,7 +451,7 @@ export default {
         })
       } else {
         navigator.clipboard.writeText(resultText).then(() => {
-          alert('抽奖结果已复制到剪贴板，可以分享给他人')
+          instance.proxy.$message.success('抽奖结果已复制到剪贴板，可以分享给他人')
         })
       }
     }
@@ -465,14 +466,14 @@ export default {
     }
 
     // 清空历史
-    const clearHistory = () => {
-      if (confirm('确定要清空抽奖历史吗？')) {
+    const clearHistory = async () => {
+      if (await instance.proxy.$message.confirm('确定要清空抽奖历史吗？')) {
         lotteryHistory.value = []
       }
     }
 
     // 导出历史
-    const exportHistory = () => {
+    const exportHistory = async () => {
       const exportData = {
         history: lotteryHistory.value,
         exportedAt: new Date().toISOString()
@@ -582,7 +583,8 @@ export default {
 
 .tool-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
@@ -596,12 +598,12 @@ export default {
 
 .setup-tabs {
   display: flex;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   border-bottom: 2px solid var(--border-color);
 }
 
 .tab-btn {
-  padding: 1rem 2rem;
+  padding: 10px;
   border: none;
   background: transparent;
   color: var(--text-secondary);
@@ -623,19 +625,19 @@ export default {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 2rem;
-  margin-bottom: 2rem;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .simple-setup h4,
 .weighted-setup h4,
 .multiple-setup h4 {
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .participants-input {
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .participants-input label {
@@ -647,7 +649,7 @@ export default {
 
 .participants-textarea {
   width: 100%;
-  padding: 1rem;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 4px;
   background: var(--bg-primary);
@@ -689,7 +691,7 @@ export default {
 }
 
 .weighted-participants {
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .weighted-item {
@@ -736,7 +738,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .control-group {
@@ -759,6 +761,11 @@ export default {
   color: var(--text-primary);
 }
 
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+
 .control-group input[type="checkbox"] {
   width: 20px;
   height: 20px;
@@ -769,7 +776,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   padding: 1.5rem;
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
@@ -793,7 +800,7 @@ export default {
 }
 
 .lottery-btn {
-  padding: 1rem 2rem;
+  padding: 10px;
   background: var(--accent-color);
   color: white;
   border: none;
@@ -819,14 +826,14 @@ export default {
 }
 
 .lottery-display {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .draw-animation {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 3rem;
+  padding: 10px;
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 8px;
@@ -869,25 +876,25 @@ export default {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 2rem;
+  padding: 10px;
   text-align: center;
 }
 
 .results-display h4 {
   color: var(--text-primary);
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   font-size: 1.5rem;
 }
 
 .results-list {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .result-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 10px;
   margin-bottom: 0.5rem;
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
@@ -930,19 +937,19 @@ export default {
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .lottery-history h4,
 .lottery-statistics h4 {
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .history-controls {
   display: flex;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .history-list {
@@ -954,7 +961,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1rem;
+  padding: 10px;
   border-bottom: 1px solid var(--border-color);
   transition: background-color 0.2s;
 }
@@ -1017,7 +1024,7 @@ export default {
 
 .stat-item {
   text-align: center;
-  padding: 1rem;
+  padding: 10px;
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
   border-radius: 8px;
@@ -1033,5 +1040,32 @@ export default {
 .stat-label {
   color: var(--text-secondary);
   font-size: 0.9rem;
+}
+/* Input 输入框统一样式 */
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Input 和 Select 统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+select {
+  background: #fff;
 }
 </style>

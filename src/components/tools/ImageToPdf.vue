@@ -246,12 +246,13 @@ export default {
 .tool-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h2 {
@@ -261,21 +262,21 @@ export default {
 
 .input-section {
   background: var(--bg-secondary);
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .file-upload-area {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .upload-btn {
   background: var(--primary-color);
   color: white;
   border: none;
-  padding: 12px 24px;
+  padding: 10px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
@@ -291,7 +292,7 @@ export default {
 }
 
 .image-list h4 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
@@ -300,9 +301,9 @@ export default {
   align-items: center;
   gap: 15px;
   background: var(--bg-primary);
-  padding: 12px;
+  padding: 10px;
   border-radius: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   border: 1px solid var(--border-color);
 }
 
@@ -343,7 +344,7 @@ export default {
 }
 
 .move-btn, .remove-btn {
-  padding: 6px 8px;
+  padding: 10px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -393,7 +394,7 @@ export default {
 }
 
 .option-group select {
-  padding: 8px 12px;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   background: var(--bg-primary);
@@ -406,7 +407,7 @@ export default {
 }
 
 .generate-btn, .clear-btn {
-  padding: 12px 30px;
+  padding: 10px;
   border: none;
   border-radius: 8px;
   font-size: 16px;
@@ -441,13 +442,13 @@ export default {
 
 .note-section {
   background: var(--bg-secondary);
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
   margin-top: 20px;
 }
 
 .note-section h4 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
@@ -457,14 +458,14 @@ export default {
 }
 
 .note-section li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: var(--text-secondary);
 }
 
 .error-message {
   background: var(--danger-light);
   color: var(--danger-color);
-  padding: 15px;
+  padding: 10px;
   border-radius: 8px;
   margin-top: 15px;
   border: 1px solid var(--danger-color);
@@ -473,7 +474,7 @@ export default {
 .success-message {
   background: var(--success-light);
   color: var(--success-color);
-  padding: 15px;
+  padding: 10px;
   border-radius: 8px;
   margin-top: 15px;
   border: 1px solid var(--success-color);

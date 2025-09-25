@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, getCurrentInstance } from 'vue'
 
 export default {
   name: 'YamlToJson',
@@ -56,6 +56,7 @@ export default {
     toolData: Object
   },
   setup() {
+    const instance = getCurrentInstance()
     const yamlInput = ref('')
     const jsonOutput = ref('')
     const errorMessage = ref('')
@@ -230,14 +231,14 @@ active: true`
     const copyYaml = () => {
       if (yamlInput.value) {
         navigator.clipboard.writeText(yamlInput.value)
-        alert('YAML 已复制到剪贴板！')
+        instance.proxy.$message.success('YAML 已复制到剪贴板！')
       }
     }
 
     const copyJson = () => {
       if (jsonOutput.value) {
         navigator.clipboard.writeText(jsonOutput.value)
-        alert('JSON 已复制到剪贴板！')
+        instance.proxy.$message.success('JSON 已复制到剪贴板！')
       }
     }
 

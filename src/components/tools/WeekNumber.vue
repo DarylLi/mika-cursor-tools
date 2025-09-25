@@ -532,12 +532,13 @@ export default {
 .week-number-tool {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
@@ -554,8 +555,8 @@ export default {
 .main-query-section {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 20px;
-  padding: 30px;
-  margin-bottom: 30px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .date-input-row {
@@ -579,7 +580,7 @@ export default {
 
 .date-input,
 .standard-select {
-  padding: 12px;
+  padding: 10px;
   border: none;
   border-radius: 10px;
   font-size: 1rem;
@@ -588,7 +589,7 @@ export default {
 }
 
 .today-btn {
-  padding: 12px 20px;
+  padding: 10px;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 10px;
@@ -605,12 +606,12 @@ export default {
 }
 
 .week-result-section {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .week-result-section h4 {
   color: #2c3e50;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.3rem;
 }
 
@@ -623,7 +624,7 @@ export default {
 .result-card {
   background: white;
   border-radius: 15px;
-  padding: 20px;
+  padding: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
@@ -642,7 +643,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-weight: 600;
   font-size: 1.1rem;
 }
@@ -732,13 +733,13 @@ export default {
 .year-stats-section {
   background: #f8f9fa;
   border-radius: 15px;
-  padding: 25px;
-  margin-bottom: 30px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .year-stats-section h4 {
   color: #2c3e50;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.3rem;
 }
 
@@ -751,7 +752,7 @@ export default {
 .stat-card {
   background: white;
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
@@ -766,7 +767,7 @@ export default {
   font-size: 2rem;
   font-weight: 700;
   color: #3498db;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .stat-label {
@@ -775,12 +776,12 @@ export default {
 }
 
 .week-calendar-section {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .week-calendar-section h4 {
   color: #2c3e50;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.3rem;
 }
 
@@ -788,14 +789,14 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  padding: 15px;
+  margin-bottom: 10px;
+  padding: 10px;
   background: #f8f9fa;
   border-radius: 10px;
 }
 
 .nav-btn {
-  padding: 8px 15px;
+  padding: 10px;
   background: #3498db;
   color: white;
   border: none;
@@ -819,14 +820,14 @@ export default {
 .week-calendar {
   background: white;
   border-radius: 15px;
-  padding: 20px;
+  padding: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .week-header {
   text-align: center;
-  margin-bottom: 20px;
-  padding: 15px;
+  margin-bottom: 10px;
+  padding: 10px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 10px;
   color: white;
@@ -836,7 +837,7 @@ export default {
   font-size: 1.1rem;
   font-weight: 600;
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .week-number {
@@ -853,7 +854,7 @@ export default {
 .day-cell {
   background: #f8f9fa;
   border-radius: 10px;
-  padding: 15px;
+  padding: 10px;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -886,13 +887,13 @@ export default {
 .day-number {
   font-weight: 600;
   font-size: 1.1rem;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .day-name {
   font-size: 0.8rem;
   color: #7f8c8d;
-  margin-bottom: 3px;
+  margin-bottom: 10px;
 }
 
 .day-date {
@@ -901,12 +902,12 @@ export default {
 }
 
 .quick-queries-section {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .quick-queries-section h4 {
   color: #2c3e50;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.3rem;
 }
 
@@ -917,7 +918,7 @@ export default {
 }
 
 .quick-btn {
-  padding: 15px;
+  padding: 10px;
   background: white;
   border: 2px solid #e9ecef;
   border-radius: 10px;
@@ -945,12 +946,12 @@ export default {
 .standards-comparison-section {
   background: #f8f9fa;
   border-radius: 15px;
-  padding: 25px;
+  padding: 10px;
 }
 
 .standards-comparison-section h4 {
   color: #2c3e50;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.3rem;
 }
 
@@ -965,7 +966,7 @@ export default {
   display: grid;
   grid-template-columns: 1fr 80px 100px 2fr;
   gap: 15px;
-  padding: 15px;
+  padding: 10px;
   background: #3498db;
   color: white;
   font-weight: 600;
@@ -976,7 +977,7 @@ export default {
   display: grid;
   grid-template-columns: 1fr 80px 100px 2fr;
   gap: 15px;
-  padding: 15px;
+  padding: 10px;
   border-bottom: 1px solid #e9ecef;
   transition: background 0.3s ease;
 }
@@ -1010,11 +1011,11 @@ export default {
 
 @media (max-width: 768px) {
   .week-number-tool {
-    padding: 15px;
+    padding: 10px;
   }
   
   .main-query-section {
-    padding: 20px;
+    padding: 10px;
   }
   
   .date-input-row {
@@ -1041,7 +1042,7 @@ export default {
   }
   
   .day-cell {
-    padding: 10px 5px;
+    padding: 10px;
   }
   
   .quick-buttons {
@@ -1058,5 +1059,20 @@ export default {
   .table-row > div {
     padding: 5px 0;
   }
+}
+/* Input 输入框统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"] {
+  background: #fff;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
 }
 </style>

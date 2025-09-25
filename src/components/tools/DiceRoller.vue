@@ -196,11 +196,12 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref, computed, getCurrentInstance } from 'vue'
 
 export default {
   name: 'DiceRoller',
   setup() {
+    const instance = getCurrentInstance()
     const diceCount = ref(1)
     const diceType = ref('20')
     const customSides = ref(6)
@@ -230,7 +231,7 @@ export default {
     }
 
     // 自定义投掷
-    const rollCustom = () => {
+    const rollCustom = async () => {
       const sides = diceType.value === 'custom' ? customSides.value : parseInt(diceType.value)
       const dice = []
       let total = 0
@@ -260,13 +261,13 @@ export default {
     }
 
     // 公式投掷
-    const rollFormula = () => {
+    const rollFormula = async () => {
       try {
         const result = parseAndRollFormula(formula.value)
         lastRoll.value = result
         addToHistory(result)
       } catch (error) {
-        alert('无效的投掷公式，请检查格式')
+        instance.proxy.$message.success('无效的投掷公式，请检查格式')
       }
     }
 
@@ -311,7 +312,7 @@ export default {
     }
 
     // 重投
-    const reroll = () => {
+    const reroll = async () => {
       if (lastRoll.value) {
         if (lastRoll.value.formula.includes('d')) {
           rollFormula()
@@ -322,12 +323,12 @@ export default {
     }
 
     // 保存投掷
-    const saveRoll = () => {
+    const saveRoll = async () => {
       if (lastRoll.value) {
         // 简单实现：复制到剪贴板
         const rollText = `${lastRoll.value.formula}: ${lastRoll.value.total}`
         navigator.clipboard.writeText(rollText).then(() => {
-          alert('投掷结果已复制到剪贴板')
+          instance.proxy.$message.success('投掷结果已复制到剪贴板')
         })
       }
     }
@@ -347,14 +348,14 @@ export default {
     }
 
     // 清空历史
-    const clearHistory = () => {
-      if (confirm('确定要清空投掷历史吗？')) {
+    const clearHistory = async () => {
+      if (await instance.proxy.$message.confirm('确定要清空投掷历史吗？')) {
         rollHistory.value = []
       }
     }
 
     // 导出历史
-    const exportHistory = () => {
+    const exportHistory = async () => {
       const exportData = {
         history: rollHistory.value,
         exportedAt: new Date().toISOString()
@@ -436,7 +437,8 @@ export default {
 
 .tool-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
@@ -452,7 +454,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .preset-dice,
@@ -468,7 +470,7 @@ export default {
 .custom-roll h4,
 .formula-roll h4 {
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .dice-buttons {
@@ -503,7 +505,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .input-group {
@@ -550,7 +552,7 @@ export default {
 .formula-inputs {
   display: flex;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .formula-input {
@@ -603,7 +605,7 @@ export default {
 }
 
 .roll-result {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .result-card {
@@ -615,7 +617,7 @@ export default {
 
 .result-header {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .result-header h3 {
@@ -630,7 +632,7 @@ export default {
 }
 
 .individual-dice {
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   text-align: center;
 }
 
@@ -671,7 +673,7 @@ export default {
 
 .total-result {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .total-label {
@@ -699,7 +701,7 @@ export default {
 
 .result-breakdown {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .breakdown-label {
@@ -725,19 +727,19 @@ export default {
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .roll-history h4,
 .statistics h4 {
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .history-controls {
   display: flex;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .history-list {
@@ -799,7 +801,7 @@ export default {
 
 .stat-item {
   text-align: center;
-  padding: 1rem;
+  padding: 10px;
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
   border-radius: 8px;
@@ -815,5 +817,20 @@ export default {
 .stat-label {
   color: var(--text-secondary);
   font-size: 0.9rem;
+}
+/* Input 输入框统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"] {
+  background: #fff;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
 }
 </style>

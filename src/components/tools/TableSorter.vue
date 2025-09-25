@@ -612,23 +612,24 @@ iPad Air,平板,4399,110,2023-03-05`,
 .tool-container {
   max-width: 1600px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 10px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+  padding: 10px;
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: white;
-  padding: 40px 32px;
+  padding: 10px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
 }
 
 .header-icon {
   font-size: 48px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   opacity: 0.9;
 }
 
@@ -650,7 +651,7 @@ iPad Air,平板,4399,110,2023-03-05`,
   align-items: center;
   justify-content: center;
   gap: 12px;
-  margin-top: 24px;
+  margin-top: 10px;
   flex-wrap: wrap;
 }
 
@@ -663,7 +664,7 @@ iPad Air,平板,4399,110,2023-03-05`,
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
-  padding: 8px 16px;
+  padding: 10px;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -679,8 +680,8 @@ iPad Air,平板,4399,110,2023-03-05`,
 .input-card, .table-card, .help-card, .success-card, .error-card {
   background: white;
   border-radius: 16px;
-  padding: 24px;
-  margin-bottom: 24px;
+  padding: 10px;
+  margin-bottom: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
@@ -690,7 +691,7 @@ iPad Air,平板,4399,110,2023-03-05`,
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-bottom: 16px;
   border-bottom: 2px solid #f8fafc;
 }
@@ -714,7 +715,7 @@ iPad Air,平板,4399,110,2023-03-05`,
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   color: #4a5568;
-  padding: 8px 12px;
+  padding: 10px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 12px;
@@ -733,7 +734,7 @@ iPad Air,平板,4399,110,2023-03-05`,
 .data-input {
   width: 100%;
   min-height: 200px;
-  padding: 16px;
+  padding: 10px;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
   font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
@@ -771,7 +772,7 @@ iPad Air,平板,4399,110,2023-03-05`,
 }
 
 .format-select {
-  padding: 8px 12px;
+  padding: 10px;
   border: 1px solid #e2e8f0;
   border-radius: 6px;
   font-size: 14px;
@@ -784,6 +785,11 @@ iPad Air,平板,4399,110,2023-03-05`,
   font-size: 14px;
   font-weight: 500;
   color: #4a5568;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
 }
 
 .checkbox-label input[type="checkbox"] {
@@ -801,7 +807,7 @@ iPad Air,平板,4399,110,2023-03-05`,
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .search-section {
@@ -841,7 +847,7 @@ iPad Air,平板,4399,110,2023-03-05`,
 
 .filter-section {
   background: #f8fafc;
-  padding: 16px;
+  padding: 10px;
   border-radius: 12px;
   border: 1px solid #e2e8f0;
 }
@@ -865,7 +871,7 @@ iPad Air,平板,4399,110,2023-03-05`,
 }
 
 .filter-input {
-  padding: 8px 12px;
+  padding: 10px;
   border: 1px solid #e2e8f0;
   border-radius: 6px;
   font-size: 14px;
@@ -896,7 +902,7 @@ iPad Air,平板,4399,110,2023-03-05`,
 }
 
 .page-size-select {
-  padding: 8px 12px;
+  padding: 10px;
   border: 1px solid #e2e8f0;
   border-radius: 6px;
   font-size: 14px;
@@ -906,7 +912,7 @@ iPad Air,平板,4399,110,2023-03-05`,
   overflow-x: auto;
   border-radius: 12px;
   border: 1px solid #e2e8f0;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .data-table {
@@ -917,7 +923,7 @@ iPad Air,平板,4399,110,2023-03-05`,
 
 .sortable-header {
   background: #f8fafc;
-  padding: 12px 16px;
+  padding: 10px;
   text-align: left;
   cursor: pointer;
   user-select: none;
@@ -967,7 +973,7 @@ iPad Air,平板,4399,110,2023-03-05`,
 }
 
 .data-row td {
-  padding: 12px 16px;
+  padding: 10px;
   max-width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -987,7 +993,7 @@ iPad Air,平板,4399,110,2023-03-05`,
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   color: #4a5568;
-  padding: 8px 12px;
+  padding: 10px;
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
@@ -1037,7 +1043,7 @@ iPad Air,平板,4399,110,2023-03-05`,
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: white;
   border: none;
-  padding: 12px 24px;
+  padding: 10px;
   border-radius: 12px;
   cursor: pointer;
   font-weight: 500;
@@ -1091,7 +1097,7 @@ iPad Air,平板,4399,110,2023-03-05`,
 }
 
 .help-section li {
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   color: #4a5568;
   line-height: 1.4;
 }
@@ -1100,7 +1106,7 @@ iPad Air,平板,4399,110,2023-03-05`,
   margin: 0;
   background: #1f2937;
   color: #f9fafb;
-  padding: 12px;
+  padding: 10px;
   border-radius: 6px;
   font-size: 12px;
   overflow-x: auto;
@@ -1109,7 +1115,7 @@ iPad Air,平板,4399,110,2023-03-05`,
 
 @media (max-width: 768px) {
   .tool-container {
-    padding: 16px;
+    padding: 10px;
   }
   
   .help-content {

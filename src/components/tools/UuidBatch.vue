@@ -99,11 +99,12 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, getCurrentInstance } from 'vue'
 
 export default {
   name: 'UuidBatch',
   setup() {
+    const instance = getCurrentInstance()
     const version = ref('v4')
     const format = ref('standard')
     const count = ref(10)
@@ -111,7 +112,7 @@ export default {
     const uuids = ref([])
 
     // 生成 UUID v4
-    const generateUUIDv4 = () => {
+    const generateUUIDv4 = async () => {
       return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
         const r = Math.random() * 16 | 0
         const v = c === 'x' ? r : (r & 0x3 | 0x8)
@@ -120,7 +121,7 @@ export default {
     }
 
     // 生成 UUID v1 (简化版)
-    const generateUUIDv1 = () => {
+    const generateUUIDv1 = async () => {
       const now = Date.now()
       const clockSeq = Math.random() * 0x3fff | 0
       const node = Array.from({length: 6}, () => Math.random() * 255 | 0)
@@ -152,7 +153,7 @@ export default {
     }
 
     // 生成 UUID
-    const generateUUID = () => {
+    const generateUUID = async () => {
       let uuid
       
       switch (version.value) {
@@ -167,7 +168,7 @@ export default {
     }
 
     // 批量生成 UUIDs
-    const generateUUIDs = () => {
+    const generateUUIDs = async () => {
       const newUUIDs = []
       
       for (let i = 0; i < count.value; i++) {
@@ -204,14 +205,14 @@ export default {
       
       try {
         await navigator.clipboard.writeText(uuidList)
-        alert(`已复制 ${uuids.value.length} 个 UUID 到剪贴板`)
+        instance.proxy.$message.success(`已复制 ${uuids.value.length} 个 UUID 到剪贴板`)
       } catch (error) {
         console.error('复制失败:', error)
       }
     }
 
     // 导出 UUIDs
-    const exportUUIDs = () => {
+    const exportUUIDs = async () => {
       const exportData = {
         uuids: uuids.value,
         metadata: {
@@ -237,8 +238,8 @@ export default {
     }
 
     // 清空 UUIDs
-    const clearUUIDs = () => {
-      if (confirm('确定要清空所有 UUID 吗？')) {
+    const clearUUIDs = async () => {
+      if (await instance.proxy.$message.confirm('确定要清空所有 UUID 吗？')) {
         uuids.value = []
       }
     }
@@ -280,7 +281,8 @@ export default {
 
 .tool-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
@@ -296,7 +298,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   padding: 1.5rem;
   background: var(--bg-secondary);
   border-radius: 8px;
@@ -323,6 +325,11 @@ export default {
   color: var(--text-primary);
 }
 
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+
 .control-group input[type="checkbox"] {
   width: 20px;
   height: 20px;
@@ -332,7 +339,7 @@ export default {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   flex-wrap: wrap;
 }
 
@@ -394,14 +401,14 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .stat-card {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 1rem;
+  padding: 10px;
   text-align: center;
 }
 
@@ -426,7 +433,7 @@ export default {
 
 .uuid-display h4 {
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .uuid-list {
@@ -485,5 +492,31 @@ export default {
 .remove-btn:hover {
   background: #dc3545;
   color: white;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Input 和 Select 统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+select {
+  background: #fff;
 }
 </style>

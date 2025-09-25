@@ -608,4 +608,19 @@ export default {
     grid-template-columns: 1fr;
   }
 }
+/* Input 输入框统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"] {
+  background: #fff;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
 </style>

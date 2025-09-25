@@ -278,12 +278,13 @@ export default {
 <style scoped>
 .color-picker-container {
   max-width: 100%;
-  padding: 1rem;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h2 {
@@ -300,7 +301,7 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .color-input-section, .manual-input-section {
@@ -344,7 +345,7 @@ export default {
 }
 
 .color-info {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .color-info h3 {
@@ -392,7 +393,7 @@ export default {
 }
 
 .color-palette, .saved-colors {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .color-palette h3, .saved-colors h3 {
@@ -422,7 +423,7 @@ export default {
 .actions {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .save-btn, .clear-btn {

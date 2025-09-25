@@ -614,12 +614,13 @@ export default {
 .countdown-timer-tool {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
@@ -636,13 +637,13 @@ export default {
 .create-timer-section {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 20px;
-  padding: 30px;
-  margin-bottom: 30px;
+  padding: 10px;
+  margin-bottom: 10px;
   color: white;
 }
 
 .create-timer-section h4 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.3rem;
 }
 
@@ -672,7 +673,7 @@ export default {
 .name-input,
 .type-select,
 .datetime-input {
-  padding: 12px;
+  padding: 10px;
   border: none;
   border-radius: 10px;
   font-size: 1rem;
@@ -684,14 +685,14 @@ export default {
 .target-settings {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
-  padding: 20px;
+  padding: 10px;
 }
 
 .time-inputs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .time-input-group {
@@ -720,7 +721,7 @@ export default {
 }
 
 .preset-btn {
-  padding: 8px 15px;
+  padding: 10px;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 20px;
@@ -736,7 +737,7 @@ export default {
 }
 
 .target-inputs {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .notification-settings {
@@ -758,7 +759,7 @@ export default {
 }
 
 .create-btn {
-  padding: 15px 30px;
+  padding: 10px;
   background: #2ecc71;
   border: none;
   border-radius: 10px;
@@ -782,12 +783,12 @@ export default {
 }
 
 .active-timers-section {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .active-timers-section h4 {
   color: #2c3e50;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.3rem;
 }
 
@@ -800,7 +801,7 @@ export default {
 .timer-card {
   background: white;
   border-radius: 15px;
-  padding: 20px;
+  padding: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   border: 2px solid transparent;
@@ -830,7 +831,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .timer-name {
@@ -883,14 +884,14 @@ export default {
 
 .timer-display {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .time-remaining {
   font-size: 2.5rem;
   font-weight: 700;
   color: #2c3e50;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-family: 'Courier New', monospace;
 }
 
@@ -908,7 +909,7 @@ export default {
 }
 
 .timer-progress {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .progress-bar {
@@ -917,7 +918,7 @@ export default {
   background: #ecf0f1;
   border-radius: 4px;
   overflow: hidden;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .progress-fill {
@@ -948,7 +949,7 @@ export default {
 }
 
 .status-badge {
-  padding: 4px 12px;
+  padding: 10px;
   border-radius: 15px;
   font-size: 0.8rem;
   font-weight: 600;
@@ -977,13 +978,13 @@ export default {
 .history-section {
   background: #f8f9fa;
   border-radius: 15px;
-  padding: 25px;
-  margin-bottom: 30px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .history-section h4 {
   color: #2c3e50;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.3rem;
 }
 
@@ -991,13 +992,13 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .history-item {
   background: white;
   border-radius: 10px;
-  padding: 15px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1032,7 +1033,7 @@ export default {
 }
 
 .recreate-btn {
-  padding: 6px 12px;
+  padding: 10px;
   background: #3498db;
   color: white;
   border: none;
@@ -1047,7 +1048,7 @@ export default {
 }
 
 .clear-history-btn {
-  padding: 10px 20px;
+  padding: 10px;
   background: #e74c3c;
   color: white;
   border: none;
@@ -1064,12 +1065,12 @@ export default {
 .stats-section {
   background: #f8f9fa;
   border-radius: 15px;
-  padding: 25px;
+  padding: 10px;
 }
 
 .stats-section h4 {
   color: #2c3e50;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.3rem;
 }
 
@@ -1082,7 +1083,7 @@ export default {
 .stat-card {
   background: white;
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
@@ -1097,7 +1098,7 @@ export default {
   font-size: 2rem;
   font-weight: 700;
   color: #3498db;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .stat-label {
@@ -1112,7 +1113,7 @@ export default {
   transform: translate(-50%, -50%);
   background: white;
   border-radius: 15px;
-  padding: 30px;
+  padding: 10px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   text-align: center;
@@ -1122,7 +1123,7 @@ export default {
 .request-content i {
   font-size: 3rem;
   color: #3498db;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .request-content h5 {
@@ -1133,7 +1134,7 @@ export default {
 
 .request-content p {
   color: #7f8c8d;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   line-height: 1.5;
 }
 
@@ -1144,7 +1145,7 @@ export default {
 }
 
 .allow-btn {
-  padding: 10px 25px;
+  padding: 10px;
   background: #2ecc71;
   color: white;
   border: none;
@@ -1159,7 +1160,7 @@ export default {
 }
 
 .deny-btn {
-  padding: 10px 25px;
+  padding: 10px;
   background: #95a5a6;
   color: white;
   border: none;
@@ -1175,11 +1176,11 @@ export default {
 
 @media (max-width: 768px) {
   .countdown-timer-tool {
-    padding: 15px;
+    padding: 10px;
   }
   
   .create-timer-section {
-    padding: 20px;
+    padding: 10px;
   }
   
   .form-row {
@@ -1229,5 +1230,27 @@ export default {
     margin: 20px;
     max-width: calc(100% - 40px);
   }
+}
+/* Input 输入框统一样式 */
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Input 和 Select 统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+select {
+  background: #fff;
 }
 </style>

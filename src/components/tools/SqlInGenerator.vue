@@ -144,6 +144,7 @@ import { ref, computed, watch } from 'vue'
 export default {
   name: 'SqlInGenerator',
   setup() {
+    const instance = getCurrentInstance()
     // 响应式数据
     const inputData = ref('')
     const fieldName = ref('id')
@@ -309,7 +310,7 @@ user_003
     const copyToClipboard = async (text) => {
       try {
         await navigator.clipboard.writeText(text)
-        alert('已复制到剪贴板！')
+        instance.proxy.$message.success('已复制到剪贴板！')
       } catch (err) {
         // 备用方法
         const textArea = document.createElement('textarea')
@@ -318,7 +319,7 @@ user_003
         textArea.select()
         document.execCommand('copy')
         document.body.removeChild(textArea)
-        alert('已复制到剪贴板！')
+        instance.proxy.$message.success('已复制到剪贴板！')
       }
     }
 
@@ -369,7 +370,7 @@ user_003
   background: #f8f9fa;
   border: 1px solid #e9ecef;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 10px;
   font-family: 'Courier New', monospace;
   white-space: pre-wrap;
   max-height: 300px;
@@ -474,5 +475,11 @@ user_003
   .result-actions {
     flex-direction: column;
   }
+}
+
+/* 工具头部样式 */
+.tool-header {
+  padding: 10px;
+  margin-bottom: 10px;
 }
 </style> 

@@ -32,11 +32,11 @@
         <label>方向 ({{ direction }}°)</label>
         <input 
           type="range" 
+          class="modern-slider direction-slider"
           v-model="direction" 
           min="0" 
           max="360" 
           @input="updateGradient"
-          class="direction-slider"
         >
         <div class="direction-presets">
           <button 
@@ -91,11 +91,11 @@
           >
           <input 
             type="range" 
+            class="modern-slider stop-position"
             v-model="stop.position" 
             min="0" 
             max="100"
             @input="updateGradient"
-            class="stop-position"
           >
           <span class="position-label">{{ stop.position }}%</span>
           <button 
@@ -243,12 +243,13 @@ export default {
 <style scoped>
 .gradient-maker-container {
   max-width: 100%;
-  padding: 1rem;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h2 {
@@ -262,7 +263,7 @@ export default {
 }
 
 .gradient-preview {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .preview-box {
@@ -270,7 +271,7 @@ export default {
   height: 200px;
   border-radius: 12px;
   border: 2px solid var(--border-color);
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .css-output {
@@ -281,7 +282,7 @@ export default {
 
 .css-textarea {
   flex: 1;
-  padding: 1rem;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   font-family: 'Courier New', monospace;
@@ -309,7 +310,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   padding: 1.5rem;
   background: var(--bg-surface);
   border-radius: 12px;
@@ -340,7 +341,7 @@ export default {
 .direction-slider,
 .stop-position {
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .direction-presets {
@@ -370,7 +371,7 @@ export default {
 }
 
 .color-stops {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   padding: 1.5rem;
   background: var(--bg-surface);
   border-radius: 12px;
@@ -381,7 +382,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .stops-header h3 {

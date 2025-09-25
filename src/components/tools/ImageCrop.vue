@@ -464,18 +464,19 @@ export default {
 .image-crop-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .upload-area {
   border: 2px dashed var(--border-color);
   border-radius: 12px;
-  padding: 60px 20px;
+  padding: 10px;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -490,7 +491,7 @@ export default {
 
 .upload-icon {
   font-size: 48px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .crop-editor {
@@ -511,7 +512,7 @@ export default {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -531,7 +532,7 @@ export default {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
 }
 
 .controls-panel h4 {
@@ -544,12 +545,12 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 8px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .ratio-btn,
 .preset-btn {
-  padding: 8px 12px;
+  padding: 10px;
   border: 1px solid var(--border-color);
   background: var(--bg-primary);
   color: var(--text-primary);
@@ -585,12 +586,12 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .control-group label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-size: 12px;
   font-weight: 600;
   color: var(--text-primary);
@@ -598,7 +599,7 @@ export default {
 
 .control-input {
   width: 100%;
-  padding: 8px 10px;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 4px;
   background: var(--bg-primary);
@@ -609,13 +610,13 @@ export default {
 .action-buttons {
   display: flex;
   gap: 10px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .crop-btn,
 .reset-btn {
   flex: 1;
-  padding: 10px 16px;
+  padding: 10px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -653,11 +654,11 @@ export default {
   max-height: 200px;
   border-radius: 8px;
   border: 1px solid var(--border-color);
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .download-btn {
-  padding: 10px 20px;
+  padding: 10px;
   background: var(--success-color);
   color: white;
   border: none;
@@ -686,5 +687,20 @@ export default {
   .action-buttons {
     flex-direction: column;
   }
+}
+/* Input 输入框统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"] {
+  background: #fff;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
 }
 </style>

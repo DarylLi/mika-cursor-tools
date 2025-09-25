@@ -247,6 +247,7 @@ import { ref, computed, watch } from 'vue'
 export default {
   name: 'MatrixMath',
   setup() {
+    const instance = getCurrentInstance()
     const selectedOperation = ref('add')
     const scalar = ref(1)
     const error = ref('')
@@ -611,7 +612,7 @@ export default {
         .join('')
       
       navigator.clipboard.writeText(matrixText).then(() => {
-        alert('结果已复制到剪贴板')
+        instance.proxy.$message.success('结果已复制到剪贴板')
       })
     }
     

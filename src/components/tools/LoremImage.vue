@@ -85,6 +85,7 @@ import { ref, onMounted, watch } from 'vue'
 export default {
   name: 'LoremImage',
   setup() {
+    const instance = getCurrentInstance()
     const width = ref(300)
     const height = ref(200)
     const bgColor = ref('#cccccc')
@@ -156,11 +157,11 @@ export default {
         canvas.toBlob(async (blob) => {
           const item = new ClipboardItem({ 'image/png': blob })
           await navigator.clipboard.write([item])
-          alert('图片已复制到剪贴板！')
+          instance.proxy.$message.success('图片已复制到剪贴板！')
         }, 'image/png')
       } catch (error) {
         console.error('复制失败:', error)
-        alert('复制失败，请使用下载功能')
+        instance.proxy.$message.success('复制失败，请使用下载功能')
       }
     }
 
@@ -200,7 +201,8 @@ export default {
 
 .tool-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
@@ -216,7 +218,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .config-group {
@@ -240,11 +242,11 @@ export default {
 }
 
 .preset-sizes {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .preset-sizes h4 {
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
@@ -283,15 +285,15 @@ export default {
 }
 
 .preview-section h4 {
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
 .image-preview {
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   border: 1px solid var(--border-color);
   border-radius: 4px;
-  padding: 1rem;
+  padding: 10px;
   background: var(--bg-secondary);
   display: inline-block;
 }

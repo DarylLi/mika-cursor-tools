@@ -223,6 +223,7 @@ import { ref, reactive, nextTick } from 'vue'
 export default {
   name: 'MarkdownToImage',
   setup() {
+    const instance = getCurrentInstance()
     // 响应式数据
     const markdownInput = ref(null)
     const previewContainer = ref(null)
@@ -607,9 +608,9 @@ if __name__ == "__main__":
         await navigator.clipboard.write([
           new ClipboardItem({ [blob.type]: blob })
         ])
-        alert('图片已复制到剪贴板！')
+        instance.proxy.$message.success('图片已复制到剪贴板！')
       } catch (error) {
-        alert('复制失败，请使用下载功能')
+        instance.proxy.$message.success('复制失败，请使用下载功能')
       }
     }
 
@@ -617,9 +618,9 @@ if __name__ == "__main__":
     const copyDataUrl = async () => {
       try {
         await navigator.clipboard.writeText(generatedImage.value.dataUrl)
-        alert('图片链接已复制到剪贴板！')
+        instance.proxy.$message.success('图片链接已复制到剪贴板！')
       } catch (error) {
-        alert('复制失败')
+        instance.proxy.$message.success('复制失败')
       }
     }
 
@@ -677,7 +678,7 @@ if __name__ == "__main__":
 .editor-toolbar {
   display: flex;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   padding: 0.5rem;
   background: white;
   border-radius: 8px;
@@ -706,7 +707,7 @@ if __name__ == "__main__":
   width: 100%;
   border: 1px solid #dee2e6;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 10px;
   font-family: 'Courier New', monospace;
   font-size: 0.9rem;
   line-height: 1.5;
@@ -731,7 +732,7 @@ if __name__ == "__main__":
 .markdown-preview h1, .markdown-preview h2, .markdown-preview h3 {
   color: #2c3e50;
   margin-top: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .markdown-preview code {
@@ -743,7 +744,7 @@ if __name__ == "__main__":
 
 .markdown-preview pre {
   background: #f8f9fa;
-  padding: 1rem;
+  padding: 10px;
   border-radius: 8px;
   overflow-x: auto;
 }
@@ -775,7 +776,7 @@ if __name__ == "__main__":
 
 .advanced-options {
   background: white;
-  padding: 1rem;
+  padding: 10px;
   border-radius: 8px;
   margin-bottom: 1.5rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -792,7 +793,7 @@ if __name__ == "__main__":
   background: linear-gradient(45deg, #007bff, #6610f2);
   color: white;
   border: none;
-  padding: 1rem 2rem;
+  padding: 10px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
@@ -856,7 +857,7 @@ if __name__ == "__main__":
   position: relative;
   background: white;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
@@ -909,7 +910,7 @@ if __name__ == "__main__":
 .error-message {
   background: #f8d7da;
   color: #721c24;
-  padding: 1rem;
+  padding: 10px;
   border-radius: 8px;
   margin: 1rem 0;
   border: 1px solid #f5c6cb;
@@ -958,5 +959,11 @@ if __name__ == "__main__":
   .image-result {
     align-items: center;
   }
+}
+
+/* 工具头部样式 */
+.tool-header {
+  padding: 10px;
+  margin-bottom: 10px;
 }
 </style> 

@@ -140,12 +140,13 @@ export default {
 .tool-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h2 {
@@ -155,21 +156,21 @@ export default {
 
 .input-section {
   background: var(--bg-secondary);
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .file-upload-area {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .upload-btn {
   background: var(--primary-color);
   color: white;
   border: none;
-  padding: 12px 24px;
+  padding: 10px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
@@ -191,7 +192,7 @@ export default {
 }
 
 .hash-options h4 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
@@ -215,7 +216,7 @@ export default {
 }
 
 .calculate-btn, .clear-btn {
-  padding: 12px 30px;
+  padding: 10px;
   border: none;
   border-radius: 8px;
   font-size: 16px;
@@ -250,19 +251,19 @@ export default {
 
 .results-section {
   background: var(--bg-secondary);
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .results-section h3 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
 .hash-result {
-  margin-bottom: 15px;
-  padding: 15px;
+  margin-bottom: 10px;
+  padding: 10px;
   background: var(--bg-primary);
   border-radius: 8px;
   border: 1px solid var(--border-color);
@@ -271,7 +272,7 @@ export default {
 .hash-label {
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .hash-value {
@@ -283,7 +284,7 @@ export default {
 .hash-value code {
   flex: 1;
   background: var(--bg-secondary);
-  padding: 8px 12px;
+  padding: 10px;
   border-radius: 4px;
   font-family: 'Consolas', 'Monaco', monospace;
   font-size: 13px;
@@ -292,7 +293,7 @@ export default {
 }
 
 .copy-btn {
-  padding: 6px 10px;
+  padding: 10px;
   background: var(--info-color);
   color: white;
   border: none;
@@ -308,13 +309,13 @@ export default {
 
 .note-section {
   background: var(--bg-secondary);
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
   margin-top: 20px;
 }
 
 .note-section h4 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
@@ -324,14 +325,14 @@ export default {
 }
 
 .note-section li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: var(--text-secondary);
 }
 
 .error-message {
   background: var(--danger-light);
   color: var(--danger-color);
-  padding: 15px;
+  padding: 10px;
   border-radius: 8px;
   margin-top: 15px;
   border: 1px solid var(--danger-color);

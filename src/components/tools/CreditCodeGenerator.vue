@@ -202,6 +202,7 @@ import { ref, computed, watch } from 'vue'
 export default {
   name: 'CreditCodeGenerator',
   setup() {
+    const instance = getCurrentInstance()
     // 响应式数据
     const registrationAuthority = ref('9')
     const organizationType = ref('4')
@@ -441,14 +442,14 @@ export default {
         validateCreditCode(code).valid
       ).length
       
-      alert(`验证完成：\n有效代码: ${validCount}\n总数: ${generatedCodes.value.length}`)
+      instance.proxy.$message.success(`验证完成：\n有效代码: ${validCount}\n总数: ${generatedCodes.value.length}`)
     }
 
     // 复制到剪贴板
     const copyToClipboard = async (text) => {
       try {
         await navigator.clipboard.writeText(text)
-        alert('已复制到剪贴板！')
+        instance.proxy.$message.success('已复制到剪贴板！')
       } catch (err) {
         const textArea = document.createElement('textarea')
         textArea.value = text
@@ -456,7 +457,7 @@ export default {
         textArea.select()
         document.execCommand('copy')
         document.body.removeChild(textArea)
-        alert('已复制到剪贴板！')
+        instance.proxy.$message.success('已复制到剪贴板！')
       }
     }
 
@@ -546,7 +547,7 @@ export default {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border-radius: 12px;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   font-family: 'Courier New', monospace;
   letter-spacing: 2px;
 }
@@ -559,7 +560,7 @@ export default {
 
 .breakdown-item {
   background: white;
-  padding: 1rem;
+  padding: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   text-align: center;
@@ -584,7 +585,7 @@ export default {
   overflow-y: auto;
   background: #f8f9fa;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 10px;
 }
 
 .batch-list {
@@ -670,7 +671,7 @@ export default {
 
 .validation-result {
   margin-top: 1rem;
-  padding: 1rem;
+  padding: 10px;
   background: white;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -681,7 +682,7 @@ export default {
   align-items: center;
   gap: 0.5rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .validation-status.valid {
@@ -779,5 +780,32 @@ export default {
   .validation-details {
     grid-template-columns: 1fr;
   }
+}
+
+/* 工具头部样式 */
+.tool-header {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Example Section 样式 */
+.example-section {
+  margin-top: 10px;
+}
+
+/* Input 输入框统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"] {
+  background: #fff;
+}
+
+/* Example Button 样式 */
+.example-btn {
+  margin-right: 10px;
 }
 </style> 

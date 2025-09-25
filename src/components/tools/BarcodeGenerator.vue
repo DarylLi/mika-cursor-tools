@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, getCurrentInstance } from 'vue'
 
 export default {
   name: 'BarcodeGenerator',
@@ -44,6 +44,7 @@ export default {
     toolData: Object
   },
   setup() {
+    const instance = getCurrentInstance()
     const barcodeText = ref('')
     const barcodeResult = ref('')
 
@@ -100,7 +101,7 @@ export default {
 
     const downloadBarcode = () => {
       // 简单的下载功能提示
-      alert('条形码下载功能需要更复杂的图像处理库。当前版本仅供展示。')
+      instance.proxy.$message.success('条形码下载功能需要更复杂的图像处理库。当前版本仅供展示。')
     }
 
     return {
@@ -178,7 +179,21 @@ export default {
   color: #1e40af;
   line-height: 1.5;
 }
+/* Example Section 样式 */
+.example-section {
+  margin-top: 10px;
+}
+/* Example Button 样式 */
+.example-btn {
+  margin-right: 10px;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
 </style>
+
 
 
 

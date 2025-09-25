@@ -134,12 +134,13 @@ export default {
 
 <style scoped>
 .contrast-checker-container {
-  padding: 1rem;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h2 {
@@ -151,7 +152,7 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .color-input-group label {
@@ -182,11 +183,11 @@ export default {
 }
 
 .preview-section {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .preview-card {
-  padding: 2rem;
+  padding: 10px;
   border-radius: 12px;
   border: 2px solid var(--border-color);
   text-align: center;
@@ -199,7 +200,7 @@ export default {
 .ratio-display {
   font-size: 3rem;
   font-weight: bold;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .ratio-number {
@@ -216,7 +217,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1rem;
+  padding: 10px;
   border-radius: 8px;
   border: 2px solid;
 }

@@ -291,12 +291,13 @@ export default {
 <style scoped>
 .hex-rgb-container {
   max-width: 100%;
-  padding: 1rem;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h2 {
@@ -313,7 +314,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   align-items: center;
 }
 
@@ -400,7 +401,7 @@ export default {
 }
 
 .additional-formats {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .additional-formats h3 {
@@ -441,7 +442,7 @@ export default {
 }
 
 .quick-colors {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .quick-colors h3 {

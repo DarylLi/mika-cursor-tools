@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, getCurrentInstance } from 'vue'
 
 export default {
   name: 'LoremIpsum',
@@ -37,6 +37,7 @@ export default {
     toolData: Object
   },
   setup() {
+    const instance = getCurrentInstance()
     const generateType = ref('paragraphs')
     const generateCount = ref(3)
     const loremResult = ref('')
@@ -170,7 +171,7 @@ export default {
     const copyResult = () => {
       if (loremResult.value) {
         navigator.clipboard.writeText(loremResult.value)
-        alert('已复制到剪贴板！')
+        instance.proxy.$message.success('已复制到剪贴板！')
       }
     }
 

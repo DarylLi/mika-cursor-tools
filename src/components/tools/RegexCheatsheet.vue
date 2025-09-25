@@ -158,22 +158,23 @@ export default {
 .regex-cheatsheet-tool {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
   font-size: 24px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
 .search-section {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .search-box {
@@ -203,7 +204,7 @@ export default {
 .categories {
   display: flex;
   gap: 10px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -212,7 +213,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 18px;
+  padding: 10px;
   background: var(--bg-secondary);
   border: 2px solid var(--border-color);
   border-radius: 25px;
@@ -238,7 +239,7 @@ export default {
 
 .regex-card {
   background: var(--bg-secondary);
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
   border: 1px solid var(--border-color);
   transition: all 0.3s;
@@ -253,7 +254,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .regex-header h4 {
@@ -266,7 +267,7 @@ export default {
   background: var(--accent-color);
   color: white;
   border: none;
-  padding: 8px 10px;
+  padding: 10px;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s;
@@ -279,9 +280,9 @@ export default {
 
 .regex-pattern {
   background: var(--bg-primary);
-  padding: 12px 15px;
+  padding: 10px;
   border-radius: 8px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   border-left: 4px solid var(--accent-color);
 }
 
@@ -295,7 +296,7 @@ export default {
 
 .regex-description {
   color: var(--text-secondary);
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   line-height: 1.5;
 }
 
@@ -314,7 +315,7 @@ export default {
 .example-tag {
   background: var(--bg-primary);
   color: var(--text-primary);
-  padding: 4px 10px;
+  padding: 10px;
   border-radius: 15px;
   font-family: 'Consolas', 'Monaco', monospace;
   font-size: 12px;
@@ -327,7 +328,7 @@ export default {
   }
   
   .category-btn {
-    padding: 8px 15px;
+    padding: 10px;
     font-size: 13px;
   }
   

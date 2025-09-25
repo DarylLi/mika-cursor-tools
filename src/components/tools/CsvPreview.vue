@@ -437,7 +437,8 @@ E004,赵六,人事部,11000,2023-04-05`
 }
 
 .tool-header {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .csv-gradient {
@@ -445,7 +446,7 @@ E004,赵六,人事部,11000,2023-04-05`
 }
 
 .header-gradient {
-  padding: 2rem;
+  padding: 10px;
   color: white;
   text-align: center;
   position: relative;
@@ -481,7 +482,7 @@ E004,赵六,人事部,11000,2023-04-05`
 }
 
 .tool-content {
-  padding: 2rem;
+  padding: 10px;
 }
 
 .section-header {
@@ -515,7 +516,7 @@ E004,赵六,人事部,11000,2023-04-05`
 .upload-area {
   border: 2px dashed var(--border-color);
   border-radius: 8px;
-  padding: 2rem;
+  padding: 10px;
   margin-bottom: 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -533,7 +534,7 @@ E004,赵六,人事部,11000,2023-04-05`
 
 .upload-content i {
   font-size: 3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   color: var(--primary-color);
 }
 
@@ -541,7 +542,7 @@ E004,赵六,人事部,11000,2023-04-05`
   display: flex;
   gap: 2rem;
   margin-bottom: 1.5rem;
-  padding: 1rem;
+  padding: 10px;
   background: var(--card-bg);
   border-radius: 8px;
 }
@@ -557,8 +558,10 @@ E004,赵六,人事部,11000,2023-04-05`
   color: var(--text-color);
 }
 
-.setting-row select,
+
 .setting-row input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
   padding: 0.3rem;
   border: 1px solid var(--border-color);
   border-radius: 4px;
@@ -579,7 +582,7 @@ E004,赵六,人事部,11000,2023-04-05`
 
 .input-group textarea {
   width: 100%;
-  padding: 1rem;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 8px;
   background: var(--input-bg);
@@ -591,7 +594,7 @@ E004,赵六,人事部,11000,2023-04-05`
 .example-buttons {
   display: flex;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .example-btn {
@@ -614,7 +617,7 @@ E004,赵六,人事部,11000,2023-04-05`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   gap: 1rem;
 }
 
@@ -682,7 +685,7 @@ E004,赵六,人事部,11000,2023-04-05`
 .data-table th {
   background: var(--primary-color);
   color: white;
-  padding: 1rem;
+  padding: 10px;
   text-align: left;
   font-weight: 600;
   cursor: pointer;
@@ -746,13 +749,13 @@ E004,赵六,人事部,11000,2023-04-05`
 
 .empty-state {
   text-align: center;
-  padding: 3rem;
+  padding: 10px;
   color: var(--text-muted);
 }
 
 .empty-state i {
   font-size: 4rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   opacity: 0.5;
 }
 

@@ -93,7 +93,8 @@
                 type="range" 
                 v-model="scalePercentage" 
                 min="10" 
-                max="500" 
+                max="500"
+                class="modern-slider" 
                 step="5"
                 @input="updateFromPercentage"
               />
@@ -167,7 +168,8 @@
                 type="range" 
                 v-model="quality" 
                 min="0.1" 
-                max="1" 
+                max="1"
+                class="modern-slider" 
                 step="0.05"
               />
               <span>{{ Math.round(quality * 100) }}%</span>
@@ -341,7 +343,7 @@ export default {
         
       } catch (error) {
         console.error('处理失败:', error)
-        alert('图片处理失败')
+        this.$message.success('图片处理失败')
       } finally {
         this.processing = false
       }
@@ -397,12 +399,13 @@ export default {
 .image-resize-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
@@ -418,7 +421,7 @@ export default {
 .upload-area {
   border: 2px dashed var(--border-color);
   border-radius: 12px;
-  padding: 60px 20px;
+  padding: 10px;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -434,7 +437,7 @@ export default {
 
 .upload-content .upload-icon {
   font-size: 48px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .upload-content p {
@@ -455,7 +458,7 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .preview-panel h4 {
@@ -468,7 +471,7 @@ export default {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 15px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -493,7 +496,7 @@ export default {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 25px;
+  padding: 10px;
 }
 
 .resize-methods h4 {
@@ -504,7 +507,7 @@ export default {
 .method-options {
   display: flex;
   gap: 20px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .method-option {
@@ -520,7 +523,7 @@ export default {
 }
 
 .control-group {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .control-group label {
@@ -604,7 +607,7 @@ export default {
 
 .percentage-input {
   width: 80px;
-  padding: 6px 10px;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   background: var(--bg-primary);
@@ -620,7 +623,9 @@ export default {
   font-weight: normal !important;
 }
 
-.lock-ratio-label input[type="checkbox"] {
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
   accent-color: var(--primary-color);
 }
 
@@ -631,12 +636,12 @@ export default {
 }
 
 .pixel-input-group label {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .pixel-input {
   width: 100%;
-  padding: 10px 12px;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   background: var(--bg-primary);
@@ -650,7 +655,7 @@ export default {
 }
 
 .preset-btn {
-  padding: 12px;
+  padding: 10px;
   border: 1px solid var(--border-color);
   background: var(--bg-primary);
   color: var(--text-primary);
@@ -667,7 +672,7 @@ export default {
 
 .preset-btn strong {
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
 }
 
 .preset-btn span {
@@ -757,7 +762,7 @@ export default {
 .download-btn,
 .reset-btn {
   flex: 1;
-  padding: 12px 24px;
+  padding: 10px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -788,7 +793,7 @@ export default {
 
 .tips-section {
   margin-top: 40px;
-  padding: 20px;
+  padding: 10px;
   background: var(--bg-secondary);
   border-radius: 12px;
   border: 1px solid var(--border-color);
@@ -806,12 +811,12 @@ export default {
 }
 
 .tips-section li {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 768px) {
   .image-resize-container {
-    padding: 15px;
+    padding: 10px;
   }
   
   .image-preview-container {
@@ -836,5 +841,124 @@ export default {
   .action-buttons {
     flex-direction: column;
   }
+}
+
+/* 现代化 Slider 样式 */
+.modern-slider {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, #e2e8f0 0%, #cbd5e1 100%);
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modern-slider:hover {
+  height: 10px;
+  background: linear-gradient(90deg, #d1d5db 0%, #9ca3af 100%);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.modern-slider:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.modern-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4), 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.modern-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5), 0 4px 8px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+}
+
+.modern-slider::-webkit-slider-thumb:active {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.6), 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.modern-slider::-webkit-slider-track {
+  height: 8px;
+  background: linear-gradient(90deg, #e2e8f0 0%, #cbd5e1 100%);
+  border-radius: 10px;
+  border: none;
+}
+
+/* Firefox 样式 */
+.modern-slider::-moz-range-track {
+  height: 8px;
+  background: linear-gradient(90deg, #e2e8f0 0%, #cbd5e1 100%);
+  border-radius: 10px;
+  border: none;
+}
+
+.modern-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4), 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modern-slider::-moz-range-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5), 0 4px 8px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+}
+
+.modern-slider::-moz-range-thumb:active {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.6), 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 深色主题适配 */
+:global(.dark-theme) .modern-slider {
+  background: linear-gradient(90deg, #374151 0%, #4b5563 100%);
+}
+
+:global(.dark-theme) .modern-slider:hover {
+  background: linear-gradient(90deg, #4b5563 0%, #6b7280 100%);
+}
+
+:global(.dark-theme) .modern-slider::-webkit-slider-track {
+  background: linear-gradient(90deg, #374151 0%, #4b5563 100%);
+}
+
+:global(.dark-theme) .modern-slider::-moz-range-track {
+  background: linear-gradient(90deg, #374151 0%, #4b5563 100%);
+}
+
+:global(.dark-theme) .modern-slider::-webkit-slider-thumb {
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  border-color: #1f2937;
+}
+
+:global(.dark-theme) .modern-slider::-webkit-slider-thumb:hover {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+:global(.dark-theme) .modern-slider::-moz-range-thumb {
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  border-color: #1f2937;
+}
+
+:global(.dark-theme) .modern-slider::-moz-range-thumb:hover {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
 }
 </style> 

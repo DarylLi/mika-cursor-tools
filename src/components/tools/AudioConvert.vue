@@ -284,7 +284,7 @@ export default {
 
       } catch (error) {
         console.error('转换失败:', error)
-        alert('音频转换失败')
+        this.$message.success('音频转换失败')
       } finally {
         file.converting = false
       }
@@ -364,7 +364,7 @@ export default {
         document.body.removeChild(a)
         URL.revokeObjectURL(url)
       } catch (error) {
-        alert('批量下载失败，请逐个下载')
+        this.$message.success('批量下载失败，请逐个下载')
       }
     },
 
@@ -409,18 +409,19 @@ export default {
 .audio-convert-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .upload-area {
   border: 2px dashed var(--border-color);
   border-radius: 12px;
-  padding: 60px 20px;
+  padding: 10px;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -435,12 +436,12 @@ export default {
 
 .upload-icon {
   font-size: 48px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .conversion-settings {
   margin: 30px 0;
-  padding: 25px;
+  padding: 10px;
   background: var(--bg-secondary);
   border-radius: 12px;
   border: 1px solid var(--border-color);
@@ -452,7 +453,7 @@ export default {
 }
 
 .format-selection {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .format-selection label {
@@ -468,7 +469,7 @@ export default {
 }
 
 .format-btn {
-  padding: 8px 16px;
+  padding: 10px;
   border: 2px solid var(--border-color);
   background: var(--bg-primary);
   color: var(--text-primary);
@@ -491,19 +492,19 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 20px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .setting-group label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-weight: 600;
   color: var(--text-primary);
 }
 
 .setting-select {
   width: 100%;
-  padding: 8px 12px;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   background: var(--bg-primary);
@@ -518,7 +519,7 @@ export default {
 .convert-all-btn,
 .download-all-btn,
 .clear-btn {
-  padding: 10px 20px;
+  padding: 10px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -551,14 +552,14 @@ export default {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
 }
 
 .file-info {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .file-icon {
@@ -585,7 +586,7 @@ export default {
 }
 
 .file-player {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .audio-control {
@@ -602,7 +603,7 @@ export default {
 .convert-btn,
 .download-btn,
 .remove-btn {
-  padding: 8px 16px;
+  padding: 10px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -646,7 +647,7 @@ export default {
 
 .format-info-section {
   margin-top: 40px;
-  padding: 20px;
+  padding: 10px;
   background: var(--bg-secondary);
   border-radius: 12px;
   border: 1px solid var(--border-color);
@@ -664,7 +665,7 @@ export default {
 }
 
 .format-info-item {
-  padding: 15px;
+  padding: 10px;
   background: var(--bg-primary);
   border-radius: 8px;
   border: 1px solid var(--border-color);
@@ -692,5 +693,20 @@ export default {
   .format-info-grid {
     grid-template-columns: 1fr;
   }
+}
+/* Input 输入框统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"] {
+  background: #fff;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
 }
 </style>

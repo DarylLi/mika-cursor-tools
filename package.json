@@ -17,10 +17,12 @@
     "vite": "^5.0.0"
   },
   "dependencies": {
+    "@mdi/font": "^7.4.47",
     "crypto-js": "^4.2.0",
     "jszip": "^3.10.1",
     "qrcode": "^1.5.3",
-    "vue": "^3.4.0"
+    "vue": "^3.4.0",
+    "vuetify": "^3.10.3"
   },
   "keywords": [
     "tools",

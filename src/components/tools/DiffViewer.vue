@@ -107,7 +107,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref, computed, getCurrentInstance } from 'vue'
 
 export default {
   name: 'DiffViewer',
@@ -115,6 +115,7 @@ export default {
     toolData: Object
   },
   setup() {
+    const instance = getCurrentInstance()
     const textA = ref('')
     const textB = ref('')
     const ignoreWhitespace = ref(false)
@@ -334,7 +335,7 @@ console.log('计算完成');`
 
     const copyDiff = () => {
       if (diffResult.value.length === 0) {
-        alert('没有差异结果可复制')
+        instance.proxy.$message.success('没有差异结果可复制')
         return
       }
       
@@ -343,12 +344,12 @@ console.log('计算完成');`
       ).join('\n')
       
       navigator.clipboard.writeText(result)
-      alert('差异结果已复制到剪贴板！')
+      instance.proxy.$message.success('差异结果已复制到剪贴板！')
     }
 
     const exportPatch = () => {
       if (diffResult.value.length === 0) {
-        alert('没有差异可导出')
+        instance.proxy.$message.success('没有差异可导出')
         return
       }
       
@@ -358,7 +359,7 @@ console.log('计算完成');`
       ).join('\n')
       
       navigator.clipboard.writeText(patch)
-      alert('Patch 格式已复制到剪贴板！')
+      instance.proxy.$message.success('Patch 格式已复制到剪贴板！')
     }
 
     const swapTexts = () => {
@@ -482,8 +483,8 @@ console.log('计算完成');`
   position: absolute;
   left: 4px;
   top: 1px;
-  width: 6px;
-  height: 10px;
+  width: 15px;
+  height: 20px;
   border: solid white;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
@@ -541,6 +542,11 @@ console.log('计算完成');`
   }
 }
 
+/* Example Section 样式 */
+.example-section {
+  margin-top: 10px;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
   .checkbox-group-horizontal {
@@ -552,5 +558,11 @@ console.log('计算完成');`
   .custom-checkbox-label {
     justify-content: flex-start;
   }
+}
+
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
 }
 </style> 

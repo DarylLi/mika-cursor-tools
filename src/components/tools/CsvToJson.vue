@@ -354,23 +354,24 @@ export default {
 .tool-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 10px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+  padding: 10px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 40px 32px;
+  padding: 10px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
 }
 
 .header-icon {
   font-size: 48px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   opacity: 0.9;
 }
 
@@ -392,7 +393,7 @@ export default {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  margin-top: 24px;
+  margin-top: 10px;
 }
 
 .example-label {
@@ -404,7 +405,7 @@ export default {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
-  padding: 8px 16px;
+  padding: 10px;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -421,8 +422,8 @@ export default {
 .config-card, .input-card, .output-card, .help-card, .error-card {
   background: white;
   border-radius: 16px;
-  padding: 24px;
-  margin-bottom: 24px;
+  padding: 10px;
+  margin-bottom: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
@@ -437,7 +438,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-bottom: 16px;
   border-bottom: 2px solid #f8fafc;
 }
@@ -462,12 +463,12 @@ export default {
   display: block;
   font-weight: 500;
   color: #4a5568;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .styled-select {
   width: 100%;
-  padding: 12px 16px;
+  padding: 10px;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
   background: white;
@@ -490,6 +491,11 @@ export default {
   font-weight: 500 !important;
   color: #4a5568 !important;
   margin: 0 !important;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
 }
 
 .checkbox-label input[type="checkbox"] {
@@ -533,7 +539,7 @@ export default {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
-  padding: 12px 20px;
+  padding: 10px;
   border-radius: 12px;
   cursor: pointer;
   font-weight: 500;
@@ -558,7 +564,7 @@ export default {
 
 .styled-textarea {
   width: 100%;
-  padding: 16px;
+  padding: 10px;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
   font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
@@ -603,7 +609,7 @@ export default {
 }
 
 .primary-btn, .secondary-btn {
-  padding: 14px 28px;
+  padding: 10px;
   border-radius: 12px;
   font-weight: 600;
   font-size: 16px;
@@ -664,7 +670,7 @@ export default {
 }
 
 .action-btn {
-  padding: 8px 16px;
+  padding: 10px;
   border: 2px solid #e2e8f0;
   background: white;
   color: #4a5568;
@@ -693,14 +699,14 @@ export default {
   background: #f8fafc;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
   font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
   font-size: 13px;
   line-height: 1.6;
   overflow-x: auto;
   max-height: 400px;
   overflow-y: auto;
-  margin-bottom: 24px;
+  margin-bottom: 10px;
 }
 
 .preview-section h4 {
@@ -726,7 +732,7 @@ export default {
 
 .preview-table th {
   background: #f8fafc;
-  padding: 12px 16px;
+  padding: 10px;
   text-align: left;
   font-weight: 600;
   color: #4a5568;
@@ -734,7 +740,7 @@ export default {
 }
 
 .preview-table td {
-  padding: 12px 16px;
+  padding: 10px;
   border-bottom: 1px solid #f1f5f9;
   color: #2d3748;
 }
@@ -744,7 +750,7 @@ export default {
 }
 
 .more-rows {
-  padding: 12px 16px;
+  padding: 10px;
   text-align: center;
   color: #718096;
   font-style: italic;
@@ -767,7 +773,7 @@ export default {
 
 .error-card strong {
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
 }
 
 .help-grid {
@@ -780,7 +786,7 @@ export default {
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  padding: 20px;
+  padding: 10px;
   background: #f8fafc;
   border-radius: 12px;
   transition: all 0.3s ease;
@@ -819,7 +825,7 @@ export default {
 
 @media (max-width: 768px) {
   .tool-container {
-    padding: 16px;
+    padding: 10px;
   }
   
   .options-grid {

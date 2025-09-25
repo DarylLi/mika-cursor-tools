@@ -126,11 +126,12 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, getCurrentInstance } from 'vue'
 
 export default {
   name: 'RandomColor',
   setup() {
+    const instance = getCurrentInstance()
     const colorSpace = ref('hex')
     const scheme = ref('random')
     const count = ref(6)
@@ -147,7 +148,7 @@ export default {
       '#FFFFFF': '白色', '#F0F8FF': '淡蓝色', '#FAEBD7': '古董白'
     }
 
-    const generateRandomColor = () => {
+    const generateRandomColor = async () => {
       let hue, saturation, lightness
       
       switch (scheme.value) {
@@ -281,7 +282,7 @@ export default {
       return Math.sqrt((r2-r1)**2 + (g2-g1)**2 + (b2-b1)**2)
     }
 
-    const generateColors = () => {
+    const generateColors = async () => {
       colors.value = []
       
       if (scheme.value === 'analogous') {
@@ -340,13 +341,13 @@ export default {
       
       try {
         await navigator.clipboard.writeText(colorList)
-        alert('所有颜色已复制到剪贴板！')
+        instance.proxy.$message.success('所有颜色已复制到剪贴板！')
       } catch (error) {
         console.error('复制失败:', error)
       }
     }
 
-    const exportColors = () => {
+    const exportColors = async () => {
       const exportData = {
         colors: colors.value,
         settings: {
@@ -383,8 +384,8 @@ export default {
       favoriteColors.value.splice(index, 1)
     }
 
-    const clearHistory = () => {
-      if (confirm('确定要清空所有收藏的颜色吗？')) {
+    const clearHistory = async () => {
+      if (await instance.proxy.$message.confirm('确定要清空所有收藏的颜色吗？')) {
         favoriteColors.value = []
       }
     }
@@ -447,7 +448,8 @@ export default {
 
 .tool-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
@@ -463,7 +465,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   padding: 1.5rem;
   background: var(--bg-secondary);
   border-radius: 8px;
@@ -490,6 +492,11 @@ export default {
   color: var(--text-primary);
 }
 
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+
 .control-group input[type="checkbox"] {
   width: 20px;
   height: 20px;
@@ -499,7 +506,7 @@ export default {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   flex-wrap: wrap;
 }
 
@@ -544,7 +551,7 @@ export default {
 
 .colors-display h4 {
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .colors-grid {
@@ -602,7 +609,7 @@ export default {
 }
 
 .color-info {
-  padding: 1rem;
+  padding: 10px;
 }
 
 .color-values {
@@ -661,7 +668,7 @@ export default {
 
 .favorites-section h4 {
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .favorites-grid {

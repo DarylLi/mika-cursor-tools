@@ -46,12 +46,12 @@
               <label>开始时间:</label>
               <input 
                 type="range" 
+                class="modern-slider time-slider"
                 :min="0" 
                 :max="duration" 
                 :step="0.1"
                 v-model="startTime"
                 @input="updateStartTime"
-                class="time-slider"
               />
               <span class="time-display">{{ formatTime(startTime) }}</span>
             </div>
@@ -60,12 +60,12 @@
               <label>结束时间:</label>
               <input 
                 type="range" 
+                class="modern-slider time-slider"
                 :min="0" 
                 :max="duration" 
                 :step="0.1"
                 v-model="endTime"
                 @input="updateEndTime"
-                class="time-slider"
               />
               <span class="time-display">{{ formatTime(endTime) }}</span>
             </div>
@@ -182,7 +182,7 @@ export default {
 
     loadVideo(file) {
       if (file.size > 100 * 1024 * 1024) { // 100MB
-        alert('文件太大，建议选择小于 100MB 的文件')
+        this.$message.success('文件太大，建议选择小于 100MB 的文件')
         return
       }
 
@@ -261,7 +261,7 @@ export default {
         
       } catch (error) {
         console.error('视频处理失败:', error)
-        alert('视频处理失败')
+        this.$message.success('视频处理失败')
       } finally {
         this.processing = false
       }
@@ -326,18 +326,19 @@ export default {
 .video-trim-container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .upload-area {
   border: 2px dashed var(--border-color);
   border-radius: 12px;
-  padding: 60px 20px;
+  padding: 10px;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -352,7 +353,7 @@ export default {
 
 .upload-icon {
   font-size: 48px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .video-editor {
@@ -371,26 +372,26 @@ export default {
 
 .timeline-section {
   margin-top: 20px;
-  padding: 20px;
+  padding: 10px;
   background: var(--bg-secondary);
   border-radius: 8px;
   border: 1px solid var(--border-color);
 }
 
 .time-range {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .time-range label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-weight: 600;
   color: var(--text-primary);
 }
 
 .time-slider {
   width: 100%;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .time-display {
@@ -418,7 +419,7 @@ export default {
 .preview-btn,
 .reset-btn {
   flex: 1;
-  padding: 8px 16px;
+  padding: 10px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -440,7 +441,7 @@ export default {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
 }
 
 .output-settings h4 {
@@ -449,12 +450,12 @@ export default {
 }
 
 .setting-group {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .setting-group label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-weight: 600;
   color: var(--text-primary);
 }
@@ -462,7 +463,7 @@ export default {
 .format-select,
 .quality-select {
   width: 100%;
-  padding: 8px 12px;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   background: var(--bg-primary);
@@ -478,7 +479,7 @@ export default {
 .trim-btn,
 .download-btn {
   flex: 1;
-  padding: 10px 16px;
+  padding: 10px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -523,7 +524,7 @@ export default {
 
 .warning-section {
   margin-top: 40px;
-  padding: 20px;
+  padding: 10px;
   background: rgba(255, 193, 7, 0.1);
   border: 1px solid #ffc107;
   border-radius: 12px;
@@ -549,5 +550,138 @@ export default {
   .action-buttons {
     flex-direction: column;
   }
+}
+/* 现代化 Slider 样式 */
+.modern-slider {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, #e2e8f0 0%, #cbd5e1 100%);
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modern-slider:hover {
+  height: 10px;
+  background: linear-gradient(90deg, #d1d5db 0%, #9ca3af 100%);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.modern-slider:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.modern-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4), 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.modern-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5), 0 4px 8px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+}
+
+.modern-slider::-webkit-slider-thumb:active {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.6), 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.modern-slider::-webkit-slider-track {
+  height: 8px;
+  background: linear-gradient(90deg, #e2e8f0 0%, #cbd5e1 100%);
+  border-radius: 10px;
+  border: none;
+}
+
+/* Firefox 样式 */
+.modern-slider::-moz-range-track {
+  height: 8px;
+  background: linear-gradient(90deg, #e2e8f0 0%, #cbd5e1 100%);
+  border-radius: 10px;
+  border: none;
+}
+
+.modern-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4), 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modern-slider::-moz-range-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5), 0 4px 8px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+}
+
+.modern-slider::-moz-range-thumb:active {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.6), 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 深色主题适配 */
+:global(.dark-theme) .modern-slider {
+  background: linear-gradient(90deg, #374151 0%, #4b5563 100%);
+}
+
+:global(.dark-theme) .modern-slider:hover {
+  background: linear-gradient(90deg, #4b5563 0%, #6b7280 100%);
+}
+
+:global(.dark-theme) .modern-slider::-webkit-slider-track {
+  background: linear-gradient(90deg, #374151 0%, #4b5563 100%);
+}
+
+:global(.dark-theme) .modern-slider::-moz-range-track {
+  background: linear-gradient(90deg, #374151 0%, #4b5563 100%);
+}
+
+:global(.dark-theme) .modern-slider::-webkit-slider-thumb {
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  border-color: #1f2937;
+}
+
+:global(.dark-theme) .modern-slider::-webkit-slider-thumb:hover {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+:global(.dark-theme) .modern-slider::-moz-range-thumb {
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  border-color: #1f2937;
+}
+
+:global(.dark-theme) .modern-slider::-moz-range-thumb:hover {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+/* Input 输入框统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"] {
+  background: #fff;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
 }
 </style>

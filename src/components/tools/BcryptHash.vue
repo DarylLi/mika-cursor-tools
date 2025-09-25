@@ -162,12 +162,13 @@ export default {
 .bcrypt-hash-tool {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h2 {
@@ -183,24 +184,24 @@ export default {
 .section {
   background: var(--bg-secondary);
   border-radius: 12px;
-  padding: 24px;
-  margin-bottom: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
   border: 1px solid var(--border-color);
 }
 
 .section h3 {
   color: var(--primary-color);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.2rem;
 }
 
 .input-group {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .input-group label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   font-weight: 500;
   color: var(--text-primary);
 }
@@ -214,7 +215,7 @@ export default {
 .password-input,
 .salt-input {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   border: 2px solid var(--border-color);
   border-radius: 8px;
   font-size: 14px;
@@ -272,7 +273,7 @@ export default {
 .hash-output {
   flex: 1;
   min-height: 80px;
-  padding: 12px;
+  padding: 10px;
   border: 2px solid var(--border-color);
   border-radius: 8px;
   font-family: 'Courier New', monospace;
@@ -283,7 +284,7 @@ export default {
 }
 
 .copy-btn {
-  padding: 12px;
+  padding: 10px;
   background: var(--primary-color);
   color: white;
   border: none;
@@ -307,7 +308,7 @@ export default {
 }
 
 .example-btn {
-  padding: 10px 20px;
+  padding: 10px;
   background: var(--accent-color);
   color: white;
   border: none;
@@ -324,7 +325,7 @@ export default {
 .warning-note {
   background: #fff3cd;
   color: #856404;
-  padding: 12px 16px;
+  padding: 10px;
   border-radius: 8px;
   border: 1px solid #ffeaa7;
   margin-top: 20px;
@@ -336,11 +337,11 @@ export default {
 
 @media (max-width: 768px) {
   .bcrypt-hash-tool {
-    padding: 15px;
+    padding: 10px;
   }
   
   .section {
-    padding: 16px;
+    padding: 10px;
   }
   
   .hash-result {
@@ -350,5 +351,20 @@ export default {
   .copy-btn {
     align-self: stretch;
   }
+}
+/* Input 输入框统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"] {
+  background: #fff;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
 }
 </style>

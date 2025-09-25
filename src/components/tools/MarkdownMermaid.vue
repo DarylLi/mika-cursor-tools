@@ -459,23 +459,24 @@ export default {
 .tool-container {
   max-width: 1600px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 10px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+  padding: 10px;
   background: linear-gradient(135deg, #06d6a0 0%, #118ab2 100%);
   color: white;
-  padding: 40px 32px;
+  padding: 10px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(6, 214, 160, 0.3);
 }
 
 .header-icon {
   font-size: 48px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   opacity: 0.9;
 }
 
@@ -510,7 +511,7 @@ export default {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
-  padding: 8px 16px;
+  padding: 10px;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -527,13 +528,13 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 10px;
 }
 
 .editor-card, .preview-card, .help-card, .success-card {
   background: white;
   border-radius: 16px;
-  padding: 24px;
+  padding: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
@@ -543,7 +544,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-bottom: 16px;
   border-bottom: 2px solid #f8fafc;
 }
@@ -565,7 +566,7 @@ export default {
 }
 
 .template-select {
-  padding: 8px 12px;
+  padding: 10px;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   font-size: 14px;
@@ -576,7 +577,7 @@ export default {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   color: #4a5568;
-  padding: 8px 12px;
+  padding: 10px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 12px;
@@ -600,7 +601,7 @@ export default {
 .code-editor {
   width: 100%;
   min-height: 400px;
-  padding: 16px;
+  padding: 10px;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
   font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
@@ -676,7 +677,7 @@ export default {
 
 .preview-placeholder i, .preview-error i {
   font-size: 48px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   opacity: 0.5;
 }
 
@@ -688,13 +689,13 @@ export default {
   font-size: 14px;
   font-family: monospace;
   background: #fef2f2;
-  padding: 8px 12px;
+  padding: 10px;
   border-radius: 6px;
   margin-top: 8px;
 }
 
 .preview-content {
-  padding: 20px;
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -728,7 +729,7 @@ export default {
   background: #f0fdf4;
   color: #16a34a;
   border: 1px solid #bbf7d0;
-  margin-bottom: 24px;
+  margin-bottom: 10px;
 }
 
 .help-card h4 {
@@ -758,7 +759,7 @@ export default {
 }
 
 .help-section li {
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   color: #4a5568;
   line-height: 1.4;
 }
@@ -780,7 +781,7 @@ export default {
   margin: 0;
   background: #1f2937;
   color: #f9fafb;
-  padding: 12px;
+  padding: 10px;
   border-radius: 6px;
   font-size: 12px;
   overflow-x: auto;
@@ -795,7 +796,7 @@ export default {
 
 @media (max-width: 768px) {
   .tool-container {
-    padding: 16px;
+    padding: 10px;
   }
   
   .help-content {

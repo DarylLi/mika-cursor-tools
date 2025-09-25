@@ -279,7 +279,7 @@ export default {
         this.spriteGenerated = true
       } catch (error) {
         console.error('生成雪碧图失败:', error)
-        alert('生成失败')
+        this.$message.success('生成失败')
       } finally {
         this.processing = false
       }
@@ -466,14 +466,14 @@ export default {
           document.body.removeChild(a)
           URL.revokeObjectURL(url)
         } catch (error) {
-          alert('下载失败')
+          this.$message.success('下载失败')
         }
       }
     },
 
     copyCss() {
       navigator.clipboard.writeText(this.cssContent).then(() => {
-        alert('CSS 已复制到剪贴板')
+        this.$message.success('CSS 已复制到剪贴板')
       })
     },
 
@@ -505,18 +505,19 @@ export default {
 .icon-spriter-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .upload-area {
   border: 2px dashed var(--border-color);
   border-radius: 12px;
-  padding: 60px 20px;
+  padding: 10px;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -531,12 +532,12 @@ export default {
 
 .upload-icon {
   font-size: 48px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .sprite-settings {
   margin: 30px 0;
-  padding: 25px;
+  padding: 10px;
   background: var(--bg-secondary);
   border-radius: 12px;
   border: 1px solid var(--border-color);
@@ -552,12 +553,12 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .setting-group label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-weight: 600;
   color: var(--text-primary);
 }
@@ -565,7 +566,7 @@ export default {
 .setting-select,
 .setting-input {
   width: 100%;
-  padding: 8px 12px;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   background: var(--bg-primary);
@@ -594,7 +595,7 @@ export default {
 .generate-btn,
 .download-btn,
 .clear-btn {
-  padding: 10px 20px;
+  padding: 10px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -622,7 +623,7 @@ export default {
 }
 
 .icons-preview h4 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
@@ -637,7 +638,7 @@ export default {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 15px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -683,7 +684,7 @@ export default {
 
 .sprite-preview {
   margin: 30px 0;
-  padding: 20px;
+  padding: 10px;
   background: var(--bg-secondary);
   border-radius: 12px;
   border: 1px solid var(--border-color);
@@ -705,7 +706,7 @@ export default {
   background: white;
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 20px;
+  padding: 10px;
   min-height: 200px;
   overflow: auto;
 }
@@ -713,7 +714,7 @@ export default {
 .sprite-info {
   background: var(--bg-primary);
   border-radius: 8px;
-  padding: 15px;
+  padding: 10px;
 }
 
 .sprite-info p {
@@ -727,7 +728,7 @@ export default {
 }
 
 .css-preview h4 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
@@ -740,7 +741,7 @@ export default {
 
 .code-container pre {
   margin: 0;
-  padding: 20px;
+  padding: 10px;
   overflow: auto;
   max-height: 300px;
   font-size: 14px;
@@ -751,7 +752,7 @@ export default {
   position: absolute;
   top: 10px;
   right: 10px;
-  padding: 6px 12px;
+  padding: 10px;
   background: var(--primary-color);
   color: white;
   border: none;
@@ -762,7 +763,7 @@ export default {
 
 .usage-guide {
   margin-top: 40px;
-  padding: 20px;
+  padding: 10px;
   background: var(--bg-secondary);
   border-radius: 12px;
   border: 1px solid var(--border-color);
@@ -782,7 +783,7 @@ export default {
 .guide-section {
   background: var(--bg-primary);
   border-radius: 8px;
-  padding: 15px;
+  padding: 10px;
 }
 
 .guide-section h5 {
@@ -813,5 +814,27 @@ export default {
   .icons-grid {
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   }
+}
+/* Input 输入框统一样式 */
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Input 和 Select 统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+select {
+  background: #fff;
 }
 </style>

@@ -211,6 +211,7 @@ import { ref, reactive } from 'vue'
 export default {
   name: 'WordToHtml',
   setup() {
+    const instance = getCurrentInstance()
     // 响应式数据
     const isDragOver = ref(false)
     const fileInfo = ref(null)
@@ -364,10 +365,10 @@ export default {
         body { font-family: 'Microsoft YaHei', Arial, sans-serif; line-height: 1.6; margin: 40px; }
         h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
         h2 { color: #34495e; margin-top: 30px; }
-        p { margin-bottom: 15px; text-align: justify; }
-        .highlight { background-color: #f39c12; color: white; padding: 2px 6px; border-radius: 3px; }
+        p { margin-bottom: 10px; text-align: justify; }
+        .highlight { background-color: #f39c12; color: white; padding: 10px; border-radius: 3px; }
         table { border-collapse: collapse; width: 100%; margin: 20px 0; }
-        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
         th { background-color: #f2f2f2; font-weight: bold; }
     </style>`
       }
@@ -480,7 +481,7 @@ export default {
     const copyToClipboard = async (text) => {
       try {
         await navigator.clipboard.writeText(text)
-        alert('已复制到剪贴板！')
+        instance.proxy.$message.success('已复制到剪贴板！')
       } catch (err) {
         const textArea = document.createElement('textarea')
         textArea.value = text
@@ -488,7 +489,7 @@ export default {
         textArea.select()
         document.execCommand('copy')
         document.body.removeChild(textArea)
-        alert('已复制到剪贴板！')
+        instance.proxy.$message.success('已复制到剪贴板！')
       }
     }
 
@@ -563,7 +564,7 @@ export default {
 .upload-area {
   border: 2px dashed #dee2e6;
   border-radius: 12px;
-  padding: 3rem 2rem;
+  padding: 10px;
   text-align: center;
   transition: all 0.3s ease;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -577,7 +578,7 @@ export default {
 .upload-icon {
   font-size: 3rem;
   color: #6c757d;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .upload-text {
@@ -613,7 +614,7 @@ export default {
 
 .info-item {
   background: white;
-  padding: 1rem;
+  padding: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
@@ -655,7 +656,7 @@ export default {
   background: linear-gradient(45deg, #28a745, #20c997);
   color: white;
   border: none;
-  padding: 1rem 2rem;
+  padding: 10px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
@@ -816,7 +817,7 @@ export default {
 .image-item {
   background: white;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   position: relative;
 }
@@ -862,7 +863,7 @@ export default {
 .error-message {
   background: #f8d7da;
   color: #721c24;
-  padding: 1rem;
+  padding: 10px;
   border-radius: 8px;
   margin: 1rem 0;
   border: 1px solid #f5c6cb;
@@ -915,5 +916,11 @@ export default {
   .images-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* 工具头部样式 */
+.tool-header {
+  padding: 10px;
+  margin-bottom: 10px;
 }
 </style> 

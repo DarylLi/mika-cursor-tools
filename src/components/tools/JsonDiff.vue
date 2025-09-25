@@ -324,26 +324,27 @@ export default {
 .json-diff-tool {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .input-section {
   background: var(--bg-secondary);
-  padding: 25px;
+  padding: 10px;
   border-radius: 12px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .json-inputs {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .input-group {
@@ -369,7 +370,7 @@ export default {
 }
 
 .action-btn {
-  padding: 6px 12px;
+  padding: 10px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -383,7 +384,7 @@ export default {
 .action-btn.primary {
   background: var(--accent-color);
   color: white;
-  padding: 10px 20px;
+  padding: 10px;
   font-size: 14px;
 }
 
@@ -396,7 +397,7 @@ export default {
 .json-textarea {
   width: 100%;
   height: 300px;
-  padding: 15px;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 8px;
   background: var(--bg-primary);
@@ -414,16 +415,16 @@ export default {
 
 .results-section {
   background: var(--bg-secondary);
-  padding: 25px;
+  padding: 10px;
   border-radius: 12px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .results-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-bottom: 15px;
   border-bottom: 1px solid var(--border-color);
 }
@@ -432,7 +433,7 @@ export default {
   background: var(--accent-color);
   color: white;
   border: none;
-  padding: 8px 15px;
+  padding: 10px;
   border-radius: 6px;
   cursor: pointer;
   display: flex;
@@ -448,7 +449,7 @@ export default {
 .diff-item {
   background: var(--bg-primary);
   border-radius: 10px;
-  padding: 15px;
+  padding: 10px;
   border-left: 4px solid;
 }
 
@@ -510,19 +511,19 @@ export default {
 
 .no-diff {
   text-align: center;
-  padding: 40px;
+  padding: 10px;
   color: #00b894;
 }
 
 .no-diff i {
   font-size: 48px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .error-section {
   background: #fff5f5;
   color: #e53e3e;
-  padding: 15px;
+  padding: 10px;
   border-radius: 8px;
   display: flex;
   align-items: center;

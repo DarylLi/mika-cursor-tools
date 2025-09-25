@@ -123,11 +123,12 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, getCurrentInstance } from 'vue'
 
 export default {
   name: 'FakeUser',
   setup() {
+    const instance = getCurrentInstance()
     const locale = ref('zh')
     const gender = ref('random')
     const count = ref(5)
@@ -264,7 +265,7 @@ export default {
     const copyUser = async (user) => {
       try {
         await navigator.clipboard.writeText(JSON.stringify(user, null, 2))
-        alert('用户信息已复制到剪贴板！')
+        instance.proxy.$message.success('用户信息已复制到剪贴板！')
       } catch (error) {
         console.error('复制失败:', error)
       }
@@ -273,7 +274,7 @@ export default {
     const copyAllUsers = async () => {
       try {
         await navigator.clipboard.writeText(JSON.stringify(users.value, null, 2))
-        alert('所有用户信息已复制到剪贴板！')
+        instance.proxy.$message.success('所有用户信息已复制到剪贴板！')
       } catch (error) {
         console.error('复制失败:', error)
       }
@@ -331,7 +332,8 @@ export default {
 
 .tool-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
@@ -347,7 +349,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   padding: 1.5rem;
   background: var(--bg-secondary);
   border-radius: 8px;
@@ -392,7 +394,7 @@ export default {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   flex-wrap: wrap;
 }
 
@@ -437,7 +439,7 @@ export default {
 
 .users-list h4 {
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .user-cards {
@@ -449,14 +451,14 @@ export default {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 1rem;
+  padding: 10px;
 }
 
 .user-header {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .user-avatar img {
@@ -498,7 +500,7 @@ export default {
 }
 
 .detail-section {
-  padding: 1rem;
+  padding: 10px;
   background: var(--bg-primary);
   border-radius: 4px;
   border: 1px solid var(--border-color);

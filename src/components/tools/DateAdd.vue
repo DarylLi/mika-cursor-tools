@@ -261,12 +261,13 @@ export default {
 .date-add-tool {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
@@ -283,8 +284,8 @@ export default {
 .main-calc-section {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 20px;
-  padding: 30px;
-  margin-bottom: 30px;
+  padding: 10px;
+  margin-bottom: 10px;
   color: white;
 }
 
@@ -302,13 +303,13 @@ export default {
 
 .base-date-group label {
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   min-width: 80px;
 }
 
 .datetime-input {
   flex: 1;
-  padding: 12px;
+  padding: 10px;
   border: none;
   border-radius: 10px;
   font-size: 1rem;
@@ -317,7 +318,7 @@ export default {
 }
 
 .current-btn {
-  padding: 12px 20px;
+  padding: 10px;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 10px;
@@ -369,7 +370,7 @@ export default {
 
 .unit-value {
   width: 60px;
-  padding: 8px;
+  padding: 10px;
   border: none;
   border-radius: 6px;
   text-align: center;
@@ -391,7 +392,7 @@ export default {
 }
 
 .preset-btn {
-  padding: 8px 15px;
+  padding: 10px;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 20px;
@@ -411,12 +412,12 @@ export default {
 }
 
 .result-section {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .result-section h4 {
   color: #2c3e50;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.3rem;
 }
 
@@ -429,7 +430,7 @@ export default {
 .result-card {
   background: white;
   border-radius: 15px;
-  padding: 20px;
+  padding: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
@@ -444,7 +445,7 @@ export default {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-weight: 600;
 }
 
@@ -464,12 +465,12 @@ export default {
 .batch-calc-section {
   background: #f8f9fa;
   border-radius: 15px;
-  padding: 25px;
+  padding: 10px;
 }
 
 .batch-calc-section h4 {
   color: #2c3e50;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.3rem;
 }
 
@@ -482,7 +483,7 @@ export default {
 .batch-item {
   background: white;
   border-radius: 10px;
-  padding: 15px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -502,11 +503,11 @@ export default {
 
 @media (max-width: 768px) {
   .date-add-tool {
-    padding: 15px;
+    padding: 10px;
   }
   
   .main-calc-section {
-    padding: 20px;
+    padding: 10px;
   }
   
   .base-date-group {
@@ -530,5 +531,20 @@ export default {
   .batch-grid {
     grid-template-columns: 1fr;
   }
+}
+/* Input 输入框统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"] {
+  background: #fff;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
 }
 </style>

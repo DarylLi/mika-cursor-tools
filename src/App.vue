@@ -1,42 +1,44 @@
 <template>
   <div id="app" :class="{ 'dark-theme': isDarkTheme }">
-    <header>
-      <div class="header-content">
-        <div class="header-left">
-          <h1><i class="fas fa-magic"></i> 通用工具瑞士军刀</h1>
-          <p>一站式实用工具集合 | Swiss Army Tools</p>
+    <!-- 主题切换按钮 -->
+    <button @click="toggleTheme" class="theme-toggle-btn" :title="isDarkTheme ? '切换到浅色模式' : '切换到深色模式'">
+      <i :class="isDarkTheme ? 'fas fa-sun' : 'fas fa-moon'"></i>
+    </button>
+
+    <header class="hero-banner">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">通用工具瑞士军刀</h1>
+          <p class="hero-subtitle">一站式实用工具集合 | Swiss Army Tools</p>
         </div>
-        <div class="header-right">
-          <button @click="toggleTheme" class="theme-toggle-btn" :title="isDarkTheme ? '切换到浅色模式' : '切换到深色模式'">
-            <i :class="isDarkTheme ? 'fas fa-sun' : 'fas fa-moon'"></i>
-          </button>
+        
+        <!-- 搜索框 -->
+        <div v-if="!currentTool && !currentSubTool" class="hero-search">
+          <div class="search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input 
+              type="text" 
+              v-model="searchQuery"
+              @input="performSearch"
+              placeholder="搜索工具... (支持工具名称、描述搜索)"
+              class="search-input"
+            />
+            <button 
+              v-if="searchQuery" 
+              @click="clearSearch"
+              class="clear-btn"
+              title="清空搜索">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
         </div>
       </div>
     </header>
 
-    <!-- 搜索工具功能 -->
-    <div class="search-section" v-if="!currentTool && !currentSubTool">
+    <!-- 搜索结果 -->
+    <div v-if="!currentTool && !currentSubTool && searchQuery && searchResults.length > 0" class="search-results-section">
       <div class="search-container">
-        <div class="search-box">
-          <i class="fas fa-search search-icon"></i>
-          <input 
-            type="text" 
-            v-model="searchQuery"
-            @input="performSearch"
-            placeholder="搜索工具... (支持工具名称、描述搜索)"
-            class="search-input"
-          />
-          <button 
-            v-if="searchQuery" 
-            @click="clearSearch"
-            class="clear-btn"
-            title="清空搜索">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-        
-        <!-- 搜索结果 -->
-        <div v-if="searchQuery && searchResults.length > 0" class="search-results">
+        <div class="search-results">
           <div class="search-results-header">
             <span>找到 {{ searchResults.length }} 个工具</span>
           </div>
@@ -60,9 +62,13 @@
             还有 {{ searchResults.length - 12 }} 个结果...
           </div>
         </div>
-        
-        <!-- 无搜索结果 -->
-        <div v-if="searchQuery && searchResults.length === 0" class="no-results">
+      </div>
+    </div>
+    
+    <!-- 无搜索结果 -->
+    <div v-if="!currentTool && !currentSubTool && searchQuery && searchResults.length === 0" class="no-results-section">
+      <div class="search-container">
+        <div class="no-results">
           <i class="fas fa-search"></i>
           <p>没有找到相关工具</p>
           <span>试试其他关键词？</span>
@@ -111,7 +117,7 @@
     <main>
       <!-- 工具分类列表 -->
       <div v-if="!currentTool" class="category-overview">
-        <h2 class="section-title">🛠️ 选择工具分类</h2>
+        <h2 class="section-title">选择工具分类</h2>
         <div class="category-grid">
           <div 
             v-for="tool in tools" 
@@ -1477,6 +1483,438 @@ export default {
 </script>
 
 <style scoped>
+/* Hero Banner 样式 */
+.hero-banner {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 夜间主题下的 Hero Banner */
+.dark-theme .hero-banner {
+  background: #1a1a1a;
+}
+
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* 夜间主题下隐藏光效 */
+.dark-theme .hero-banner::before {
+  display: none;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text {
+  margin-bottom: 3rem;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 1.5rem 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-weight: 400;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 主题切换按钮样式 */
+.theme-toggle-btn {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.theme-toggle-btn i {
+  font-size: 1.2rem;
+}
+
+/* 夜间主题下的主题切换按钮 */
+.dark-theme .theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #e0e0e0;
+}
+
+.dark-theme .theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+
+
+/* Hero 搜索框样式 */
+.hero-search {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  width:750px;
+}
+
+.hero-search .search-box {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.hero-search .search-icon {
+  position: absolute;
+  left: 1rem;
+  color: #6b7280;
+  z-index: 3;
+  font-size: 2rem;
+  top: 44%;
+  transform: translateY(-50%);
+}
+
+.hero-search .search-input {
+  width: 100%;
+  padding: 1.5rem 3.5rem 1.5rem 3.5rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+}
+
+.hero-search .search-input:focus {
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.15),
+    0 0 0 4px rgba(255, 255, 255, 0.1);
+  transform: none;
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.hero-search .search-input::placeholder {
+  color: #9ca3af;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.hero-search .clear-btn {
+  position: absolute;
+  right: 0.75rem;
+  background: linear-gradient(135deg, #f43f5e, #ec4899);
+  border: none;
+  border-radius: 50%;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 3;
+  box-shadow: 0 4px 12px rgba(244, 63, 94, 0.3);
+}
+
+.hero-search .clear-btn:hover {
+  background: linear-gradient(135deg, #dc2626, #be185d);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(244, 63, 94, 0.4);
+}
+
+/* 搜索结果区域样式 */
+.search-results-section {
+  background: white;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+
+.search-results-section .search-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.search-results-section .search-results {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.search-results-section .search-results-header {
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  color: #374151;
+  font-size: 1.1rem;
+}
+
+.search-results-section .search-results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-height: 450px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.search-results-section .search-results-grid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.search-results-section .search-results-grid::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+.search-results-section .search-results-grid::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 3px;
+}
+
+.search-results-section .search-result-item {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.search-results-section .search-result-item:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.15);
+  transform: translateY(-2px);
+}
+
+.search-results-section .result-icon {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.search-results-section .result-icon i {
+  font-size: 1.2rem;
+}
+
+.search-results-section .result-content h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.search-results-section .result-content p {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.search-results-section .result-category {
+  font-size: 0.75rem;
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  display: inline-block;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.search-results-section .search-more {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #6b7280;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* 无搜索结果区域样式 */
+.no-results-section {
+  background: white;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+
+.no-results-section .search-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.no-results-section .no-results {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.no-results-section .no-results i {
+  font-size: 4rem;
+  color: #d1d5db;
+  margin-bottom: 1.5rem;
+}
+
+.no-results-section .no-results p {
+  font-size: 1.2rem;
+  color: #374151;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.no-results-section .no-results span {
+  font-size: 1rem;
+  color: #6b7280;
+  font-weight: 400;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .hero-content {
+    padding: 0 1rem;
+  }
+  
+  .theme-toggle-btn {
+    top: 1rem;
+    right: 1rem;
+  }
+  
+  .hero-search {
+    margin-top: 2rem;
+  }
+  
+  .hero-search .search-input {
+    font-size: 2rem;
+    padding: 1rem 3rem 1rem 3rem;
+  }
+  
+  .search-results-section .search-results-grid {
+    grid-template-columns: 1fr;
+    max-height: 350px;
+  }
+  
+  .search-results-section .search-container {
+    padding: 0 1rem;
+  }
+  
+  .no-results-section .search-container {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-banner {
+    min-height: 50vh;
+  }
+  
+  .theme-toggle-btn {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .hero-search {
+    margin-top: 1.5rem;
+    width: 750px;
+  }
+  
+  .hero-search .search-input {
+    padding: 0.9rem 2.8rem 0.9rem 2.8rem;
+    font-size: 2rem;
+  }
+  
+  .hero-search .search-icon {
+    left: 1rem;
+    font-size: 2rem;
+  }
+  
+  .hero-search .clear-btn {
+    right: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
 /* 主导航栏样式 */
 .main-nav {
   background: transparent;
@@ -1960,6 +2398,102 @@ export default {
   .result-content p {
     font-size: 0.85rem;
   }
+}
+
+/* 工具头部样式 */
+.tool-header {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* 工具缩略图样式 */
+.tool-thumbnail {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.2);
+  transition: all 0.3s ease;
+}
+
+.tool-thumbnail i {
+  font-size: 1.2rem;
+}
+
+.tool-thumbnail:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* 面包屑导航样式 */
+.breadcrumb {
+  margin-top: 10px;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.breadcrumb-btn {
+  background: #fff;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.breadcrumb-btn:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.breadcrumb-separator {
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.breadcrumb-current {
+  color: #374151;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 8px;
+}
+
+/* 深色主题下的面包屑 */
+.dark-theme .breadcrumb {
+  background: rgb(0 0 0 / 0%);
+  border-bottom-color: rgb(0 0 0 / 0%);
+}
+
+.dark-theme .breadcrumb-btn {
+  color: #a78bfa;
+}
+
+.dark-theme .breadcrumb-btn:hover {
+  background: rgba(167, 139, 250, 0.1);
+  color: #c4b5fd;
+}
+
+.dark-theme .breadcrumb-separator {
+  color: #6b7280;
+}
+
+.dark-theme .breadcrumb-current {
+  color: #f1f5f9;
+  background: rgba(167, 139, 250, 0.2);
 }
 
 /* 深色主题适配 */

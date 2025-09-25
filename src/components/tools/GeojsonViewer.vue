@@ -526,23 +526,24 @@ export default {
 .tool-container {
   max-width: 1600px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 10px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+  padding: 10px;
   background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
   color: white;
-  padding: 40px 32px;
+  padding: 10px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
 }
 
 .header-icon {
   font-size: 48px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   opacity: 0.9;
 }
 
@@ -577,7 +578,7 @@ export default {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
-  padding: 8px 16px;
+  padding: 10px;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -594,13 +595,13 @@ export default {
   display: grid;
   grid-template-columns: 400px 1fr;
   gap: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 10px;
 }
 
 .editor-card, .map-card, .help-card, .success-card {
   background: white;
   border-radius: 16px;
-  padding: 24px;
+  padding: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
@@ -610,7 +611,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-bottom: 16px;
   border-bottom: 2px solid #f8fafc;
 }
@@ -634,7 +635,7 @@ export default {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   color: #4a5568;
-  padding: 8px 12px;
+  padding: 10px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 12px;
@@ -658,7 +659,7 @@ export default {
 .geojson-editor {
   width: 100%;
   height: 300px;
-  padding: 16px;
+  padding: 10px;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
   font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
@@ -725,10 +726,10 @@ export default {
 }
 
 .feature-item {
-  padding: 12px;
+  padding: 10px;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -749,7 +750,7 @@ export default {
   gap: 8px;
   font-weight: 600;
   color: #374151;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .feature-props {
@@ -762,7 +763,7 @@ export default {
   font-size: 12px;
   color: #6b7280;
   background: #f8fafc;
-  padding: 4px 8px;
+  padding: 10px;
   border-radius: 4px;
 }
 
@@ -786,7 +787,7 @@ export default {
 
 .map-placeholder i, .map-error i {
   font-size: 48px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   opacity: 0.5;
 }
 
@@ -816,7 +817,7 @@ export default {
   background: #f0fdf4;
   color: #16a34a;
   border: 1px solid #bbf7d0;
-  margin-bottom: 24px;
+  margin-bottom: 10px;
 }
 
 .help-card h4 {
@@ -846,7 +847,7 @@ export default {
 }
 
 .help-section li {
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   color: #4a5568;
   line-height: 1.4;
 }
@@ -855,7 +856,7 @@ export default {
   margin: 0;
   background: #1f2937;
   color: #f9fafb;
-  padding: 16px;
+  padding: 10px;
   border-radius: 8px;
   font-size: 12px;
   overflow-x: auto;
@@ -870,7 +871,7 @@ export default {
 
 @media (max-width: 768px) {
   .tool-container {
-    padding: 16px;
+    padding: 10px;
   }
   
   .help-content {

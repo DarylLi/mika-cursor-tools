@@ -130,11 +130,12 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, getCurrentInstance } from 'vue'
 
 export default {
   name: 'NameGenerator',
   setup() {
+    const instance = getCurrentInstance()
     const culture = ref('chinese')
     const gender = ref('random')
     const style = ref('common')
@@ -265,7 +266,7 @@ export default {
       const nameList = names.value.map(name => name.fullName).join('\n')
       try {
         await navigator.clipboard.writeText(nameList)
-        alert('所有姓名已复制到剪贴板！')
+        instance.proxy.$message.success('所有姓名已复制到剪贴板！')
       } catch (error) {
         console.error('复制失败:', error)
       }
@@ -309,8 +310,8 @@ export default {
       favoriteNames.value.splice(index, 1)
     }
 
-    const clearHistory = () => {
-      if (confirm('确定要清空所有收藏的姓名吗？')) {
+    const clearHistory = async () => {
+      if (await instance.proxy.$message.confirm('确定要清空所有收藏的姓名吗？')) {
         favoriteNames.value = []
       }
     }
@@ -368,7 +369,8 @@ export default {
 
 .tool-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
@@ -384,7 +386,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   padding: 1.5rem;
   background: var(--bg-secondary);
   border-radius: 8px;
@@ -411,6 +413,11 @@ export default {
   color: var(--text-primary);
 }
 
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+
 .control-group input[type="checkbox"] {
   width: 20px;
   height: 20px;
@@ -420,7 +427,7 @@ export default {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   flex-wrap: wrap;
 }
 
@@ -465,7 +472,7 @@ export default {
 
 .names-display h4 {
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .names-grid {
@@ -478,14 +485,14 @@ export default {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 1rem;
+  padding: 10px;
 }
 
 .name-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .name-header h5 {
@@ -573,7 +580,7 @@ export default {
 
 .favorites-section h4 {
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .favorites-list {

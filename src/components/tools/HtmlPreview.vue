@@ -263,21 +263,21 @@ ${'</' + 'div>'}`,
         css: `.container {
   max-width: 600px;
   margin: 50px auto;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
   font-family: Arial, sans-serif;
 }
 
 h1 {
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 button {
   background: #007cba;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 10px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
@@ -323,12 +323,12 @@ ${'</' + 'div>'}`,
 .card-header {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
 }
 
 .card-body {
-  padding: 30px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -370,7 +370,7 @@ ${'</' + 'div>'}`,
         css: `.app {
   max-width: 500px;
   margin: 30px auto;
-  padding: 20px;
+  padding: 10px;
   font-family: Arial, sans-serif;
 }
 
@@ -412,7 +412,7 @@ ${'</' + 'div>'}`,
 }
 
 .todo button {
-  padding: 10px 15px;
+  padding: 10px;
   background: #28a745;
   color: white;
   border: none;
@@ -594,23 +594,24 @@ function addTodo() {
 .tool-container {
   max-width: 1600px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 10px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+  padding: 10px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 40px 32px;
+  padding: 10px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
 }
 
 .header-icon {
   font-size: 48px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   opacity: 0.9;
 }
 
@@ -632,7 +633,7 @@ function addTodo() {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  margin-top: 24px;
+  margin-top: 10px;
   flex-wrap: wrap;
 }
 
@@ -645,7 +646,7 @@ function addTodo() {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
-  padding: 8px 16px;
+  padding: 10px;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -662,13 +663,13 @@ function addTodo() {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 10px;
 }
 
 .editor-card, .preview-card, .help-card, .success-card {
   background: white;
   border-radius: 16px;
-  padding: 24px;
+  padding: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
@@ -683,7 +684,7 @@ function addTodo() {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-bottom: 16px;
   border-bottom: 2px solid #f8fafc;
 }
@@ -707,7 +708,7 @@ function addTodo() {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   color: #4a5568;
-  padding: 8px 12px;
+  padding: 10px;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -723,11 +724,11 @@ function addTodo() {
 .editor-tabs {
   display: flex;
   gap: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .editor-tab {
-  padding: 12px 16px;
+  padding: 10px;
   border: none;
   background: #f8fafc;
   color: #4a5568;
@@ -745,7 +746,7 @@ function addTodo() {
 .code-editor {
   width: 100%;
   height: 300px;
-  padding: 16px;
+  padding: 10px;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
@@ -803,6 +804,11 @@ function addTodo() {
   transition: transform 0.3s ease;
 }
 
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+
 input[type="checkbox"]:checked + .toggle-slider {
   background: #667eea;
 }
@@ -812,12 +818,12 @@ input[type="checkbox"]:checked + .toggle-slider::before {
 }
 
 .device-selector {
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .device-select {
   width: 100%;
-  padding: 8px 12px;
+  padding: 10px;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   background: white;
@@ -865,7 +871,7 @@ input[type="checkbox"]:checked + .toggle-slider::before {
   background: rgba(0, 0, 0, 0.8);
   color: white;
   border: none;
-  padding: 12px 16px;
+  padding: 10px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
@@ -875,7 +881,7 @@ input[type="checkbox"]:checked + .toggle-slider::before {
   background: #f0fdf4;
   color: #16a34a;
   border: 1px solid #bbf7d0;
-  margin-bottom: 24px;
+  margin-bottom: 10px;
 }
 
 .help-card h4 {
@@ -892,7 +898,7 @@ input[type="checkbox"]:checked + .toggle-slider::before {
 }
 
 .help-card li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: #4a5568;
   line-height: 1.5;
 }
@@ -906,7 +912,7 @@ input[type="checkbox"]:checked + .toggle-slider::before {
 
 @media (max-width: 768px) {
   .tool-container {
-    padding: 16px;
+    padding: 10px;
   }
   
   .example-section {

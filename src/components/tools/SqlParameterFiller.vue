@@ -189,6 +189,7 @@ import { ref, computed, watch } from 'vue'
 export default {
   name: 'SqlParameterFiller',
   setup() {
+    const instance = getCurrentInstance()
     // 响应式数据
     const sqlTemplate = ref('')
     const parameters = ref('')
@@ -420,7 +421,7 @@ LIMIT ?`
     const copyToClipboard = async (text) => {
       try {
         await navigator.clipboard.writeText(text)
-        alert('已复制到剪贴板！')
+        instance.proxy.$message.success('已复制到剪贴板！')
       } catch (err) {
         const textArea = document.createElement('textarea')
         textArea.value = text
@@ -428,7 +429,7 @@ LIMIT ?`
         textArea.select()
         document.execCommand('copy')
         document.body.removeChild(textArea)
-        alert('已复制到剪贴板！')
+        instance.proxy.$message.success('已复制到剪贴板！')
       }
     }
 
@@ -462,9 +463,9 @@ LIMIT ?`
       const hasBasicStructure = hasSelect && hasFrom
 
       if (hasBasicStructure) {
-        alert('✅ SQL语法看起来正确！\n请在实际数据库中测试确认。')
+        instance.proxy.$message.success('✅ SQL语法看起来正确！\n请在实际数据库中测试确认。')
       } else {
-        alert('⚠️ SQL语法可能有问题，请检查：\n- 是否包含必要的关键字\n- 参数是否正确填充\n- 引号和括号是否匹配')
+        instance.proxy.$message.success('⚠️ SQL语法可能有问题，请检查：\n- 是否包含必要的关键字\n- 参数是否正确填充\n- 引号和括号是否匹配')
       }
     }
 
@@ -518,7 +519,7 @@ LIMIT ?`
   background: #f8f9fa;
   border: 1px solid #e9ecef;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 10px;
   font-family: 'Courier New', monospace;
   white-space: pre-wrap;
   max-height: 400px;
@@ -569,7 +570,7 @@ LIMIT ?`
 .batch-item {
   background: white;
   border-radius: 8px;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
@@ -599,7 +600,7 @@ LIMIT ?`
 }
 
 .batch-sql {
-  padding: 1rem;
+  padding: 10px;
   font-family: 'Courier New', monospace;
   white-space: pre-wrap;
   line-height: 1.4;
@@ -686,5 +687,11 @@ LIMIT ?`
   .info-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+/* 工具头部样式 */
+.tool-header {
+  padding: 10px;
+  margin-bottom: 10px;
 }
 </style> 

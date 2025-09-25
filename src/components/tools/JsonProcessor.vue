@@ -404,12 +404,13 @@ export default {
 .single-tool {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h2 {
@@ -425,7 +426,7 @@ export default {
 
 .example-section {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .example-btn {
@@ -433,7 +434,7 @@ export default {
   color: white;
   border: none;
   border-radius: 8px;
-  padding: 12px 24px;
+  padding: 10px;
   font-size: 1em;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -447,21 +448,21 @@ export default {
 .input-section {
   background: var(--bg-secondary);
   border-radius: 12px;
-  padding: 25px;
-  margin-bottom: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .input-section h3 {
   color: var(--text-primary);
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-size: 1.3em;
 }
 
 .json-input {
   width: 100%;
   min-height: 200px;
-  padding: 15px;
+  padding: 10px;
   border: 2px solid var(--border-color);
   border-radius: 8px;
   background: var(--bg-primary);
@@ -486,7 +487,7 @@ export default {
 }
 
 .control-panel button {
-  padding: 10px 20px;
+  padding: 10px;
   border: none;
   border-radius: 6px;
   font-size: 0.9em;
@@ -527,9 +528,9 @@ export default {
 }
 
 .status-indicator {
-  padding: 12px 20px;
+  padding: 10px;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-weight: 500;
 }
 
@@ -548,7 +549,7 @@ export default {
 .output-section {
   background: var(--bg-secondary);
   border-radius: 12px;
-  padding: 25px;
+  padding: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -556,7 +557,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   flex-wrap: wrap;
   gap: 15px;
 }
@@ -573,7 +574,7 @@ export default {
 }
 
 .view-btn {
-  padding: 8px 16px;
+  padding: 10px;
   border: 2px solid var(--border-color);
   border-radius: 6px;
   background: var(--bg-primary);
@@ -605,12 +606,12 @@ export default {
   display: flex;
   gap: 12px;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   flex-wrap: wrap;
 }
 
 .tree-control-btn {
-  padding: 8px 16px;
+  padding: 10px;
   background: var(--accent-color);
   color: white;
   border: none;
@@ -633,7 +634,7 @@ export default {
   background: var(--bg-primary);
   border: 2px solid var(--border-color);
   border-radius: 8px;
-  padding: 15px;
+  padding: 10px;
   min-height: 200px;
   overflow: auto;
   font-family: 'Courier New', monospace;
@@ -648,11 +649,11 @@ export default {
 .text-controls {
   display: flex;
   gap: 12px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .control-btn {
-  padding: 8px 16px;
+  padding: 10px;
   background: var(--accent-color);
   color: white;
   border: none;
@@ -669,7 +670,7 @@ export default {
   background: var(--bg-primary);
   border: 2px solid var(--border-color);
   border-radius: 8px;
-  padding: 20px;
+  padding: 10px;
   color: var(--text-primary);
   font-family: 'Courier New', monospace;
   font-size: 14px;
@@ -681,7 +682,7 @@ export default {
 
 @media (max-width: 768px) {
   .single-tool {
-    padding: 15px;
+    padding: 10px;
   }
   
   .control-panel {

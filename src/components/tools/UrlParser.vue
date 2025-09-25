@@ -570,23 +570,24 @@ export default {
 .tool-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 10px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+  padding: 10px;
   background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
   color: white;
-  padding: 40px 32px;
+  padding: 10px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
 }
 
 .header-icon {
   font-size: 48px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   opacity: 0.9;
 }
 
@@ -621,7 +622,7 @@ export default {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
-  padding: 8px 16px;
+  padding: 10px;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -637,8 +638,8 @@ export default {
 .input-card, .analysis-card, .tools-card, .help-card, .success-card, .error-card {
   background: white;
   border-radius: 16px;
-  padding: 24px;
-  margin-bottom: 24px;
+  padding: 10px;
+  margin-bottom: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
@@ -648,7 +649,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-bottom: 16px;
   border-bottom: 2px solid #f8fafc;
 }
@@ -672,7 +673,7 @@ export default {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   color: #4a5568;
-  padding: 8px 12px;
+  padding: 10px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 12px;
@@ -690,7 +691,7 @@ export default {
 
 .url-input {
   width: 100%;
-  padding: 16px 20px;
+  padding: 10px;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
   font-size: 16px;
@@ -741,7 +742,7 @@ export default {
 
 .analysis-section {
   background: #f8fafc;
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
   border: 1px solid #e2e8f0;
 }
@@ -781,7 +782,7 @@ export default {
   color: #1f2937;
   word-break: break-all;
   background: white;
-  padding: 4px 8px;
+  padding: 10px;
   border-radius: 4px;
   border: 1px solid #e2e8f0;
 }
@@ -807,7 +808,7 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr auto;
   gap: 16px;
-  padding: 8px 12px;
+  padding: 10px;
   background: #e2e8f0;
   border-radius: 6px;
   font-weight: 600;
@@ -819,7 +820,7 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr auto;
   gap: 16px;
-  padding: 8px 12px;
+  padding: 10px;
   background: white;
   border-radius: 6px;
   border: 1px solid #e2e8f0;
@@ -847,7 +848,7 @@ export default {
   background: #f3f4f6;
   border: 1px solid #d1d5db;
   color: #6b7280;
-  padding: 4px 8px;
+  padding: 10px;
   border-radius: 4px;
   cursor: pointer;
   font-size: 12px;
@@ -874,7 +875,7 @@ export default {
 
 .segment {
   background: white;
-  padding: 6px 12px;
+  padding: 10px;
   border-radius: 6px;
   border: 1px solid #e2e8f0;
   font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
@@ -894,7 +895,7 @@ export default {
 
 .hash-value {
   background: white;
-  padding: 8px 12px;
+  padding: 10px;
   border-radius: 6px;
   border: 1px solid #e2e8f0;
   font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
@@ -912,7 +913,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px;
+  padding: 10px;
   border-radius: 8px;
   font-weight: 500;
 }
@@ -937,7 +938,7 @@ export default {
 
 .tool-item {
   background: #f8fafc;
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
   border: 1px solid #e2e8f0;
 }
@@ -956,7 +957,7 @@ export default {
 }
 
 .tool-input {
-  padding: 12px 16px;
+  padding: 10px;
   border: 2px solid #e2e8f0;
   border-radius: 8px;
   font-size: 14px;
@@ -978,7 +979,7 @@ export default {
   background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
   color: white;
   border: none;
-  padding: 10px 16px;
+  padding: 10px;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 500;
@@ -996,7 +997,7 @@ export default {
   align-items: center;
   gap: 8px;
   background: white;
-  padding: 12px;
+  padding: 10px;
   border-radius: 6px;
   border: 1px solid #e2e8f0;
 }
@@ -1048,7 +1049,7 @@ export default {
 }
 
 .help-section li {
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   color: #4a5568;
   line-height: 1.4;
 }
@@ -1057,7 +1058,7 @@ export default {
   margin: 0;
   background: #1f2937;
   color: #f9fafb;
-  padding: 16px;
+  padding: 10px;
   border-radius: 8px;
   font-size: 12px;
   overflow-x: auto;
@@ -1066,7 +1067,7 @@ export default {
 
 @media (max-width: 768px) {
   .tool-container {
-    padding: 16px;
+    padding: 10px;
   }
   
   .help-content, .tools-grid {

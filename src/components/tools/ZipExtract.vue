@@ -172,12 +172,13 @@ export default {
 .tool-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h2 {
@@ -187,21 +188,21 @@ export default {
 
 .input-section {
   background: var(--bg-secondary);
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .file-upload-area {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .upload-btn {
   background: var(--primary-color);
   color: white;
   border: none;
-  padding: 12px 24px;
+  padding: 10px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
@@ -224,7 +225,7 @@ export default {
 }
 
 .extract-btn, .clear-btn {
-  padding: 12px 30px;
+  padding: 10px;
   border: none;
   border-radius: 8px;
   font-size: 16px;
@@ -259,13 +260,13 @@ export default {
 
 .file-list {
   background: var(--bg-secondary);
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .file-list h3 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
@@ -274,9 +275,9 @@ export default {
   justify-content: space-between;
   align-items: center;
   background: var(--bg-primary);
-  padding: 12px;
+  padding: 10px;
   border-radius: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   border: 1px solid var(--border-color);
 }
 
@@ -303,7 +304,7 @@ export default {
 }
 
 .download-btn {
-  padding: 6px 12px;
+  padding: 10px;
   background: var(--primary-color);
   color: white;
   border: none;
@@ -323,7 +324,7 @@ export default {
 }
 
 .download-all-btn {
-  padding: 10px 20px;
+  padding: 10px;
   background: var(--success-color);
   color: white;
   border: none;
@@ -340,13 +341,13 @@ export default {
 
 .note-section {
   background: var(--bg-secondary);
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
   margin-top: 20px;
 }
 
 .note-section h4 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
@@ -356,14 +357,14 @@ export default {
 }
 
 .note-section li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: var(--text-secondary);
 }
 
 .error-message {
   background: var(--danger-light);
   color: var(--danger-color);
-  padding: 15px;
+  padding: 10px;
   border-radius: 8px;
   margin-top: 15px;
   border: 1px solid var(--danger-color);

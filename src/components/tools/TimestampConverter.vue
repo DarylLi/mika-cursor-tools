@@ -545,7 +545,7 @@ export default {
 
 .time-item {
   background: white;
-  padding: 1rem;
+  padding: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   position: relative;
@@ -608,7 +608,7 @@ export default {
 
 .result-item {
   background: white;
-  padding: 1rem;
+  padding: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   position: relative;
@@ -668,7 +668,7 @@ export default {
 
 .calc-result {
   background: white;
-  padding: 1rem;
+  padding: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   position: relative;
@@ -694,7 +694,7 @@ export default {
 .error-message {
   background: #f8d7da;
   color: #721c24;
-  padding: 1rem;
+  padding: 10px;
   border-radius: 8px;
   margin: 1rem 0;
   border: 1px solid #f5c6cb;
@@ -743,5 +743,11 @@ export default {
   .calc-btn {
     width: 100%;
   }
+}
+
+/* 工具头部样式 */
+.tool-header {
+  padding: 10px;
+  margin-bottom: 10px;
 }
 </style> 

@@ -76,7 +76,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref, computed, getCurrentInstance } from 'vue'
 
 export default {
   name: 'HtmlToText',
@@ -84,6 +84,7 @@ export default {
     toolData: Object
   },
   setup() {
+    const instance = getCurrentInstance()
     const htmlInput = ref('')
     const textOutput = ref('')
     const preserveLineBreaks = ref(true)
@@ -231,7 +232,7 @@ export default {
     const copyText = () => {
       if (textOutput.value) {
         navigator.clipboard.writeText(textOutput.value)
-        alert('纯文本已复制到剪贴板！')
+        instance.proxy.$message.success('纯文本已复制到剪贴板！')
       }
     }
 

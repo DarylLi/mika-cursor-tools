@@ -385,12 +385,13 @@ export default {
 .working-days-tool {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
@@ -407,8 +408,8 @@ export default {
 .main-calc-section {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 20px;
-  padding: 30px;
-  margin-bottom: 30px;
+  padding: 10px;
+  margin-bottom: 10px;
   color: white;
 }
 
@@ -416,7 +417,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .input-group {
@@ -432,7 +433,7 @@ export default {
 
 .date-input,
 .schedule-select {
-  padding: 12px;
+  padding: 10px;
   border: none;
   border-radius: 10px;
   font-size: 1rem;
@@ -443,8 +444,8 @@ export default {
 .custom-schedule {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
-  padding: 20px;
-  margin-bottom: 25px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .weekdays-selector {
@@ -464,19 +465,19 @@ export default {
 .holidays-section {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
-  padding: 20px;
-  margin-bottom: 25px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .holidays-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .toggle-btn {
-  padding: 6px 12px;
+  padding: 10px;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 6px;
@@ -492,12 +493,12 @@ export default {
 .holiday-input {
   display: flex;
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .holiday-date-input {
   flex: 1;
-  padding: 8px;
+  padding: 10px;
   border: none;
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.9);
@@ -505,7 +506,7 @@ export default {
 }
 
 .add-btn {
-  padding: 8px 15px;
+  padding: 10px;
   background: #2ecc71;
   border: none;
   border-radius: 6px;
@@ -521,7 +522,7 @@ export default {
 
 .holiday-tag {
   background: rgba(255, 255, 255, 0.2);
-  padding: 4px 8px;
+  padding: 10px;
   border-radius: 15px;
   font-size: 0.8rem;
   display: flex;
@@ -548,7 +549,7 @@ export default {
 }
 
 .action-btn {
-  padding: 10px 20px;
+  padding: 10px;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 20px;
@@ -562,12 +563,12 @@ export default {
 }
 
 .result-section {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .result-section h4 {
   color: #2c3e50;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.3rem;
 }
 
@@ -575,13 +576,13 @@ export default {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .result-card {
   background: white;
   border-radius: 15px;
-  padding: 25px;
+  padding: 10px;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
@@ -594,7 +595,7 @@ export default {
 .result-number {
   font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .result-label {
@@ -605,7 +606,7 @@ export default {
 .progress-section {
   background: #f8f9fa;
   border-radius: 15px;
-  padding: 20px;
+  padding: 10px;
 }
 
 .progress-bar {
@@ -613,7 +614,7 @@ export default {
   background: #ecf0f1;
   border-radius: 10px;
   overflow: hidden;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   display: flex;
 }
 
@@ -655,12 +656,12 @@ export default {
 }
 
 .analysis-section {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .analysis-section h4 {
   color: #2c3e50;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.3rem;
 }
 
@@ -673,7 +674,7 @@ export default {
 .month-card {
   background: white;
   border-radius: 10px;
-  padding: 15px;
+  padding: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -708,12 +709,12 @@ export default {
 .tips-section {
   background: #f8f9fa;
   border-radius: 15px;
-  padding: 25px;
+  padding: 10px;
 }
 
 .tips-section h4 {
   color: #2c3e50;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.3rem;
 }
 
@@ -726,7 +727,7 @@ export default {
 .tip-card {
   background: white;
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   gap: 15px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -740,7 +741,7 @@ export default {
 
 .tip-content h5 {
   color: #2c3e50;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   font-size: 1rem;
 }
 
@@ -752,11 +753,11 @@ export default {
 
 @media (max-width: 768px) {
   .working-days-tool {
-    padding: 15px;
+    padding: 10px;
   }
   
   .main-calc-section {
-    padding: 20px;
+    padding: 10px;
   }
   
   .date-inputs {
@@ -774,5 +775,27 @@ export default {
   .tips-grid {
     grid-template-columns: 1fr;
   }
+}
+/* Input 输入框统一样式 */
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Input 和 Select 统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+select {
+  background: #fff;
 }
 </style>

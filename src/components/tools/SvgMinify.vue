@@ -388,7 +388,7 @@ export default {
         await this.addSvgFile(file)
         this.svgUrl = ''
       } catch (error) {
-        alert('获取 SVG 失败: ' + error.message)
+        this.$message.success('获取 SVG 失败: ' + error.message)
       } finally {
         this.loading = false
       }
@@ -410,7 +410,7 @@ export default {
         })
       } catch (error) {
         console.error('优化失败:', error)
-        alert('优化失败: ' + error.message)
+        this.$message.success('优化失败: ' + error.message)
       } finally {
         file.processing = false
       }
@@ -546,7 +546,7 @@ export default {
         document.body.removeChild(a)
         URL.revokeObjectURL(url)
       } catch (error) {
-        alert('批量下载失败，请逐个下载')
+        this.$message.success('批量下载失败，请逐个下载')
       }
     },
 
@@ -595,26 +595,27 @@ export default {
 .svg-minify-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .input-tabs {
   display: flex;
   gap: 2px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   background: var(--bg-primary);
   border-radius: 8px;
-  padding: 4px;
+  padding: 10px;
 }
 
 .tab-btn {
   flex: 1;
-  padding: 10px 16px;
+  padding: 10px;
   border: none;
   background: transparent;
   color: var(--text-primary);
@@ -631,7 +632,7 @@ export default {
 .upload-zone {
   border: 2px dashed var(--border-color);
   border-radius: 12px;
-  padding: 60px 20px;
+  padding: 10px;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -646,13 +647,13 @@ export default {
 
 .upload-icon {
   font-size: 48px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .svg-textarea {
   width: 100%;
   height: 200px;
-  padding: 15px;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 8px;
   background: var(--bg-primary);
@@ -660,11 +661,11 @@ export default {
   font-family: 'Monaco', 'Menlo', monospace;
   font-size: 14px;
   resize: vertical;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .process-btn {
-  padding: 10px 20px;
+  padding: 10px;
   background: var(--primary-color);
   color: white;
   border: none;
@@ -679,7 +680,7 @@ export default {
 
 .url-input {
   flex: 1;
-  padding: 12px 16px;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   background: var(--bg-primary);
@@ -687,7 +688,7 @@ export default {
 }
 
 .fetch-btn {
-  padding: 12px 20px;
+  padding: 10px;
   background: var(--primary-color);
   color: white;
   border: none;
@@ -697,7 +698,7 @@ export default {
 
 .optimization-settings {
   margin: 30px 0;
-  padding: 25px;
+  padding: 10px;
   background: var(--bg-secondary);
   border-radius: 12px;
   border: 1px solid var(--border-color);
@@ -707,7 +708,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 15px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .setting-item {
@@ -716,6 +717,11 @@ export default {
   gap: 8px;
   cursor: pointer;
   color: var(--text-primary);
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
 }
 
 .setting-item input[type="checkbox"] {
@@ -730,7 +736,7 @@ export default {
 .optimize-all-btn,
 .download-all-btn,
 .clear-btn {
-  padding: 10px 20px;
+  padding: 10px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -763,7 +769,7 @@ export default {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 15px;
+  padding: 10px;
 }
 
 .file-preview {
@@ -772,7 +778,7 @@ export default {
   background: white;
   border-radius: 8px;
   border: 1px solid var(--border-color);
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   overflow: hidden;
 }
 
@@ -826,7 +832,7 @@ export default {
 .size-info {
   font-size: 12px;
   color: var(--text-secondary);
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .reduction-percentage {
@@ -846,7 +852,7 @@ export default {
 .download-btn,
 .remove-btn {
   flex: 1;
-  padding: 6px 10px;
+  padding: 10px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -901,7 +907,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -914,7 +920,7 @@ export default {
 }
 
 .modal-body {
-  padding: 20px;
+  padding: 10px;
   max-height: calc(90vh - 80px);
   overflow-y: auto;
 }
@@ -922,7 +928,7 @@ export default {
 .preview-tabs {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .visual-preview {
@@ -948,7 +954,7 @@ export default {
 
 .code-item pre {
   background: var(--bg-secondary);
-  padding: 15px;
+  padding: 10px;
   border-radius: 8px;
   max-height: 300px;
   overflow: auto;
@@ -957,7 +963,7 @@ export default {
 
 .tips-section {
   margin-top: 40px;
-  padding: 20px;
+  padding: 10px;
   background: var(--bg-secondary);
   border-radius: 12px;
   border: 1px solid var(--border-color);
@@ -992,5 +998,32 @@ export default {
   .file-actions {
     flex-direction: column;
   }
+}
+/* Input 输入框统一样式 */
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Input 和 Select 统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+select {
+  background: #fff;
 }
 </style>

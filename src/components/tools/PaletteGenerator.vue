@@ -407,12 +407,13 @@ export default {
 <style scoped>
 .palette-generator-container {
   max-width: 100%;
-  padding: 1rem;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h2 {
@@ -429,7 +430,7 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   padding: 1.5rem;
   background: var(--bg-surface);
   border-radius: 12px;
@@ -476,11 +477,11 @@ export default {
 }
 
 .palettes-display {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .palette-section {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   padding: 1.5rem;
   background: var(--bg-surface);
   border-radius: 12px;
@@ -491,7 +492,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .palette-header h3 {
@@ -555,14 +556,14 @@ export default {
 }
 
 .random-palettes {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .random-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .random-header h3 {

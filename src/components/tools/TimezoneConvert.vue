@@ -361,12 +361,13 @@ export default {
 .timezone-convert-tool {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
@@ -383,8 +384,8 @@ export default {
 .main-convert-section {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 20px;
-  padding: 30px;
-  margin-bottom: 30px;
+  padding: 10px;
+  margin-bottom: 10px;
   color: white;
 }
 
@@ -392,7 +393,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .time-input-group,
@@ -417,7 +418,7 @@ export default {
 .datetime-input,
 .datetime-output,
 .timezone-select {
-  padding: 12px;
+  padding: 10px;
   border: none;
   border-radius: 10px;
   font-size: 1rem;
@@ -443,7 +444,7 @@ export default {
 }
 
 .action-btn {
-  padding: 10px 15px;
+  padding: 10px;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
@@ -461,13 +462,13 @@ export default {
 .time-difference-section {
   background: #f8f9fa;
   border-radius: 15px;
-  padding: 20px;
-  margin-bottom: 30px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .time-difference-section h4 {
   color: #2c3e50;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-size: 1.3rem;
 }
 
@@ -497,12 +498,12 @@ export default {
 }
 
 .world-clock-section {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .world-clock-section h4 {
   color: #2c3e50;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.3rem;
 }
 
@@ -515,7 +516,7 @@ export default {
 .clock-card {
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   border-radius: 15px;
-  padding: 15px;
+  padding: 10px;
   color: white;
   text-align: center;
   transition: all 0.3s ease;
@@ -551,7 +552,7 @@ export default {
 .clock-time {
   font-size: 1.4rem;
   font-weight: 700;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .clock-date {
@@ -565,7 +566,7 @@ export default {
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 6px;
   color: white;
-  padding: 5px 10px;
+  padding: 10px;
   font-size: 0.8rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -578,7 +579,7 @@ export default {
 .timezone-info-section {
   background: #f8f9fa;
   border-radius: 15px;
-  padding: 20px;
+  padding: 10px;
 }
 
 .timezone-details {
@@ -590,7 +591,7 @@ export default {
 .detail-card {
   background: white;
   border-radius: 10px;
-  padding: 15px;
+  padding: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -603,7 +604,7 @@ export default {
 .detail-item {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   font-size: 0.9rem;
 }
 
@@ -623,7 +624,7 @@ export default {
   transform: translate(-50%, -50%);
   background: #27ae60;
   color: white;
-  padding: 15px 25px;
+  padding: 10px;
   border-radius: 8px;
   font-weight: 500;
   z-index: 1000;
@@ -637,7 +638,7 @@ export default {
 
 @media (max-width: 768px) {
   .main-convert-section {
-    padding: 20px;
+    padding: 10px;
   }
   
   .input-row {
@@ -656,5 +657,20 @@ export default {
   .timezone-details {
     grid-template-columns: 1fr;
   }
+}
+/* Input 输入框统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"] {
+  background: #fff;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
 }
 </style>

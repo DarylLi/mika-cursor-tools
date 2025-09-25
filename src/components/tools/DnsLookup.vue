@@ -334,17 +334,18 @@ export default {
 .dns-lookup-tool {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
   font-size: 24px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
@@ -355,23 +356,23 @@ export default {
 
 .input-section {
   background: var(--bg-secondary);
-  padding: 25px;
+  padding: 10px;
   border-radius: 12px;
   border: 1px solid var(--border-color);
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .input-group {
   display: flex;
   gap: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   flex-wrap: wrap;
 }
 
 .domain-input {
   flex: 1;
   min-width: 250px;
-  padding: 12px 15px;
+  padding: 10px;
   border: 2px solid var(--border-color);
   border-radius: 8px;
   background: var(--bg-primary);
@@ -387,7 +388,7 @@ export default {
 }
 
 .record-select {
-  padding: 12px 15px;
+  padding: 10px;
   border: 2px solid var(--border-color);
   border-radius: 8px;
   background: var(--bg-primary);
@@ -397,7 +398,7 @@ export default {
 }
 
 .lookup-btn {
-  padding: 12px 24px;
+  padding: 10px;
   background: var(--accent-color);
   color: white;
   border: none;
@@ -428,7 +429,7 @@ export default {
 }
 
 .action-btn {
-  padding: 8px 15px;
+  padding: 10px;
   background: var(--bg-primary);
   color: var(--text-primary);
   border: 1px solid var(--border-color);
@@ -448,17 +449,17 @@ export default {
 
 .results-section {
   background: var(--bg-secondary);
-  padding: 25px;
+  padding: 10px;
   border-radius: 12px;
   border: 1px solid var(--border-color);
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .results-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-bottom: 15px;
   border-bottom: 1px solid var(--border-color);
 }
@@ -477,7 +478,7 @@ export default {
 }
 
 .export-btn, .clear-btn {
-  padding: 8px 15px;
+  padding: 10px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -532,7 +533,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 10px;
   background: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
 }
@@ -540,7 +541,7 @@ export default {
 .record-type {
   background: var(--accent-color);
   color: white;
-  padding: 4px 12px;
+  padding: 10px;
   border-radius: 15px;
   font-size: 12px;
   font-weight: bold;
@@ -556,7 +557,7 @@ export default {
   background: none;
   border: 1px solid var(--border-color);
   color: var(--text-secondary);
-  padding: 6px 8px;
+  padding: 10px;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s;
@@ -568,7 +569,7 @@ export default {
 }
 
 .record-content {
-  padding: 20px;
+  padding: 10px;
 }
 
 .record-item {
@@ -584,7 +585,7 @@ export default {
   font-family: 'Consolas', 'Monaco', monospace;
   color: var(--text-primary);
   font-weight: 500;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .record-ttl, .record-priority {
@@ -606,13 +607,13 @@ export default {
 
 .loading-section {
   text-align: center;
-  padding: 40px;
+  padding: 10px;
 }
 
 .loading-spinner i {
   font-size: 32px;
   color: var(--accent-color);
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .loading-spinner p {
@@ -621,7 +622,7 @@ export default {
 
 .info-section {
   background: var(--bg-secondary);
-  padding: 25px;
+  padding: 10px;
   border-radius: 12px;
   border: 1px solid var(--border-color);
 }
@@ -630,7 +631,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
@@ -642,7 +643,7 @@ export default {
 
 .info-card {
   background: var(--bg-primary);
-  padding: 15px;
+  padding: 10px;
   border-radius: 8px;
   border-left: 4px solid var(--accent-color);
 }
@@ -650,7 +651,7 @@ export default {
 .info-header {
   font-weight: bold;
   color: var(--text-primary);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .info-card p {

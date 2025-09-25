@@ -112,11 +112,12 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, getCurrentInstance } from 'vue'
 
 export default {
   name: 'QuoteGenerator',
   setup() {
+    const instance = getCurrentInstance()
     const category = ref('all')
     const language = ref('zh')
     const includeAuthor = ref(true)
@@ -253,7 +254,7 @@ export default {
       
       try {
         await navigator.clipboard.writeText(allQuotesText)
-        alert('所有名言已复制到剪贴板！')
+        instance.proxy.$message.success('所有名言已复制到剪贴板！')
       } catch (error) {
         console.error('复制失败:', error)
       }
@@ -274,7 +275,7 @@ export default {
         })
       } else {
         copyQuote(quote)
-        alert('名言已复制到剪贴板，你可以分享给朋友！')
+        instance.proxy.$message.success('名言已复制到剪贴板，你可以分享给朋友！')
       }
     }
 
@@ -361,7 +362,8 @@ export default {
 
 .tool-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
@@ -377,7 +379,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   padding: 1.5rem;
   background: var(--bg-secondary);
   border-radius: 8px;
@@ -404,16 +406,16 @@ export default {
   color: var(--text-primary);
 }
 
-.control-group input[type="checkbox"] {
+input[type="checkbox"] {
   width: 20px;
-  height: 20px;
+  margin-bottom: 0px;
 }
 
 .actions {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   flex-wrap: wrap;
 }
 
@@ -466,13 +468,13 @@ export default {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 2rem;
+  padding: 10px;
   position: relative;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .quote-content {
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .quote-text {
@@ -480,7 +482,7 @@ export default {
   line-height: 1.6;
   color: var(--text-primary);
   font-style: italic;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   position: relative;
 }
 
@@ -550,7 +552,7 @@ export default {
 
 .favorites-section h4 {
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .favorites-list {
@@ -563,7 +565,7 @@ export default {
   display: flex;
   align-items: start;
   gap: 1rem;
-  padding: 1rem;
+  padding: 10px;
   background: var(--bg-primary);
   border-radius: 8px;
   border: 1px solid var(--border-color);

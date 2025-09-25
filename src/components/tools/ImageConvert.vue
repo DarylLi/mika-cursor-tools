@@ -50,7 +50,7 @@
           <label>输出质量</label>
           <div class="quality-slider">
             <input 
-              type="range" 
+              type="range" class="modern-slider" 
               v-model="quality" 
               min="0.1" 
               max="1" 
@@ -226,7 +226,7 @@ export default {
         })
       } catch (error) {
         console.error('转换失败:', error)
-        alert('转换失败: ' + error.message)
+        this.$message.success('转换失败: ' + error.message)
       } finally {
         image.converting = false
       }
@@ -330,7 +330,7 @@ export default {
         document.body.removeChild(a)
         URL.revokeObjectURL(url)
       } catch (error) {
-        alert('批量下载失败，请逐个下载')
+        this.$message.success('批量下载失败，请逐个下载')
       }
     },
 
@@ -395,18 +395,19 @@ export default {
 .image-convert-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .upload-area {
   border: 2px dashed var(--border-color);
   border-radius: 12px;
-  padding: 60px 20px;
+  padding: 10px;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -421,12 +422,12 @@ export default {
 
 .upload-icon {
   font-size: 48px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .format-section {
   margin: 30px 0;
-  padding: 25px;
+  padding: 10px;
   background: var(--bg-secondary);
   border-radius: 12px;
   border: 1px solid var(--border-color);
@@ -453,7 +454,7 @@ export default {
 }
 
 .format-btn {
-  padding: 8px 16px;
+  padding: 10px;
   border: 2px solid var(--border-color);
   background: var(--bg-primary);
   color: var(--text-primary);
@@ -478,7 +479,7 @@ export default {
   gap: 15px;
 }
 
-.quality-slider input[type="range"] {
+.quality-slider input[type="range"].modern-slider {
   flex: 1;
   height: 8px;
   background: var(--border-color);
@@ -490,16 +491,16 @@ export default {
   position: relative;
 }
 
-.quality-slider input[type="range"]:hover {
+.quality-slider input[type="range"].modern-slider:hover {
   height: 10px;
   box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
 }
 
-.quality-slider input[type="range"]:focus {
+.quality-slider input[type="range"].modern-slider:focus {
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
-.quality-slider input[type="range"]::-webkit-slider-thumb {
+.quality-slider input[type="range"].modern-slider::-webkit-slider-thumb {
   appearance: none;
   width: 22px;
   height: 22px;
@@ -513,19 +514,19 @@ export default {
   z-index: 2;
 }
 
-.quality-slider input[type="range"]::-webkit-slider-thumb:hover {
+.quality-slider input[type="range"].modern-slider::-webkit-slider-thumb:hover {
   transform: scale(1.1);
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
 }
 
-.quality-slider input[type="range"]::-webkit-slider-track {
+.quality-slider input[type="range"].modern-slider::-webkit-slider-track {
   height: 8px;
   background: var(--border-color);
   border-radius: 4px;
   border: none;
 }
 
-.quality-slider input[type="range"]::-webkit-slider-runnable-track {
+.quality-slider input[type="range"].modern-slider::-webkit-slider-runnable-track {
   height: 8px;
   background: linear-gradient(to right, 
     var(--primary-color) 0%, 
@@ -536,14 +537,14 @@ export default {
 }
 
 /* Firefox样式 */
-.quality-slider input[type="range"]::-moz-range-track {
+.quality-slider input[type="range"].modern-slider::-moz-range-track {
   height: 8px;
   background: var(--border-color);
   border-radius: 4px;
   border: none;
 }
 
-.quality-slider input[type="range"]::-moz-range-thumb {
+.quality-slider input[type="range"].modern-slider::-moz-range-thumb {
   width: 22px;
   height: 22px;
   background: var(--primary-color);
@@ -554,31 +555,31 @@ export default {
   transition: all 0.3s ease;
 }
 
-.quality-slider input[type="range"]::-moz-range-progress {
+.quality-slider input[type="range"].modern-slider::-moz-range-progress {
   height: 8px;
   background: var(--primary-color);
   border-radius: 4px;
 }
 
 /* Edge样式 */
-.quality-slider input[type="range"]::-ms-track {
+.quality-slider input[type="range"].modern-slider::-ms-track {
   height: 8px;
   background: transparent;
   border-color: transparent;
   color: transparent;
 }
 
-.quality-slider input[type="range"]::-ms-fill-lower {
+.quality-slider input[type="range"].modern-slider::-ms-fill-lower {
   background: var(--primary-color);
   border-radius: 4px;
 }
 
-.quality-slider input[type="range"]::-ms-fill-upper {
+.quality-slider input[type="range"].modern-slider::-ms-fill-upper {
   background: var(--border-color);
   border-radius: 4px;
 }
 
-.quality-slider input[type="range"]::-ms-thumb {
+.quality-slider input[type="range"].modern-slider::-ms-thumb {
   width: 22px;
   height: 22px;
   background: var(--primary-color);
@@ -595,7 +596,7 @@ export default {
 .convert-all-btn,
 .download-all-btn,
 .clear-btn {
-  padding: 10px 16px;
+  padding: 10px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -629,7 +630,7 @@ export default {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 15px;
+  padding: 10px;
   transition: all 0.3s ease;
 }
 
@@ -640,7 +641,7 @@ export default {
 
 .image-preview {
   position: relative;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -657,7 +658,7 @@ export default {
   right: 8px;
   background: var(--primary-color);
   color: white;
-  padding: 4px 8px;
+  padding: 10px;
   border-radius: 4px;
   font-size: 12px;
   font-weight: 600;
@@ -705,7 +706,7 @@ export default {
 .size-info,
 .compression-info {
   font-size: 12px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .format-info {
@@ -739,7 +740,7 @@ export default {
 .download-btn,
 .remove-btn {
   flex: 1;
-  padding: 6px 12px;
+  padding: 10px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -765,7 +766,7 @@ export default {
 
 .tips-section {
   margin-top: 40px;
-  padding: 20px;
+  padding: 10px;
   background: var(--bg-secondary);
   border-radius: 12px;
   border: 1px solid var(--border-color);
@@ -778,7 +779,7 @@ export default {
 }
 
 .tip-item {
-  padding: 15px;
+  padding: 10px;
   background: var(--bg-primary);
   border-radius: 8px;
   border: 1px solid var(--border-color);
@@ -801,5 +802,20 @@ export default {
   .format-tips {
     grid-template-columns: 1fr;
   }
+}
+/* Input 输入框统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"] {
+  background: #fff;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
 }
 </style>

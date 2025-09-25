@@ -232,6 +232,7 @@ import { ref, computed, watch } from 'vue'
 export default {
   name: 'QuadraticSolver',
   setup() {
+    const instance = getCurrentInstance()
     const coefficients = ref({
       a: '1',
       b: '0',
@@ -493,7 +494,7 @@ export default {
         message += '复数根无法直接验证'
       }
       
-      alert(message)
+      instance.proxy.$message.success(message)
     }
     
     const showDerivative = () => {
@@ -501,7 +502,7 @@ export default {
       const b = parseFloat(coefficients.value.b) || 0
       
       const derivative = `f'(x) = ${2 * a}x + ${b}`
-      alert(`对f(x) = ${formattedEquation.value.replace(' = 0', '')}求导:\n${derivative}`)
+      instance.proxy.$message.success(`对f(x) = ${formattedEquation.value.replace(' = 0', '')}求导:\n${derivative}`)
     }
     
     // 监听系数变化自动求解

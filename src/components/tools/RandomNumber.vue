@@ -282,6 +282,7 @@ import { ref, reactive } from 'vue'
 export default {
   name: 'RandomNumber',
   setup() {
+    const instance = getCurrentInstance()
     // 基础随机数
     const basicMin = ref(0)
     const basicMax = ref(100)
@@ -334,7 +335,7 @@ export default {
 
     const generateBasicNumbers = () => {
       if (basicMin.value >= basicMax.value) {
-        alert('最小值必须小于最大值')
+        instance.proxy.$message.success('最小值必须小于最大值')
         return
       }
 
@@ -396,7 +397,7 @@ export default {
 
     const generateSequence = () => {
       if (sequenceStart.value >= sequenceEnd.value) {
-        alert('起始值必须小于结束值')
+        instance.proxy.$message.success('起始值必须小于结束值')
         return
       }
 
@@ -458,7 +459,7 @@ export default {
       if (charsets.custom && customCharset.value) charset += customCharset.value
       
       if (!charset) {
-        alert('请至少选择一种字符类型')
+        instance.proxy.$message.success('请至少选择一种字符类型')
         return
       }
       
@@ -502,7 +503,7 @@ export default {
       }
       
       if (options.length === 0) {
-        alert('请输入有效的选项和权重')
+        instance.proxy.$message.success('请输入有效的选项和权重')
         return
       }
       

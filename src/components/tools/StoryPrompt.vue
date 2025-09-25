@@ -278,11 +278,12 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref, computed, getCurrentInstance } from 'vue'
 
 export default {
   name: 'StoryPrompt',
   setup() {
+    const instance = getCurrentInstance()
     const activeMode = ref('story')
     const selectedGenre = ref('all')
     const complexity = ref('medium')
@@ -347,7 +348,7 @@ export default {
     }
 
     // 生成灵感提示
-    const generatePrompts = () => {
+    const generatePrompts = async () => {
       generatedPrompts.value = []
       
       for (let i = 0; i < promptCount.value; i++) {
@@ -357,7 +358,7 @@ export default {
     }
 
     // 生成单个提示
-    const generateSinglePrompt = () => {
+    const generateSinglePrompt = async () => {
       const mode = activeMode.value
       let template, type
       
@@ -459,24 +460,24 @@ export default {
     }
 
     // 解析关键词
-    const parseKeywords = () => {
+    const parseKeywords = async () => {
       return keywords.value.split(',').map(k => k.trim()).filter(k => k)
     }
 
     // 获取随机类型
-    const getRandomGenre = () => {
+    const getRandomGenre = async () => {
       const genres = ['fantasy', 'scifi', 'romance', 'mystery', 'horror', 'adventure']
       return genres[Math.floor(Math.random() * genres.length)]
     }
 
     // 生成随机提示
-    const generateRandomPrompt = () => {
+    const generateRandomPrompt = async () => {
       const prompt = generateSinglePrompt()
       generatedPrompts.value = [prompt]
     }
 
     // 加载预设模板
-    const loadPresetPrompts = () => {
+    const loadPresetPrompts = async () => {
       const presets = [
         {
           type: 'story',
@@ -520,7 +521,7 @@ export default {
       
       try {
         await navigator.clipboard.writeText(text)
-        alert('提示已复制到剪贴板')
+        instance.proxy.$message.success('提示已复制到剪贴板')
       } catch (error) {
         console.error('复制失败:', error)
       }
@@ -534,7 +535,7 @@ export default {
       }
       
       savedPrompts.value.push(savedPrompt)
-      alert('提示已保存到收藏')
+      instance.proxy.$message.success('提示已保存到收藏')
     }
 
     // 扩展提示
@@ -564,14 +565,14 @@ export default {
       
       try {
         await navigator.clipboard.writeText(allText)
-        alert('所有提示已复制到剪贴板')
+        instance.proxy.$message.success('所有提示已复制到剪贴板')
       } catch (error) {
         console.error('复制失败:', error)
       }
     }
 
     // 导出提示
-    const exportPrompts = () => {
+    const exportPrompts = async () => {
       const exportData = {
         prompts: generatedPrompts.value,
         metadata: {
@@ -592,8 +593,8 @@ export default {
     }
 
     // 清空提示
-    const clearPrompts = () => {
-      if (confirm('确定要清空所有提示吗？')) {
+    const clearPrompts = async () => {
+      if (await instance.proxy.$message.confirm('确定要清空所有提示吗？')) {
         generatedPrompts.value = []
       }
     }
@@ -609,19 +610,19 @@ export default {
     }
 
     // 显示所有保存的提示
-    const showAllSaved = () => {
-      alert(`共有 ${savedPrompts.value.length} 个收藏的提示`)
+    const showAllSaved = async () => {
+      instance.proxy.$message.success(`共有 ${savedPrompts.value.length} 个收藏的提示`)
     }
 
     // 清空收藏
-    const clearSavedPrompts = () => {
-      if (confirm('确定要清空所有收藏吗？')) {
+    const clearSavedPrompts = async () => {
+      if (await instance.proxy.$message.confirm('确定要清空所有收藏吗？')) {
         savedPrompts.value = []
       }
     }
 
     // 工具函数
-    const generatePlotOutline = () => {
+    const generatePlotOutline = async () => {
       const outline = {
         type: 'story',
         title: '故事大纲',
@@ -637,7 +638,7 @@ export default {
       generatedPrompts.value.unshift(outline)
     }
 
-    const generateConflict = () => {
+    const generateConflict = async () => {
       const conflicts = [
         '内心冲突：道德与利益的选择',
         '人际冲突：朋友背叛或爱情三角',
@@ -656,7 +657,7 @@ export default {
       generatedPrompts.value.unshift(prompt)
     }
 
-    const generateTwist = () => {
+    const generateTwist = async () => {
       const twists = [
         '信任的角色实际上是反派',
         '整个故事发生在梦境或虚拟现实中',
@@ -676,7 +677,7 @@ export default {
       generatedPrompts.value.unshift(prompt)
     }
 
-    const generateEnvironment = () => {
+    const generateEnvironment = async () => {
       const environments = [
         '阴雨绵绵的古老城堡，石墙上爬满了常春藤，空气中弥漫着湿润和神秘的味道。',
         '繁华都市的天台花园，霓虹灯闪烁，远处传来车流的声音，形成现代与自然的对比。',
@@ -816,7 +817,8 @@ export default {
 
 .tool-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
@@ -830,7 +832,7 @@ export default {
 
 .control-tabs {
   display: flex;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   border-bottom: 2px solid var(--border-color);
   flex-wrap: wrap;
 }
@@ -859,8 +861,8 @@ export default {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 2rem;
-  margin-bottom: 2rem;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .generation-settings {
@@ -888,6 +890,11 @@ export default {
   border-radius: 4px;
   background: var(--bg-primary);
   color: var(--text-primary);
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
 }
 
 .setting-group input[type="checkbox"] {
@@ -957,7 +964,7 @@ export default {
 }
 
 .prompt-display {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .prompt-display h4 {
@@ -968,7 +975,7 @@ export default {
 }
 
 .prompts-list {
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .prompt-card {
@@ -976,7 +983,7 @@ export default {
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   transition: all 0.2s;
 }
 
@@ -993,7 +1000,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .prompt-type {
@@ -1015,7 +1022,7 @@ export default {
 }
 
 .prompt-content {
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .prompt-title {
@@ -1028,15 +1035,15 @@ export default {
 .prompt-text {
   color: var(--text-primary);
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .prompt-details {
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
   border-radius: 4px;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .detail-section {
@@ -1123,25 +1130,25 @@ export default {
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .saved-prompts h4,
 .writing-tools h4,
 .writing-statistics h4 {
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .saved-list {
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .saved-item {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1rem;
+  padding: 10px;
   border-bottom: 1px solid var(--border-color);
   transition: background-color 0.2s;
 }
@@ -1222,7 +1229,7 @@ export default {
 
 .tool-card p {
   color: var(--text-secondary);
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   font-size: 0.9rem;
 }
 
@@ -1239,7 +1246,7 @@ export default {
 
 .stat-item {
   text-align: center;
-  padding: 1rem;
+  padding: 10px;
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
   border-radius: 8px;
@@ -1255,5 +1262,31 @@ export default {
 .stat-label {
   color: var(--text-secondary);
   font-size: 0.9rem;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Input 和 Select 统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+select {
+  background: #fff;
 }
 </style>

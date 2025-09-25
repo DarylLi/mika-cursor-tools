@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, getCurrentInstance } from 'vue'
 
 export default {
   name: 'MarkdownPreview',
@@ -45,6 +45,7 @@ export default {
     toolData: Object
   },
   setup() {
+    const instance = getCurrentInstance()
     const markdownInput = ref('')
     const htmlOutput = ref('')
 
@@ -189,14 +190,14 @@ console.log(greet('World'));
     const copyHtml = () => {
       if (htmlOutput.value) {
         navigator.clipboard.writeText(htmlOutput.value)
-        alert('HTML 已复制到剪贴板！')
+        instance.proxy.$message.success('HTML 已复制到剪贴板！')
       }
     }
 
     const copyMarkdown = () => {
       if (markdownInput.value) {
         navigator.clipboard.writeText(markdownInput.value)
-        alert('Markdown 已复制到剪贴板！')
+        instance.proxy.$message.success('Markdown 已复制到剪贴板！')
       }
     }
 

@@ -547,7 +547,7 @@ footer {
 }
 
 .breadcrumb-btn {
-    background: rgba(30, 41, 59, 0.1);
+    background: #fff;
     color: #1e293b;
     border: none;
     padding: 0.5rem 1rem;
@@ -768,6 +768,19 @@ footer {
     background: rgba(255, 255, 255, 0.08);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
+
+/* 工具组件样式 */
+.single-tool {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.single-tool h2 {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+
 
 .dark-theme header h1,
 .dark-theme .section-title,
@@ -1071,7 +1084,7 @@ footer {
     backdrop-filter: blur(20px);
     border: 1px solid rgba(30, 41, 59, 0.15);
     border-radius: 24px;
-    width: 80vw;
+    width: 95vw;
     height: 80vh;
     box-shadow: 0 25px 50px rgba(30, 41, 59, 0.2);
     display: flex;
@@ -1133,7 +1146,7 @@ footer {
     flex: 1;
     padding: 2rem;
     overflow-y: auto;
-    background: rgba(248, 250, 252, 0.5);
+    background: #fff;
 }
 
 /* 弹窗动画 */

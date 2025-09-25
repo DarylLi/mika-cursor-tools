@@ -103,7 +103,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref, computed, getCurrentInstance } from 'vue'
 
 export default {
   name: 'RegexTester',
@@ -111,6 +111,7 @@ export default {
     toolData: Object
   },
   setup() {
+    const instance = getCurrentInstance()
     const regexPattern = ref('')
     const testText = ref('')
     const regexError = ref('')
@@ -213,7 +214,7 @@ export default {
 
     const copyMatches = () => {
       if (matches.value.length === 0) {
-        alert('没有匹配结果可复制')
+        instance.proxy.$message.success('没有匹配结果可复制')
         return
       }
       
@@ -222,12 +223,12 @@ export default {
       ).join('\n')
       
       navigator.clipboard.writeText(result)
-      alert('匹配结果已复制到剪贴板！')
+      instance.proxy.$message.success('匹配结果已复制到剪贴板！')
     }
 
     const copyRegex = () => {
       if (!regexPattern.value) {
-        alert('没有正则表达式可复制')
+        instance.proxy.$message.success('没有正则表达式可复制')
         return
       }
       
@@ -238,7 +239,7 @@ export default {
       
       const regexString = `/${regexPattern.value}/${flagString}`
       navigator.clipboard.writeText(regexString)
-      alert('正则表达式已复制到剪贴板！')
+      instance.proxy.$message.success('正则表达式已复制到剪贴板！')
     }
 
     const clearAll = () => {

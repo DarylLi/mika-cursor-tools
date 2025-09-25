@@ -569,23 +569,24 @@ valid.email@test.org`
 .tool-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 10px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+  padding: 10px;
   background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
   color: white;
-  padding: 40px 32px;
+  padding: 10px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
 }
 
 .header-icon {
   font-size: 48px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   opacity: 0.9;
 }
 
@@ -620,7 +621,7 @@ valid.email@test.org`
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
-  padding: 8px 16px;
+  padding: 10px;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -636,8 +637,8 @@ valid.email@test.org`
 .input-card, .result-card, .batch-card, .help-card, .success-card {
   background: white;
   border-radius: 16px;
-  padding: 24px;
-  margin-bottom: 24px;
+  padding: 10px;
+  margin-bottom: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
@@ -647,7 +648,7 @@ valid.email@test.org`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-bottom: 16px;
   border-bottom: 2px solid #f8fafc;
 }
@@ -671,7 +672,7 @@ valid.email@test.org`
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   color: #4a5568;
-  padding: 8px 12px;
+  padding: 10px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 12px;
@@ -701,14 +702,14 @@ valid.email@test.org`
 .input-tabs {
   display: flex;
   gap: 4px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   border-bottom: 1px solid #e2e8f0;
 }
 
 .tab-btn {
   background: none;
   border: none;
-  padding: 12px 16px;
+  padding: 10px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
@@ -733,7 +734,7 @@ valid.email@test.org`
 
 .email-input {
   width: 100%;
-  padding: 16px 20px;
+  padding: 10px;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
   font-size: 16px;
@@ -751,7 +752,7 @@ valid.email@test.org`
 .batch-input {
   width: 100%;
   min-height: 200px;
-  padding: 16px 20px;
+  padding: 10px;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
   font-size: 14px;
@@ -806,7 +807,7 @@ valid.email@test.org`
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
   border: 2px solid;
 }
@@ -847,7 +848,7 @@ valid.email@test.org`
 
 .detail-section {
   background: #f8fafc;
-  padding: 16px;
+  padding: 10px;
   border-radius: 12px;
   border: 1px solid #e2e8f0;
 }
@@ -886,7 +887,7 @@ valid.email@test.org`
   font-size: 14px;
   color: #1f2937;
   background: white;
-  padding: 4px 8px;
+  padding: 10px;
   border-radius: 4px;
   border: 1px solid #e2e8f0;
 }
@@ -907,7 +908,7 @@ valid.email@test.org`
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px;
+  padding: 10px;
   border-radius: 6px;
   font-size: 14px;
 }
@@ -932,7 +933,7 @@ valid.email@test.org`
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px;
+  padding: 10px;
   background: #fef3c7;
   color: #92400e;
   border-radius: 6px;
@@ -942,14 +943,14 @@ valid.email@test.org`
 .batch-filters {
   display: flex;
   gap: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .filter-btn {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   color: #4a5568;
-  padding: 8px 16px;
+  padding: 10px;
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
@@ -987,7 +988,7 @@ valid.email@test.org`
   display: grid;
   grid-template-columns: 2fr 1fr 2fr;
   gap: 16px;
-  padding: 12px 16px;
+  padding: 10px;
   background: #f8fafc;
   font-weight: 600;
   color: #374151;
@@ -1004,7 +1005,7 @@ valid.email@test.org`
   display: grid;
   grid-template-columns: 2fr 1fr 2fr;
   gap: 16px;
-  padding: 12px 16px;
+  padding: 10px;
   border-bottom: 1px solid #f1f5f9;
   font-size: 14px;
   transition: background-color 0.3s ease;
@@ -1080,7 +1081,7 @@ valid.email@test.org`
 }
 
 .help-section li {
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   color: #4a5568;
   line-height: 1.4;
 }
@@ -1095,7 +1096,7 @@ valid.email@test.org`
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 12px;
+  padding: 10px;
   border-radius: 6px;
   font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
   font-size: 14px;
@@ -1113,7 +1114,7 @@ valid.email@test.org`
 
 @media (max-width: 768px) {
   .tool-container {
-    padding: 16px;
+    padding: 10px;
   }
   
   .help-content {

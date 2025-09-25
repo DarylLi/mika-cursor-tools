@@ -103,7 +103,7 @@
           <!-- 缩放控制 -->
           <div class="zoom-controls">
             <label>预览大小:</label>
-            <input type="range" 
+            <input type="range" class="modern-slider" 
                    v-model="previewSize" 
                    min="10" 
                    max="200" 
@@ -149,7 +149,7 @@
             
             <div v-if="targetFormat === 'jpeg'" class="quality-control">
               <label>质量:</label>
-              <input type="range" 
+              <input type="range" class="modern-slider" 
                      v-model="quality" 
                      min="0.1" 
                      max="1.0" 
@@ -483,7 +483,8 @@ export default {
 }
 
 .tool-header {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .base64-gradient {
@@ -491,7 +492,7 @@ export default {
 }
 
 .header-gradient {
-  padding: 2rem;
+  padding: 10px;
   color: white;
   text-align: center;
   position: relative;
@@ -527,7 +528,7 @@ export default {
 }
 
 .tool-content {
-  padding: 2rem;
+  padding: 10px;
 }
 
 .section-header {
@@ -561,7 +562,7 @@ export default {
 .upload-area {
   border: 2px dashed var(--border-color);
   border-radius: 8px;
-  padding: 2rem;
+  padding: 10px;
   margin-bottom: 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -579,7 +580,7 @@ export default {
 
 .upload-content i {
   font-size: 3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   color: var(--primary-color);
 }
 
@@ -596,7 +597,7 @@ export default {
 
 .input-group textarea {
   width: 100%;
-  padding: 1rem;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 8px;
   background: var(--input-bg);
@@ -627,7 +628,7 @@ export default {
 .example-buttons {
   display: flex;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .example-btn {
@@ -649,14 +650,14 @@ export default {
 .image-container {
   background: var(--card-bg);
   border-radius: 8px;
-  padding: 2rem;
+  padding: 10px;
   margin-bottom: 1.5rem;
   border: 1px solid var(--border-color);
 }
 
 .image-wrapper {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .image-wrapper img {
@@ -673,7 +674,7 @@ export default {
   color: var(--text-color);
 }
 
-.zoom-controls input[type="range"] {
+.zoom-controls input[type="range"].modern-slider {
   width: 200px;
 }
 
@@ -695,14 +696,14 @@ export default {
 }
 
 .conversion-section {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .conversion-controls {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   flex-wrap: wrap;
 }
 
@@ -713,7 +714,7 @@ export default {
 }
 
 .format-options select,
-.quality-control input[type="range"] {
+.quality-control input[type="range"].modern-slider {
   padding: 0.3rem;
   border: 1px solid var(--border-color);
   border-radius: 4px;
@@ -751,7 +752,7 @@ export default {
 .conversion-info {
   display: flex;
   gap: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   flex-wrap: wrap;
 }
 
@@ -781,13 +782,13 @@ export default {
 
 .empty-state, .error-state {
   text-align: center;
-  padding: 3rem;
+  padding: 10px;
   color: var(--text-muted);
 }
 
 .empty-state i, .error-state i {
   font-size: 4rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   opacity: 0.5;
 }
 
@@ -825,7 +826,7 @@ export default {
     gap: 0.5rem;
   }
   
-  .zoom-controls input[type="range"] {
+  .zoom-controls input[type="range"].modern-slider {
     width: 100%;
   }
 }

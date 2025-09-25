@@ -154,20 +154,21 @@ export default {
 
 <style scoped>
 .tailwind-cheatsheet-container {
-  padding: 20px;
+  padding: 10px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
   font-size: 1.8rem;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
@@ -177,12 +178,12 @@ export default {
 }
 
 .search-section {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .search-container {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .search-input {
@@ -212,7 +213,7 @@ export default {
   font-size: 1rem;
   color: var(--text-secondary);
   cursor: pointer;
-  padding: 4px;
+  padding: 10px;
   transition: color 0.2s ease;
 }
 
@@ -227,7 +228,7 @@ export default {
 }
 
 .filter-tag {
-  padding: 6px 12px;
+  padding: 10px;
   border: 2px solid var(--border-color);
   border-radius: 20px;
   background: var(--bg-secondary);
@@ -256,14 +257,14 @@ export default {
 .category-section {
   background: var(--bg-secondary);
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
   border: 1px solid var(--border-color);
 }
 
 .category-title {
   font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   color: var(--text-primary);
   border-bottom: 2px solid var(--border-color);
   padding-bottom: 8px;
@@ -279,7 +280,7 @@ export default {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 12px;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   background: var(--bg-primary);
@@ -299,9 +300,9 @@ export default {
   font-size: 0.875rem;
   color: var(--primary-color);
   background: var(--bg-code);
-  padding: 2px 6px;
+  padding: 10px;
   border-radius: 4px;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
   font-weight: 600;
 }
 
@@ -318,7 +319,7 @@ export default {
   transform: translateY(-50%);
   background: var(--primary-color);
   color: white;
-  padding: 4px 8px;
+  padding: 10px;
   border-radius: 4px;
   font-size: 0.75rem;
   font-weight: 500;
@@ -332,7 +333,7 @@ export default {
 
 .no-results {
   text-align: center;
-  padding: 60px 20px;
+  padding: 10px;
   color: var(--text-secondary);
 }
 
@@ -344,7 +345,7 @@ export default {
 /* 响应式设计 */
 @media (max-width: 768px) {
   .tailwind-cheatsheet-container {
-    padding: 15px;
+    padding: 10px;
   }
   
   .tool-header h3 {
@@ -360,7 +361,7 @@ export default {
   }
   
   .category-section {
-    padding: 15px;
+    padding: 10px;
   }
 }
 

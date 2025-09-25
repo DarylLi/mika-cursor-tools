@@ -215,17 +215,18 @@ export default {
 .http-status-tool {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
   font-size: 24px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
@@ -235,7 +236,7 @@ export default {
 }
 
 .search-section {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .search-box {
@@ -284,7 +285,7 @@ export default {
 .status-categories {
   display: flex;
   gap: 10px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -293,7 +294,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 12px 20px;
+  padding: 10px;
   background: var(--bg-secondary);
   border: 2px solid var(--border-color);
   border-radius: 12px;
@@ -337,7 +338,7 @@ export default {
 .status-card {
   background: var(--bg-secondary);
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
   border-left: 4px solid var(--border-color);
   transition: all 0.3s;
 }
@@ -363,7 +364,7 @@ export default {
 .status-code {
   background: var(--accent-color);
   color: white;
-  padding: 8px 12px;
+  padding: 10px;
   border-radius: 8px;
   font-weight: bold;
   font-size: 18px;
@@ -377,14 +378,14 @@ export default {
 
 .status-description {
   color: var(--text-secondary);
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   line-height: 1.5;
 }
 
 .status-details {
   display: flex;
   gap: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   flex-wrap: wrap;
 }
 
@@ -395,7 +396,7 @@ export default {
   font-size: 12px;
   color: var(--text-secondary);
   background: var(--bg-primary);
-  padding: 4px 8px;
+  padding: 10px;
   border-radius: 4px;
 }
 
@@ -433,20 +434,20 @@ export default {
 
 .no-results {
   text-align: center;
-  padding: 40px;
+  padding: 10px;
   color: var(--text-secondary);
 }
 
 .no-results i {
   font-size: 48px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   opacity: 0.5;
 }
 
 .reference-section {
   margin-top: 40px;
   background: var(--bg-secondary);
-  padding: 25px;
+  padding: 10px;
   border-radius: 12px;
 }
 
@@ -454,7 +455,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
@@ -466,7 +467,7 @@ export default {
 
 .ref-card {
   background: var(--bg-primary);
-  padding: 15px;
+  padding: 10px;
   border-radius: 8px;
   border-left: 4px solid var(--accent-color);
 }
@@ -474,7 +475,7 @@ export default {
 .ref-header {
   font-weight: bold;
   color: var(--text-primary);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .ref-card p {
@@ -491,7 +492,7 @@ export default {
   
   .category-btn {
     min-width: 100px;
-    padding: 10px 15px;
+    padding: 10px;
   }
   
   .status-list {

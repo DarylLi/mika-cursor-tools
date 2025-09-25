@@ -351,7 +351,7 @@ export default {
   <style>
     body { font-family: Arial, sans-serif; margin: 20px; }
     .calendar { width: 100%; border-collapse: collapse; }
-    .calendar th, .calendar td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+    .calendar th, .calendar td { border: 1px solid #ddd; padding: 10px; text-align: center; }
     .calendar th { background-color: #f2f2f2; }
     .weekend { background-color: #ffe6e6; }
     .holiday { background-color: #ffcccc; font-weight: bold; }
@@ -401,12 +401,13 @@ export default {
 .calendar-maker-tool {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
@@ -423,15 +424,15 @@ export default {
 .settings-panel {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 20px;
-  padding: 30px;
-  margin-bottom: 30px;
+  padding: 10px;
+  margin-bottom: 10px;
   color: white;
 }
 
 .settings-row {
   display: flex;
   gap: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   flex-wrap: wrap;
 }
 
@@ -471,7 +472,7 @@ export default {
 
 .nav-btn,
 .export-btn {
-  padding: 10px 20px;
+  padding: 10px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 25px;
   color: white;
@@ -501,15 +502,15 @@ export default {
 .calendar-container {
   background: white;
   border-radius: 20px;
-  padding: 30px;
+  padding: 10px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .calendar-header h2 {
   text-align: center;
   color: #2c3e50;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   font-size: 1.8rem;
 }
 
@@ -532,7 +533,7 @@ export default {
   font-weight: 600;
   color: #7f8c8d;
   border-bottom: 2px solid #ecf0f1;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .week-number {
@@ -553,7 +554,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 2px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .weekday-header {
@@ -575,7 +576,7 @@ export default {
 
 .date-cell {
   height: 80px;
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #ecf0f1;
   border-radius: 8px;
   cursor: pointer;
@@ -615,7 +616,7 @@ export default {
 .date-number {
   font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .holiday-name,
@@ -627,7 +628,7 @@ export default {
 
 .holidays-legend {
   margin-top: 20px;
-  padding: 15px;
+  padding: 10px;
   background: #f8f9fa;
   border-radius: 10px;
 }
@@ -645,7 +646,7 @@ export default {
 }
 
 .legend-item {
-  padding: 5px 12px;
+  padding: 10px;
   border-radius: 15px;
   font-size: 0.8rem;
   font-weight: 600;
@@ -675,7 +676,7 @@ export default {
 .stat-card {
   background: white;
   border-radius: 15px;
-  padding: 25px;
+  padding: 10px;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
@@ -690,7 +691,7 @@ export default {
   font-size: 2.5rem;
   font-weight: 700;
   color: #3498db;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .stat-label {
@@ -729,11 +730,11 @@ export default {
 
 @media (max-width: 768px) {
   .calendar-maker-tool {
-    padding: 15px;
+    padding: 10px;
   }
   
   .settings-panel {
-    padding: 20px;
+    padding: 10px;
   }
   
   .settings-row {
@@ -741,7 +742,7 @@ export default {
   }
   
   .calendar-container {
-    padding: 15px;
+    padding: 10px;
   }
   
   .calendar-grid {
@@ -760,5 +761,27 @@ export default {
   .calendar-stats {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+/* Input 输入框统一样式 */
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Input 和 Select 统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+select {
+  background: #fff;
 }
 </style>

@@ -305,7 +305,38 @@ export default {
 .suggestions li {
   margin-bottom: 5px;
 }
+/* Example Section 样式 */
+.example-section {
+  margin-top: 10px;
+}
+/* Input 输入框统一样式 */
+/* Example Button 样式 */
+.example-btn {
+  margin-right: 10px;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+/* Input 和 Select 统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+select {
+  background: #fff;
+}
 </style>
+
 
 
 

@@ -206,7 +206,8 @@ export default {
 }
 
 .tool-header {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .card-gradient {
@@ -214,7 +215,7 @@ export default {
 }
 
 .header-gradient {
-  padding: 2rem;
+  padding: 10px;
   color: white;
   text-align: center;
   position: relative;
@@ -250,7 +251,7 @@ export default {
 }
 
 .tool-content {
-  padding: 2rem;
+  padding: 10px;
 }
 
 .section-header {
@@ -281,7 +282,7 @@ export default {
 
 .card-input {
   width: 100%;
-  padding: 1rem;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 8px;
   background: var(--input-bg);
@@ -301,7 +302,7 @@ export default {
 .example-buttons {
   display: flex;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   flex-wrap: wrap;
 }
 
@@ -324,9 +325,9 @@ export default {
 .validation-card {
   background: var(--card-bg);
   border-radius: 12px;
-  padding: 2rem;
+  padding: 10px;
   border: 1px solid var(--border-color);
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .validation-status {
@@ -347,7 +348,7 @@ export default {
 }
 
 .card-details {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .detail-row {
@@ -375,13 +376,13 @@ export default {
 
 .empty-state {
   text-align: center;
-  padding: 3rem;
+  padding: 10px;
   color: var(--text-muted);
 }
 
 .empty-state i {
   font-size: 4rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   opacity: 0.5;
 }
 

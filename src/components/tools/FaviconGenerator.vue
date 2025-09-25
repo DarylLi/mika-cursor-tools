@@ -30,7 +30,7 @@
 
       <div class="setting-group">
         <label>内边距 ({{ padding }}px)</label>
-        <input type="range" v-model="padding" min="0" max="50" @input="generateFavicons">
+        <input type="range" class="modern-slider" v-model="padding" min="0" max="50" @input="generateFavicons">
       </div>
 
       <div class="setting-group">
@@ -91,11 +91,12 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, getCurrentInstance } from 'vue'
 
 export default {
   name: 'FaviconGenerator',
   setup() {
+    const instance = getCurrentInstance()
     const fileInput = ref(null)
     const originalImage = ref(null)
     const backgroundColor = ref('#FFFFFF')
@@ -201,7 +202,7 @@ export default {
 
     const downloadSingle = () => {
       if (selectedSizes.value.length === 0) {
-        alert('请选择要下载的尺寸')
+        instance.proxy.$message.success('请选择要下载的尺寸')
         return
       }
 
@@ -281,12 +282,13 @@ export default {
 
 <style scoped>
 .favicon-generator-container {
-  padding: 1rem;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h2 {
@@ -295,13 +297,13 @@ export default {
 }
 
 .upload-section {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .upload-area {
   border: 2px dashed var(--border-color);
   border-radius: 12px;
-  padding: 2rem;
+  padding: 10px;
   text-align: center;
   cursor: pointer;
   transition: border-color 0.2s;
@@ -318,7 +320,7 @@ export default {
 .upload-icon {
   font-size: 3rem;
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .image-preview {
@@ -336,7 +338,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   padding: 1.5rem;
   background: var(--bg-surface);
   border-radius: 12px;
@@ -372,7 +374,7 @@ export default {
 }
 
 .favicon-preview {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .favicon-preview h3 {
@@ -388,7 +390,7 @@ export default {
 
 .preview-item {
   text-align: center;
-  padding: 1rem;
+  padding: 10px;
   background: var(--bg-surface);
   border-radius: 8px;
   border: 1px solid var(--border-color);
@@ -417,7 +419,7 @@ export default {
 }
 
 .download-section {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .download-section h3 {
@@ -428,7 +430,7 @@ export default {
 .download-options {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   flex-wrap: wrap;
 }
 
@@ -466,7 +468,7 @@ export default {
 }
 
 .html-output {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .html-output h3 {
@@ -476,7 +478,7 @@ export default {
 
 .html-textarea {
   width: 100%;
-  padding: 1rem;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   font-family: 'Courier New', monospace;

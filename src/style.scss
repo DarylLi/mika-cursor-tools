@@ -739,6 +739,7 @@ footer {
     @include button-style();
     padding: 0.5rem 1rem;
     border-radius: 15px;
+    background: #fff;
     font-size: 0.9rem;
     backdrop-filter: blur(10px);
   }
@@ -877,7 +878,7 @@ footer {
   .modal-container {
     @include glass-effect();
     border-radius: 24px;
-    width: 80vw;
+    width: 95vw;
     height: 90vh;
     box-shadow: theme(shadow-xl);
     display: flex;
@@ -1032,7 +1033,7 @@ footer {
   }
   
   .breadcrumb-btn {
-    background: theme(btn-bg);
+    background: #fff;
     color: theme(text-primary);
     border: 1px solid theme(border-color);
     

@@ -36,11 +36,11 @@
         <div class="quality-control">
           <input 
             type="range" 
+            class="modern-slider quality-slider"
             v-model="quality" 
             min="0.1" 
             max="1" 
             step="0.05"
-            class="quality-slider"
           />
           <span class="quality-value">{{ Math.round(quality * 100) }}%</span>
         </div>
@@ -242,7 +242,7 @@ export default {
         })
       } catch (error) {
         console.error('压缩失败:', error)
-        alert('压缩失败: ' + error.message)
+        this.$message.success('压缩失败: ' + error.message)
       } finally {
         image.processing = false
       }
@@ -361,7 +361,7 @@ export default {
         document.body.removeChild(a)
         URL.revokeObjectURL(url)
       } catch (error) {
-        alert('批量下载失败，请逐个下载')
+        this.$message.success('批量下载失败，请逐个下载')
       }
     },
 
@@ -410,12 +410,13 @@ export default {
 .image-compress-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h3 {
@@ -431,7 +432,7 @@ export default {
 .upload-area {
   border: 2px dashed var(--border-color);
   border-radius: 12px;
-  padding: 60px 20px;
+  padding: 10px;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -447,7 +448,7 @@ export default {
 
 .upload-content .upload-icon {
   font-size: 48px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .upload-content p {
@@ -462,14 +463,14 @@ export default {
 
 .settings-section {
   margin: 30px 0;
-  padding: 25px;
+  padding: 10px;
   background: var(--bg-secondary);
   border-radius: 12px;
   border: 1px solid var(--border-color);
 }
 
 .setting-group {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .setting-group:last-child {
@@ -611,7 +612,7 @@ export default {
 }
 
 .format-btn {
-  padding: 8px 16px;
+  padding: 10px;
   border: 2px solid var(--border-color);
   background: var(--bg-primary);
   color: var(--text-primary);
@@ -638,7 +639,7 @@ export default {
 
 .size-input {
   width: 100px;
-  padding: 8px 12px;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   background: var(--bg-primary);
@@ -646,7 +647,7 @@ export default {
 }
 
 .reset-btn {
-  padding: 8px 16px;
+  padding: 10px;
   background: var(--bg-tertiary);
   border: 1px solid var(--border-color);
   color: var(--text-primary);
@@ -663,7 +664,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .section-header h4 {
@@ -679,7 +680,7 @@ export default {
 .compress-all-btn,
 .download-all-btn,
 .clear-btn {
-  padding: 8px 16px;
+  padding: 10px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -718,7 +719,7 @@ export default {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 15px;
+  padding: 10px;
   transition: all 0.3s ease;
 }
 
@@ -729,7 +730,7 @@ export default {
 
 .image-preview {
   position: relative;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   border-radius: 8px;
   overflow: hidden;
   background: var(--bg-primary);
@@ -802,7 +803,7 @@ export default {
 .compression-ratio {
   font-size: 12px;
   color: var(--text-secondary);
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .compression-ratio {
@@ -820,7 +821,7 @@ export default {
 .download-btn,
 .remove-btn {
   flex: 1;
-  padding: 6px 12px;
+  padding: 10px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -851,7 +852,7 @@ export default {
 
 .tips-section {
   margin-top: 40px;
-  padding: 20px;
+  padding: 10px;
   background: var(--bg-secondary);
   border-radius: 12px;
   border: 1px solid var(--border-color);
@@ -869,12 +870,12 @@ export default {
 }
 
 .tips-section li {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 768px) {
   .image-compress-container {
-    padding: 15px;
+    padding: 10px;
   }
   
   .images-grid {

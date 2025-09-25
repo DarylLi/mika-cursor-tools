@@ -37,7 +37,7 @@
       <h3>响应式预览</h3>
       <div class="preview-controls">
         <label>当前视口宽度: {{ currentViewport }}px</label>
-        <input type="range" v-model="currentViewport" :min="minViewport" :max="maxViewport" class="viewport-slider">
+        <input type="range" class="modern-slider viewport-slider" v-model="currentViewport" :min="minViewport" :max="maxViewport">
       </div>
       <div class="preview-box">
         <div class="sample-text" :style="{ fontSize: currentSize + 'rem' }">
@@ -186,12 +186,13 @@ export default {
 
 <style scoped>
 .css-clamp-container {
-  padding: 1rem;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .tool-header h2 {
@@ -203,7 +204,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   padding: 1.5rem;
   background: var(--bg-surface);
   border-radius: 12px;
@@ -226,7 +227,7 @@ export default {
 }
 
 .clamp-result {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .clamp-result label {
@@ -238,7 +239,7 @@ export default {
 
 .css-textarea {
   width: 100%;
-  padding: 1rem;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   font-family: 'Courier New', monospace;
@@ -263,7 +264,7 @@ export default {
 }
 
 .preview-section {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   padding: 1.5rem;
   background: var(--bg-surface);
   border-radius: 12px;
@@ -276,7 +277,7 @@ export default {
 }
 
 .preview-controls {
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .preview-controls label {
@@ -292,7 +293,7 @@ export default {
 
 .preview-box {
   text-align: center;
-  padding: 2rem;
+  padding: 10px;
   border: 2px dashed var(--border-color);
   border-radius: 8px;
 }
@@ -304,7 +305,7 @@ export default {
 }
 
 .size-table {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .size-table h3 {
@@ -342,7 +343,7 @@ td {
 }
 
 .clamp-presets {
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .clamp-presets h3 {
@@ -357,7 +358,7 @@ td {
 }
 
 .preset-item {
-  padding: 1rem;
+  padding: 10px;
   background: var(--bg-surface);
   border: 1px solid var(--border-color);
   border-radius: 8px;

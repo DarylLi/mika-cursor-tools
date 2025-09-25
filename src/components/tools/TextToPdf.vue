@@ -241,8 +241,8 @@ export default {
         if (preserveLineBreaks.value) {
           htmlParts.push('body { white-space: pre-wrap; }')
         }
-        htmlParts.push('.header { text-align: right; font-size: 10pt; color: #666; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }')
-        htmlParts.push('.content { margin-bottom: 40px; }')
+        htmlParts.push('.header { text-align: right; font-size: 10pt; color: #666; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 10px; }')
+        htmlParts.push('.content { margin-bottom: 10px; }')
         htmlParts.push('@media print { body { margin: 0; } @page { margin: 20mm; size: ' + (pageOrientation.value === 'landscape' ? 'A4 landscape' : 'A4 portrait') + '; } }')
         htmlParts.push('</style>')
         
@@ -315,23 +315,24 @@ export default {
 .tool-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 10px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+  padding: 10px;
   background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
   color: white;
-  padding: 40px 32px;
+  padding: 10px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
 }
 
 .header-icon {
   font-size: 48px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   opacity: 0.9;
 }
 
@@ -352,8 +353,8 @@ export default {
 .input-card, .config-card, .preview-card, .help-card, .error-card, .success-card {
   background: white;
   border-radius: 16px;
-  padding: 24px;
-  margin-bottom: 24px;
+  padding: 10px;
+  margin-bottom: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
@@ -368,7 +369,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-bottom: 16px;
   border-bottom: 2px solid #f8fafc;
 }
@@ -385,7 +386,7 @@ export default {
 
 .text-input {
   width: 100%;
-  padding: 12px 16px;
+  padding: 10px;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
   font-size: 14px;
@@ -417,19 +418,19 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .option-item label {
   display: block;
   font-weight: 500;
   color: #4a5568;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .styled-select {
   width: 100%;
-  padding: 12px 16px;
+  padding: 10px;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
   background: white;
@@ -459,6 +460,11 @@ export default {
   color: #4a5568;
 }
 
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
+}
+
 .checkbox-label input[type="checkbox"] {
   margin-right: 8px;
   transform: scale(1.2);
@@ -473,7 +479,7 @@ export default {
 }
 
 .primary-btn, .secondary-btn, .danger-btn {
-  padding: 12px 24px;
+  padding: 10px;
   border: none;
   border-radius: 12px;
   font-size: 16px;
@@ -538,7 +544,7 @@ export default {
 
 .preview-content {
   background: #f8fafc;
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
   border: 1px solid #e2e8f0;
   min-height: 200px;
@@ -549,7 +555,7 @@ export default {
 .preview-timestamp {
   font-size: 12px;
   color: #6b7280;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   padding-bottom: 8px;
   border-bottom: 1px solid #e2e8f0;
 }
@@ -558,7 +564,7 @@ export default {
   background: #f3f4f6;
   border: none;
   border-radius: 8px;
-  padding: 8px;
+  padding: 10px;
   cursor: pointer;
   color: #6b7280;
   transition: all 0.3s ease;
@@ -583,14 +589,14 @@ export default {
 }
 
 .help-card li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: #4a5568;
   line-height: 1.5;
 }
 
 @media (max-width: 768px) {
   .tool-container {
-    padding: 16px;
+    padding: 10px;
   }
   
   .options-grid {

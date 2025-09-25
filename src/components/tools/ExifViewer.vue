@@ -455,18 +455,19 @@ export default {
 .exif-viewer-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .upload-area {
   border: 2px dashed var(--border-color);
   border-radius: 12px;
-  padding: 60px 20px;
+  padding: 10px;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -481,7 +482,7 @@ export default {
 
 .upload-icon {
   font-size: 48px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .viewer-section {
@@ -495,12 +496,12 @@ export default {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
 }
 
 .image-preview {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .image-preview img {
@@ -528,7 +529,7 @@ export default {
 }
 
 .exif-summary {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .exif-summary h4 {
@@ -546,7 +547,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 12px;
+  padding: 10px;
   background: var(--bg-primary);
   border-radius: 6px;
   border: 1px solid var(--border-color);
@@ -573,7 +574,7 @@ export default {
   border: none;
   cursor: pointer;
   font-size: 16px;
-  padding: 2px;
+  padding: 10px;
   border-radius: 4px;
   transition: background 0.3s ease;
 }
@@ -591,7 +592,7 @@ export default {
 .export-btn,
 .reset-btn {
   flex: 1;
-  padding: 10px 16px;
+  padding: 10px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -620,11 +621,11 @@ export default {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
 }
 
 .details-header {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .details-header h4 {
@@ -639,7 +640,7 @@ export default {
 }
 
 .category-btn {
-  padding: 6px 12px;
+  padding: 10px;
   border: 1px solid var(--border-color);
   background: var(--bg-primary);
   color: var(--text-primary);
@@ -672,7 +673,7 @@ export default {
 
 .exif-table th {
   background: var(--bg-primary);
-  padding: 10px 12px;
+  padding: 10px;
   text-align: left;
   border-bottom: 2px solid var(--border-color);
   color: var(--text-primary);
@@ -682,7 +683,7 @@ export default {
 }
 
 .exif-table td {
-  padding: 8px 12px;
+  padding: 10px;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -706,7 +707,7 @@ export default {
 
 .no-data {
   text-align: center;
-  padding: 40px 20px;
+  padding: 10px;
   color: var(--text-secondary);
 }
 
@@ -715,7 +716,7 @@ export default {
   background: rgba(255, 193, 7, 0.1);
   border: 2px solid #ffc107;
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
 }
 
 .warning-content {
@@ -747,7 +748,7 @@ export default {
 
 .tips-section {
   margin-top: 40px;
-  padding: 20px;
+  padding: 10px;
   background: var(--bg-secondary);
   border-radius: 12px;
   border: 1px solid var(--border-color);
@@ -772,7 +773,7 @@ export default {
 .privacy-note {
   background: rgba(255, 193, 7, 0.1);
   border-left: 4px solid #ffc107;
-  padding: 10px 15px;
+  padding: 10px;
   border-radius: 4px;
 }
 
@@ -797,7 +798,22 @@ export default {
   
   .exif-table th,
   .exif-table td {
-    padding: 6px 8px;
+    padding: 10px;
   }
+}
+/* Input 输入框统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"] {
+  background: #fff;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
 }
 </style>

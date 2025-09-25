@@ -156,7 +156,7 @@ export default {
         await this.extractFrames()
       } catch (error) {
         console.error('拆分失败:', error)
-        alert('GIF 拆分失败')
+        this.$message.success('GIF 拆分失败')
       } finally {
         this.processing = false
       }
@@ -224,7 +224,7 @@ export default {
         document.body.removeChild(a)
         URL.revokeObjectURL(url)
       } catch (error) {
-        alert('批量下载失败，请逐个下载')
+        this.$message.success('批量下载失败，请逐个下载')
       }
     },
 
@@ -256,18 +256,19 @@ export default {
 .gif-split-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .tool-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .upload-area {
   border: 2px dashed var(--border-color);
   border-radius: 12px;
-  padding: 60px 20px;
+  padding: 10px;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -282,7 +283,7 @@ export default {
 
 .upload-icon {
   font-size: 48px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .gif-analysis {
@@ -296,7 +297,7 @@ export default {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -311,16 +312,16 @@ export default {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
 }
 
 .option-group {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .option-group label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-weight: 600;
   color: var(--text-primary);
 }
@@ -328,7 +329,7 @@ export default {
 .format-select,
 .interval-select {
   width: 100%;
-  padding: 8px 12px;
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   background: var(--bg-primary);
@@ -345,7 +346,7 @@ export default {
 .download-btn,
 .reset-btn {
   flex: 1;
-  padding: 10px 16px;
+  padding: 10px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -373,7 +374,7 @@ export default {
 }
 
 .frames-grid h4 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
@@ -409,14 +410,14 @@ export default {
   right: 5px;
   background: rgba(0,0,0,0.7);
   color: white;
-  padding: 2px 6px;
+  padding: 10px;
   border-radius: 4px;
   font-size: 12px;
 }
 
 .download-frame-btn {
   width: 100%;
-  padding: 6px 12px;
+  padding: 10px;
   background: var(--primary-color);
   color: white;
   border: none;
@@ -437,5 +438,20 @@ export default {
   .grid-container {
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
+}
+/* Input 输入框统一样式 */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="tel"] {
+  background: #fff;
+}
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
 }
 </style>

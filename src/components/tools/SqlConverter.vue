@@ -265,6 +265,7 @@ import { ref, reactive, computed } from 'vue'
 export default {
   name: 'SqlConverter',
   setup() {
+    const instance = getCurrentInstance()
     // 响应式数据
     const inputSql = ref('')
     const sourceDatabase = ref('mysql')
@@ -643,7 +644,7 @@ LIMIT 20;`,
     const copyToClipboard = async (text) => {
       try {
         await navigator.clipboard.writeText(text)
-        alert('已复制到剪贴板！')
+        instance.proxy.$message.success('已复制到剪贴板！')
       } catch (err) {
         const textArea = document.createElement('textarea')
         textArea.value = text
@@ -651,7 +652,7 @@ LIMIT 20;`,
         textArea.select()
         document.execCommand('copy')
         document.body.removeChild(textArea)
-        alert('已复制到剪贴板！')
+        instance.proxy.$message.success('已复制到剪贴板！')
       }
     }
 
@@ -682,9 +683,9 @@ LIMIT 20;`,
         sql.includes('create')
 
       if (hasValidStructure) {
-        alert('✅ SQL语法结构正确！\n请在实际数据库环境中进一步测试。')
+        instance.proxy.$message.success('✅ SQL语法结构正确！\n请在实际数据库环境中进一步测试。')
       } else {
-        alert('⚠️ SQL语法可能存在问题，请检查：\n- 关键字是否正确\n- 语句是否完整\n- 语法是否符合目标数据库要求')
+        instance.proxy.$message.success('⚠️ SQL语法可能存在问题，请检查：\n- 关键字是否正确\n- 语句是否完整\n- 语法是否符合目标数据库要求')
       }
     }
 
@@ -729,7 +730,7 @@ LIMIT 20;`,
 .input-toolbar {
   display: flex;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -764,7 +765,7 @@ LIMIT 20;`,
   width: 100%;
   border: 1px solid #dee2e6;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 10px;
   font-family: 'Courier New', monospace;
   font-size: 0.9rem;
   line-height: 1.5;
@@ -794,7 +795,7 @@ LIMIT 20;`,
   background: linear-gradient(45deg, #28a745, #20c997);
   color: white;
   border: none;
-  padding: 1rem 2rem;
+  padding: 10px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
@@ -851,7 +852,7 @@ LIMIT 20;`,
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .db-label {
@@ -888,7 +889,7 @@ LIMIT 20;`,
   background: #f8f9fa;
   border: 1px solid #dee2e6;
   border-radius: 6px;
-  padding: 1rem;
+  padding: 10px;
   font-family: 'Courier New', monospace;
   font-size: 0.9rem;
   line-height: 1.4;
@@ -919,7 +920,7 @@ LIMIT 20;`,
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
 }
 
 .stat-card {
@@ -962,7 +963,7 @@ LIMIT 20;`,
 
 .analysis-details h4 {
   color: #495057;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   margin-top: 2rem;
 }
 
@@ -999,8 +1000,8 @@ LIMIT 20;`,
 }
 
 .error-item {
-  margin-bottom: 1rem;
-  padding: 1rem;
+  margin-bottom: 10px;
+  padding: 10px;
   background: white;
   border-radius: 6px;
   border-left: 4px solid #dc3545;
@@ -1086,5 +1087,22 @@ LIMIT 20;`,
   .tabs {
     flex-direction: column;
   }
+}
+
+/* 工具头部样式 */
+.tool-header {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Example Section 样式 */
+.example-section {
+  margin-top: 10px;
+}
+
+/* Checkbox 统一样式 */
+input[type="checkbox"] {
+  width: 20px;
+  margin-bottom: 0px;
 }
 </style> 
