@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "serve": "python3 -m http.server 8000",
+    "serve": "cd dist && python3 -m http.server 8080",
     "clean": "./clean-ports.sh",
     "clean-dev": "pkill -f 'vite|npm.*dev|python3.*http.server' 2>/dev/null; sleep 2; npm run dev"
   },
